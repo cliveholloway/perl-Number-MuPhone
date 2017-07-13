@@ -29,7 +29,11 @@ $Number::MuPhone::Config::config = {
   is_default => 1,
 };
 
-my $file_path = $ENV{MUPHONE_CONF_FILEPATH} || $ENV{HOME}.'/.muphone_conf.yaml';
+my $home_conf = $ENV{HOME}
+                ? "$ENV{HOME}/.muphone_conf.yaml"
+                : '';
+
+my $file_path = $ENV{MUPHONE_CONF_FILEPATH} || $home_conf;
 
 if ( -f $file_path ) {
   # only try and load YMAL::XS if config exists
