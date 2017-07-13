@@ -4,7 +4,7 @@ use Number::MuPhone::Parser;
 use Number::MuPhone::Data;
 use Number::MuPhone::Config;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 # need this non-Moo encapsulation to allow backwards compatability with Number::Phone
 
