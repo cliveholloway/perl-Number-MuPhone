@@ -1,5 +1,5 @@
 package Number::MuPhone::Parser;
-use strictures 2;
+use 5.012;
 use Moo;
 use Number::MuPhone::Config;
 
