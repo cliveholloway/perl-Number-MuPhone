@@ -1,0 +1,26 @@
+---
+TerritoryName: Sierra Leone
+availableFormats:
+  numberFormat:
+  - format: $1 $2
+    leadingDigits: ''
+    pattern: (\d{2})(\d{6})
+countryCode: '232'
+fixedLine:
+  exampleNumber: '22221234'
+  nationalNumberPattern: '[235]2[2-4][2-9]\d{4}'
+  possibleLengths:
+    localOnly: '6'
+    national: '8'
+generalDesc:
+  nationalNumberPattern: '[2-9]\d{7}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '25123456'
+  nationalNumberPattern: (?:2[15]|3[03-5]|4[04]|5[05]|66|7[6-9]|8[08]|99)\d{6}
+  possibleLengths:
+    national: '8'
+nationalPrefix: '0'
+nationalPrefixFormattingRule: ($NP$FG)
+references:
+  sourceUrl: http://www.itu.int/oth/T02020000BB/en

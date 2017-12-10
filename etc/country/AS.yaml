@@ -1,0 +1,39 @@
+---
+TerritoryName: American Samoa
+availableFormats:
+  numberFormat: []
+countryCode: '1'
+fixedLine:
+  exampleNumber: '6846221234'
+  nationalNumberPattern: 6846(?:22|33|44|55|77|88|9[19])\d{4}
+  possibleLengths:
+    localOnly: '7'
+    national: '10'
+generalDesc:
+  nationalNumberPattern: '[5689]\d{9}'
+internationalPrefix: '011'
+leadingDigits: '684'
+mobile:
+  exampleNumber: '6847331234'
+  nationalNumberPattern: 684(?:2(?:5[2468]|72)|7(?:3[13]|70))\d{4}
+  possibleLengths:
+    localOnly: '7'
+    national: '10'
+nationalPrefix: '1'
+personalNumber:
+  exampleNumber: '5002345678'
+  nationalNumberPattern: 5(?:00|22|33|44|66|77|88)[2-9]\d{6}
+  possibleLengths:
+    national: '10'
+premiumRate:
+  exampleNumber: '9002123456'
+  nationalNumberPattern: 900[2-9]\d{6}
+  possibleLengths:
+    national: '10'
+references:
+  sourceUrl: http://www.itu.int/oth/T0202000004/en
+tollFree:
+  exampleNumber: '8002123456'
+  nationalNumberPattern: 8(?:00|33|44|55|66|77|88)[2-9]\d{6}
+  possibleLengths:
+    national: '10'

@@ -25,6 +25,18 @@ To install this module, run the following commands:
     make test
     make install
 
+REBUILDING THE MODULES
+
+What gets pushed to CPAN is the latest snapshot, though it may not be
+up to date. You can rebuild the modules yourself by checking out the
+git repo (TODO: add repo url)
+and replacing the etc/PhoneNumberMetadata.xml file with the
+latest from Google's libphonenumber repo
+
+I am committed to updating the module monthly, when libphonenumber 
+changes, but leave it to your own intiative if you want to be bleeding
+edge.
+
 SUPPORT AND DOCUMENTATION
 
 After installing, you can find documentation for this module with the

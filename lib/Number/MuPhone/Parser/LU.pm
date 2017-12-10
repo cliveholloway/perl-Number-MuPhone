@@ -1,12 +1,12 @@
 package Number::MuPhone::Parser::LU;
+use strict;
+use warnings;
 use Moo;
 
 extends 'Number::MuPhone::Parser';
 
-has '+country'              => ( default => 'LU'             );
-has '+country_code'         => ( default => '352'             );
-has '+country_name'         => ( default => 'Luxembourg' );
-has '+_national_dial_prefix'      => ( default => '' );
-has '+_international_dial_prefix' => ( default => '00' );
+sub config { 
+  return {'availableFormats'=>{'numberFormat'=>[{'format'=>'$1 $2','leadingDigits'=>'[2-5]|7[1-9]|[89](?:[1-9]|0[2-9])','pattern'=>'(\\d{2})(\\d{3})'},{'format'=>'$1 $2 $3','leadingDigits'=>'[2-5]|7[1-9]|[89](?:[1-9]|0[2-9])','pattern'=>'(\\d{2})(\\d{2})(\\d{2})'},{'format'=>'$1 $2 $3','pattern'=>'(\\d{2})(\\d{2})(\\d{3})','leadingDigits'=>'20'},{'format'=>'$1 $2 $3 $4','pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{1,2})','leadingDigits'=>'2(?:[0367]|4[3-8])'},{'leadingDigits'=>'20','pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{3})','format'=>'$1 $2 $3 $4'},{'pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{1,2})','leadingDigits'=>'2(?:[0367]|4[3-8])','format'=>'$1 $2 $3 $4 $5'},{'format'=>'$1 $2 $3 $4','leadingDigits'=>'2(?:[12589]|4[12])|[3-5]|7[1-9]|8(?:[1-9]|0[2-9])|9(?:[1-9]|0[2-46-9])','pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{1,4})'},{'leadingDigits'=>'70|80[01]|90[015]','pattern'=>'(\\d{3})(\\d{2})(\\d{3})','format'=>'$1 $2 $3'},{'format'=>'$1 $2 $3','pattern'=>'(\\d{3})(\\d{3})(\\d{3})','leadingDigits'=>'6'}]},'tollFree'=>{'nationalNumberPattern'=>'800\\d{5}','possibleLengths'=>{'national'=>'8'},'exampleNumber'=>'80012345'},'TerritoryName'=>'Luxembourg','sharedCost'=>{'possibleLengths'=>{'national'=>'8'},'nationalNumberPattern'=>'801\\d{5}','exampleNumber'=>'80112345'},'mobile'=>{'exampleNumber'=>'628123456','nationalNumberPattern'=>'6[25-79][18]\\d{6}','possibleLengths'=>{'national'=>'9'}},'internationalPrefix'=>'00','voip'=>{'nationalNumberPattern'=>'20(?:1\\d{5}|[2-689]\\d{1,7})','possibleLengths'=>{'national'=>'[4-10]'},'exampleNumber'=>'20201234'},'nationalPrefixForParsing'=>'(15(?:0[06]|1[12]|35|4[04]|55|6[26]|77|88|99)\\d)','personalNumber'=>{'exampleNumber'=>'70123456','nationalNumberPattern'=>'70\\d{6}','possibleLengths'=>{'national'=>'8'}},'carrierCodeFormattingRule'=>'$CC $FG','references'=>{'sourceUrl'=>'http://www.ilr.public.lu/communications_electroniques/numerotation/index.html'},'mobileNumberPortableRegion'=>'true','fixedLine'=>{'nationalNumberPattern'=>'(?:2[2-9]\\d{2,9}|(?:[3457]\\d{2}|8(?:0[2-9]|[13-9]\\d)|9(?:0[89]|[2-579]\\d))\\d{1,8})','possibleLengths'=>{'national'=>'[4-11]'},'exampleNumber'=>'27123456'},'CountryCode'=>'LU','premiumRate'=>{'possibleLengths'=>{'national'=>'8'},'nationalNumberPattern'=>'90[015]\\d{5}','exampleNumber'=>'90012345'},'generalDesc'=>{'nationalNumberPattern'=>'[24-9]\\d{3,10}|3(?:[0-46-9]\\d{2,9}|5[013-9]\\d{1,8})'},'countryCode'=>'352'};
+}
 
 1;

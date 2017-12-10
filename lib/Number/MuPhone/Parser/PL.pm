@@ -1,12 +1,12 @@
 package Number::MuPhone::Parser::PL;
+use strict;
+use warnings;
 use Moo;
 
 extends 'Number::MuPhone::Parser';
 
-has '+country'              => ( default => 'PL'             );
-has '+country_code'         => ( default => '48'             );
-has '+country_name'         => ( default => 'Poland' );
-has '+_national_dial_prefix'      => ( default => '' );
-has '+_international_dial_prefix' => ( default => '00' );
+sub config { 
+  return {'generalDesc'=>{'nationalNumberPattern'=>'[12]\\d{6,8}|[3-57-9]\\d{8}|6\\d{5,8}'},'countryCode'=>'48','pager'=>{'nationalNumberPattern'=>'64\\d{4,7}','possibleLengths'=>{'national'=>'[6-9]'},'exampleNumber'=>'641234567'},'premiumRate'=>{'exampleNumber'=>'701234567','nationalNumberPattern'=>'70\\d{7}','possibleLengths'=>{'national'=>'9'}},'fixedLine'=>{'nationalNumberPattern'=>'(?:1[2-8]|2[2-69]|3[2-4]|4[1-468]|5[24-689]|6[1-3578]|7[14-7]|8[1-79]|9[145])\\d{7}|[12]2\\d{5}','possibleLengths'=>{'national'=>'7,9'},'exampleNumber'=>'123456789'},'mobile'=>{'exampleNumber'=>'512345678','nationalNumberPattern'=>'(?:45|5[0137]|6[069]|7[2389]|88)\\d{7}','possibleLengths'=>{'national'=>'9'}},'CountryCode'=>'PL','internationalPrefix'=>'00','voip'=>{'possibleLengths'=>{'national'=>'9'},'nationalNumberPattern'=>'39\\d{7}','exampleNumber'=>'391234567'},'availableFormats'=>{'numberFormat'=>[{'pattern'=>'(\\d{3})(\\d{3})(\\d{3})','leadingDigits'=>'26|39|45|5[0137]|6[0469]|7[02389]|8[08]','format'=>'$1 $2 $3'},{'pattern'=>'(\\d{2})(\\d{3})(\\d{2})(\\d{2})','leadingDigits'=>'[14]|2[0-57-9]|3[2-4]|5[24-689]|6[1-3578]|7[14-7]|8[1-79]|9[145]','format'=>'$1 $2 $3 $4'},{'format'=>'$1 $2 $3','leadingDigits'=>'[12]2','pattern'=>'(\\d{2})(\\d{1})(\\d{4})'},{'format'=>'$1 $2 $3','pattern'=>'(\\d{3})(\\d{2})(\\d{2,3})','leadingDigits'=>'64'},{'pattern'=>'(\\d{3})(\\d{3})','leadingDigits'=>'64','format'=>'$1 $2'}]},'tollFree'=>{'nationalNumberPattern'=>'800\\d{6}','possibleLengths'=>{'national'=>'9'},'exampleNumber'=>'800123456'},'references'=>{'sourceUrl'=>['http://en.wikipedia.org/wiki/%2B48','http://www.itu.int/oth/T02020000A8/en','http://www.uke.gov.pl/uke/index.jsp?place=Lead24&news_cat_id=277&news_id=3791&layout=9&page=text','http://www.sgwp.wp.mil.pl/pl/1_1225.html']},'mobileNumberPortableRegion'=>'true','TerritoryName'=>'Poland','sharedCost'=>{'nationalNumberPattern'=>'801\\d{6}','possibleLengths'=>{'national'=>'9'},'exampleNumber'=>'801234567'}};
+}
 
 1;

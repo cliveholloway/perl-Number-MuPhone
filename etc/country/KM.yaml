@@ -1,0 +1,28 @@
+---
+TerritoryName: Comoros
+availableFormats:
+  numberFormat:
+  - format: $1 $2 $3
+    leadingDigits: ''
+    pattern: (\d{3})(\d{2})(\d{2})
+countryCode: '269'
+fixedLine:
+  exampleNumber: '7712345'
+  nationalNumberPattern: 7[4-7]\d{5}
+  possibleLengths:
+    national: '7'
+generalDesc:
+  nationalNumberPattern: '[3478]\d{6}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '3212345'
+  nationalNumberPattern: '[34]\d{6}'
+  possibleLengths:
+    national: '7'
+premiumRate:
+  exampleNumber: '8001234'
+  nationalNumberPattern: (?:39[01]|8\d{2})\d{4}
+  possibleLengths:
+    national: '7'
+references:
+  sourceUrl: http://www.itu.int/oth/T020200002D/en

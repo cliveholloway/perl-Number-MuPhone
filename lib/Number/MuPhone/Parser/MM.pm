@@ -1,12 +1,12 @@
 package Number::MuPhone::Parser::MM;
+use strict;
+use warnings;
 use Moo;
 
 extends 'Number::MuPhone::Parser';
 
-has '+country'              => ( default => 'MM'             );
-has '+country_code'         => ( default => '95'             );
-has '+country_name'         => ( default => 'Myanmar' );
-has '+_national_dial_prefix'      => ( default => '0' );
-has '+_international_dial_prefix' => ( default => '00' );
+sub config { 
+  return {'generalDesc'=>{'nationalNumberPattern'=>'[178]\\d{5,7}|[24-6]\\d{5,8}|9(?:[279]\\d{0,2}|5|[34]\\d{1,2}|6(?:\\d{1,2})?|8(?:\\d{2})?)\\d{6}'},'countryCode'=>'95','availableFormats'=>{'numberFormat'=>[{'pattern'=>'(\\d)(\\d{3})(\\d{3,4})','leadingDigits'=>'1|2[245]','format'=>'$1 $2 $3'},{'format'=>'$1 $2 $3','pattern'=>'(2)(\\d{4})(\\d{4})','leadingDigits'=>'251'},{'pattern'=>'(\\d)(\\d{2})(\\d{3})','leadingDigits'=>'16|2','format'=>'$1 $2 $3'},{'leadingDigits'=>'432|67|81','pattern'=>'(\\d{2})(\\d{3})(\\d{3,4})','format'=>'$1 $2 $3'},{'format'=>'$1 $2 $3','leadingDigits'=>'[4-8]','pattern'=>'(\\d{2})(\\d{2})(\\d{3,4})'},{'format'=>'$1 $2 $3','pattern'=>'(9)(\\d{3})(\\d{4,6})','leadingDigits'=>'9(?:2[0-4]|[35-9]|4[137-9])'},{'pattern'=>'(9)([34]\\d{4})(\\d{4})','leadingDigits'=>'9(?:3[0-36]|4[0-57-9])','format'=>'$1 $2 $3'},{'pattern'=>'(9)(\\d{3})(\\d{3})(\\d{3})','leadingDigits'=>'92[56]','format'=>'$1 $2 $3 $4'},{'format'=>'$1 $2 $3 $4','leadingDigits'=>'93','pattern'=>'(9)(\\d{3})(\\d{3})(\\d{2})'}]},'TerritoryName'=>'Myanmar','references'=>{'sourceUrl'=>'http://www.itu.int/oth/T0202000092/en'},'CountryCode'=>'MM','fixedLine'=>{'exampleNumber'=>'1234567','nationalNumberPattern'=>'1(?:2\\d{1,2}|[35]\\d|4(?:\\d|2[236]|39)|6\\d?|[89][0-6]\\d)\\d{4}|2(?:2(?:000\\d{3}|\\d{4})|3\\d{4}|4(?:0\\d{5}|26\\d{4}|39\\d{4}|\\d{4})|5(?:1\\d{3,6}|[02-9]\\d{3,5})|[6-9]\\d{4})|4(?:2[245-8]|3(?:2(?:02)?|[346]|56?)|[46][2-6]|5[3-5])\\d{4}|5(?:2(?:2(?:\\d{1,2})?|[3-8])|3[2-68]|4(?:21?|[4-8])|5[23]|6[2-4]|7[2-8]|8[24-7]|9[2-7])\\d{4}|6(?:0[23]|1(?:2(?:0|4\\d)?|[356])|2[2-6]|3[24-6]|4(?:2(?:4\\d)?|[3-6])|5[2-4]|6[2-8]|7(?:[2367]|4(?:\\d|39)|5\\d?|8[145]\\d)|8[245]|9(?:20?|4))\\d{4}|7(?:[04][24-8]|1(?:20?|[3-7])|22|3[2-4]|5[2-7])\\d{4}|8(?:1(?:2\\d{1,2}|[3-689]\\d)|2(?:2\\d|3(?:\\d|20)|[4-8]\\d)|3[24]\\d|4[24-7]\\d|5[245]\\d|6[23]\\d)\\d{3}','possibleLengths'=>{'localOnly'=>'5','national'=>'[6-9]'}},'mobile'=>{'exampleNumber'=>'92123456','nationalNumberPattern'=>'17[01]\\d{4}|9(?:2(?:[0-4]|5\\d{2}|6[0-5]\\d)|3(?:[0-36]|4[069])\\d|4(?:0[0-4]\\d|[1379]\\d|2\\d{2}|4[0-589]\\d|5\\d{2}|88)|5[0-6]|6(?:1\\d|9\\d{2}|\\d)|7(?:3\\d|[6-9]\\d{2})|8(?:\\d|9\\d{2})|9(?:1\\d|[5-7]\\d{2}|[089]))\\d{5}','possibleLengths'=>{'national'=>'[7-10]'}},'nationalPrefixFormattingRule'=>'$NP$FG','nationalPrefix'=>'0','voip'=>{'nationalNumberPattern'=>'1333\\d{4}','possibleLengths'=>{'national'=>'8'},'exampleNumber'=>'13331234'},'internationalPrefix'=>'00'};
+}
 
 1;

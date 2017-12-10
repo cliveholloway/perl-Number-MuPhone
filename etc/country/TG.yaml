@@ -1,0 +1,23 @@
+---
+TerritoryName: French Southern Territories
+availableFormats:
+  numberFormat:
+  - format: $1 $2 $3 $4
+    leadingDigits: '[29]'
+    pattern: (\d{2})(\d{2})(\d{2})(\d{2})
+countryCode: '228'
+fixedLine:
+  exampleNumber: '22212345'
+  nationalNumberPattern: 2(?:2[2-7]|3[23]|44|55|66|77)\d{5}
+  possibleLengths:
+    national: '8'
+generalDesc:
+  nationalNumberPattern: '[29]\d{7}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '90112345'
+  nationalNumberPattern: 9[0-36-9]\d{6}
+  possibleLengths:
+    national: '8'
+references:
+  sourceUrl: http://www.itu.int/oth/T02020000D1/en

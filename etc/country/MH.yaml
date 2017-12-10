@@ -1,0 +1,29 @@
+---
+TerritoryName: Marshall Islands
+availableFormats:
+  numberFormat:
+  - format: $1-$2
+    leadingDigits: ''
+    pattern: (\d{3})(\d{4})
+countryCode: '692'
+fixedLine:
+  exampleNumber: '2471234'
+  nationalNumberPattern: (?:247|528|625)\d{4}
+  possibleLengths:
+    national: '7'
+generalDesc:
+  nationalNumberPattern: '[2-6]\d{6}'
+internationalPrefix: '011'
+mobile:
+  exampleNumber: '2351234'
+  nationalNumberPattern: (?:235|329|45[56]|545)\d{4}
+  possibleLengths:
+    national: '7'
+nationalPrefix: '1'
+references:
+  sourceUrl: http://www.itu.int/oth/T0202000085/en
+voip:
+  exampleNumber: '6351234'
+  nationalNumberPattern: 635\d{4}
+  possibleLengths:
+    national: '7'

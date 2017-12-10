@@ -1,0 +1,27 @@
+---
+TerritoryName: South Sudan
+availableFormats:
+  numberFormat:
+  - format: $1 $2 $3
+    leadingDigits: ''
+    nationalPrefixFormattingRule: $NP$FG
+    pattern: (\d{3})(\d{3})(\d{3})
+countryCode: '211'
+fixedLine:
+  exampleNumber: '181234567'
+  nationalNumberPattern: 18\d{7}
+  possibleLengths:
+    national: '9'
+generalDesc:
+  nationalNumberPattern: '[19]\d{8}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '977123456'
+  nationalNumberPattern: (?:12|9[1257])\d{7}
+  possibleLengths:
+    national: '9'
+nationalPrefix: '0'
+references:
+  sourceUrl:
+  - http://www.itu.int/oth/T02020000F9/en
+  - http://en.wikipedia.org/wiki/+211

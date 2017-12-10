@@ -13,9 +13,9 @@ use Carp;
 # default empty config 
 $Number::MuPhone::Config::config = {
   # two letter country code
-  # if a number is supplied withoput a country attr and doesn't begin with +CODE
+  # if a number is supplied without a country attr and doesn't begin with +CODE
   # try to parse the number as if it's in this country
-  default_country => '',
+  default_country => 'US',
 
   countries => {
     US => {
@@ -26,7 +26,6 @@ $Number::MuPhone::Config::config = {
     # what is the pause / wait for extension character for your dialer
     pause => ','
   },
-  is_default => 1,
 };
 
 my $home_conf = $ENV{HOME}

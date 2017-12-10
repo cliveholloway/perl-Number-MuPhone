@@ -1,0 +1,23 @@
+---
+TerritoryName: Gibraltar
+availableFormats:
+  numberFormat:
+  - format: $1 $2
+    leadingDigits: '2'
+    pattern: (\d{3})(\d{5})
+countryCode: '350'
+fixedLine:
+  exampleNumber: '20012345'
+  nationalNumberPattern: 2(?:00\d{2}|1(?:6[24-7]\d|90[0-2])|2(?:2[2457]\d|50[0-2]))\d{3}
+  possibleLengths:
+    national: '8'
+generalDesc:
+  nationalNumberPattern: '[256]\d{7}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '57123456'
+  nationalNumberPattern: (?:5[46-8]|62)\d{6}
+  possibleLengths:
+    national: '8'
+references:
+  sourceUrl: http://www.gra.gi/communications/numbering-plan

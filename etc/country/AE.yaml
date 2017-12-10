@@ -1,0 +1,57 @@
+---
+TerritoryName: United Arab Emirates
+availableFormats:
+  numberFormat:
+  - format: $1 $2 $3
+    leadingDigits: '[2-4679][2-8]'
+    pattern: ([2-4679])(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: '5'
+    pattern: (5\d)(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: '[479]0'
+    nationalPrefixFormattingRule: $FG
+    pattern: ([479]00)(\d)(\d{5})
+  - format: $1 $2
+    leadingDigits: 60|8
+    nationalPrefixFormattingRule: $FG
+    pattern: ([68]00)(\d{2,9})
+countryCode: '971'
+fixedLine:
+  exampleNumber: '22345678'
+  nationalNumberPattern: '[2-4679][2-8]\d{6}'
+  possibleLengths:
+    localOnly: '7'
+    national: '8'
+generalDesc:
+  nationalNumberPattern: '[2-79]\d{7,8}|800\d{2,9}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '501234567'
+  nationalNumberPattern: 5[024-68]\d{7}
+  possibleLengths:
+    national: '9'
+nationalPrefix: '0'
+nationalPrefixFormattingRule: $NP$FG
+premiumRate:
+  exampleNumber: '900234567'
+  nationalNumberPattern: 900[02]\d{5}
+  possibleLengths:
+    national: '9'
+references:
+  sourceUrl: http://www.itu.int/oth/T02020000DC/en
+sharedCost:
+  exampleNumber: '700012345'
+  nationalNumberPattern: 700[05]\d{5}
+  possibleLengths:
+    national: '9'
+tollFree:
+  exampleNumber: '800123456'
+  nationalNumberPattern: 400\d{6}|800\d{2,9}
+  possibleLengths:
+    national: '[5-12]'
+uan:
+  exampleNumber: '600212345'
+  nationalNumberPattern: 600[25]\d{5}
+  possibleLengths:
+    national: '9'

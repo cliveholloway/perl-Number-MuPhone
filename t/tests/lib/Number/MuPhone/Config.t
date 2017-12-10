@@ -26,7 +26,7 @@ my $test_data_dir = abs_path($FindBin::Bin.'/../../../../data');
   # this fails, so it will fall back to the default
   $ENV{MUPHONE_CONF_FILEPATH} = $test_data_dir."/bad_conf.yaml";
   _load_config();
-  ok( $Number::MuPhone::Config::config->{is_default}, "bad conf" );
+  ok( $Number::MuPhone::Config::config->{default_country}, "US" );
 }
 
 {

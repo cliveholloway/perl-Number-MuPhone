@@ -1,0 +1,23 @@
+---
+TerritoryName: British Indian Ocean Territory / Diego Garcia
+availableFormats:
+  numberFormat:
+  - format: $1 $2
+    leadingDigits: ''
+    pattern: (\d{3})(\d{4})
+countryCode: '246'
+fixedLine:
+  exampleNumber: '3709100'
+  nationalNumberPattern: 37\d{5}
+  possibleLengths:
+    national: '7'
+generalDesc:
+  nationalNumberPattern: 3\d{6}
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '3801234'
+  nationalNumberPattern: 38\d{5}
+  possibleLengths:
+    national: '7'
+references:
+  sourceUrl: http://www.itu.int/oth/T0202000039/en

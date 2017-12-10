@@ -1,0 +1,23 @@
+---
+TerritoryName: Cook Islands
+availableFormats:
+  numberFormat:
+  - format: $1 $2
+    leadingDigits: ''
+    pattern: (\d{2})(\d{3})
+countryCode: '682'
+fixedLine:
+  exampleNumber: '21234'
+  nationalNumberPattern: (?:2\d|3[13-7]|4[1-5])\d{3}
+  possibleLengths:
+    national: '5'
+generalDesc:
+  nationalNumberPattern: '[2-8]\d{4}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '71234'
+  nationalNumberPattern: '[5-8]\d{4}'
+  possibleLengths:
+    national: '5'
+references:
+  sourceUrl: http://www.itu.int/oth/T020200002F/en

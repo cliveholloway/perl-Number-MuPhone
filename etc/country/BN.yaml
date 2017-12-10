@@ -1,0 +1,23 @@
+---
+TerritoryName: Brunei Darussalam
+availableFormats:
+  numberFormat:
+  - format: $1 $2
+    leadingDigits: ''
+    pattern: ([2-578]\d{2})(\d{4})
+countryCode: '673'
+fixedLine:
+  exampleNumber: '2345678'
+  nationalNumberPattern: 2(?:[013-9]\d|2[0-7])\d{4}|[3-5]\d{6}
+  possibleLengths:
+    national: '7'
+generalDesc:
+  nationalNumberPattern: '[2-578]\d{6}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '7123456'
+  nationalNumberPattern: 22[89]\d{4}|[78]\d{6}
+  possibleLengths:
+    national: '7'
+references:
+  sourceUrl: http://www.itu.int/oth/T020200001F/en

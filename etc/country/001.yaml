@@ -1,0 +1,16 @@
+---
+availableFormats:
+  numberFormat:
+  - format: $1 $2 $3
+    leadingDigits: ''
+    pattern: (\d)(\d{4})(\d{4})
+countryCode: '979'
+generalDesc:
+  nationalNumberPattern: \d{9}
+premiumRate:
+  exampleNumber: '123456789'
+  nationalNumberPattern: \d{9}
+  possibleLengths:
+    national: '9'
+references:
+  sourceUrl: http://www.itu.int/rec/T-REC-E.169-200205-I/en

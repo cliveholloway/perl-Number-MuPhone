@@ -1,0 +1,26 @@
+---
+TerritoryName: Eritrea
+availableFormats:
+  numberFormat:
+  - format: $1 $2 $3
+    leadingDigits: ''
+    pattern: (\d)(\d{3})(\d{3})
+countryCode: '291'
+fixedLine:
+  exampleNumber: '8370362'
+  nationalNumberPattern: 1(?:1[12568]|20|40|55|6[146])\d{4}|8\d{6}
+  possibleLengths:
+    localOnly: '6'
+    national: '7'
+generalDesc:
+  nationalNumberPattern: '[178]\d{6}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '7123456'
+  nationalNumberPattern: 17[1-3]\d{4}|7\d{6}
+  possibleLengths:
+    national: '7'
+nationalPrefix: '0'
+nationalPrefixFormattingRule: $NP$FG
+references:
+  sourceUrl: http://www.itu.int/oth/T0202000042/en

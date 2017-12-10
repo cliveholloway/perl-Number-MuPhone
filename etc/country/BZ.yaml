@@ -1,0 +1,31 @@
+---
+TerritoryName: Belize
+availableFormats:
+  numberFormat:
+  - format: $1-$2
+    leadingDigits: '[2-8]'
+    pattern: (\d{3})(\d{4})
+  - format: $1-$2-$3-$4
+    leadingDigits: ''
+    pattern: (0)(800)(\d{4})(\d{3})
+countryCode: '501'
+fixedLine:
+  exampleNumber: '2221234'
+  nationalNumberPattern: (?:2(?:[02]\d|36)|[3-58][02]\d|7(?:[02]\d|32))\d{4}
+  possibleLengths:
+    national: '7'
+generalDesc:
+  nationalNumberPattern: '[2-8]\d{6}|0\d{10}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '6221234'
+  nationalNumberPattern: 6[0-35-7]\d{5}
+  possibleLengths:
+    national: '7'
+references:
+  sourceUrl: http://www.itu.int/oth/T0202000016/en
+tollFree:
+  exampleNumber: '08001234123'
+  nationalNumberPattern: 0800\d{7}
+  possibleLengths:
+    national: '11'

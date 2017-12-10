@@ -1,0 +1,27 @@
+---
+TerritoryName: Bhutan
+availableFormats:
+  numberFormat:
+  - format: $1 $2 $3 $4
+    leadingDigits: 1|77
+    pattern: (\d{2})(\d{2})(\d{2})(\d{2})
+  - format: $1 $2 $3
+    leadingDigits: '[2-68]|7[246]'
+    pattern: ([2-8])(\d{3})(\d{3})
+countryCode: '975'
+fixedLine:
+  exampleNumber: '2345678'
+  nationalNumberPattern: (?:2[3-6]|[34][5-7]|5[236]|6[2-46]|7[246]|8[2-4])\d{5}
+  possibleLengths:
+    localOnly: '6'
+    national: '7'
+generalDesc:
+  nationalNumberPattern: '[1-8]\d{6,7}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '17123456'
+  nationalNumberPattern: (?:1[67]|77)\d{6}
+  possibleLengths:
+    national: '8'
+references:
+  sourceUrl: http://www.itu.int/oth/T0202000019/en

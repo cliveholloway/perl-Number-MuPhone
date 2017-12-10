@@ -1,0 +1,23 @@
+---
+TerritoryName: Sao Tome and Principe
+availableFormats:
+  numberFormat:
+  - format: $1 $2
+    leadingDigits: ''
+    pattern: (\d{3})(\d{4})
+countryCode: '239'
+fixedLine:
+  exampleNumber: '2221234'
+  nationalNumberPattern: 22\d{5}
+  possibleLengths:
+    national: '7'
+generalDesc:
+  nationalNumberPattern: '[29]\d{6}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '9812345'
+  nationalNumberPattern: 9(?:0(?:0[5-9]|[1-9]\d)|[89]\d{2})\d{3}
+  possibleLengths:
+    national: '7'
+references:
+  sourceUrl: http://www.itu.int/oth/T02020000B6/en

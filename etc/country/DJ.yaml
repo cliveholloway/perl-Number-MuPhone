@@ -1,0 +1,23 @@
+---
+TerritoryName: Djibouti
+availableFormats:
+  numberFormat:
+  - format: $1 $2 $3 $4
+    leadingDigits: ''
+    pattern: (\d{2})(\d{2})(\d{2})(\d{2})
+countryCode: '253'
+fixedLine:
+  exampleNumber: '21360003'
+  nationalNumberPattern: 2(?:1[2-5]|7[45])\d{5}
+  possibleLengths:
+    national: '8'
+generalDesc:
+  nationalNumberPattern: '[27]\d{7}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '77831001'
+  nationalNumberPattern: 77\d{6}
+  possibleLengths:
+    national: '8'
+references:
+  sourceUrl: http://www.itu.int/oth/T020200003A/en

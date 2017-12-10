@@ -1,0 +1,20 @@
+---
+TerritoryName: Falkland Islands (Malvinas)
+availableFormats:
+  numberFormat: []
+countryCode: '500'
+fixedLine:
+  exampleNumber: '31234'
+  nationalNumberPattern: '[2-47]\d{4}'
+  possibleLengths:
+    national: '5'
+generalDesc:
+  nationalNumberPattern: '[2-7]\d{4}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '51234'
+  nationalNumberPattern: '[56]\d{4}'
+  possibleLengths:
+    national: '5'
+references:
+  sourceUrl: http://www.itu.int/oth/T0202000046/en
