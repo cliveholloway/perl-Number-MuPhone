@@ -6,7 +6,42 @@ use Moo;
 extends 'Number::MuPhone::Parser';
 
 sub config { 
-  return {'CountryCode'=>'TG','fixedLine'=>{'nationalNumberPattern'=>'2(?:2[2-7]|3[23]|44|55|66|77)\\d{5}','possibleLengths'=>{'national'=>'8'},'exampleNumber'=>'22212345'},'mobile'=>{'possibleLengths'=>{'national'=>'8'},'nationalNumberPattern'=>'9[0-36-9]\\d{6}','exampleNumber'=>'90112345'},'internationalPrefix'=>'00','availableFormats'=>{'numberFormat'=>[{'format'=>'$1 $2 $3 $4','leadingDigits'=>'[29]','pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{2})'}]},'TerritoryName'=>'French Southern Territories','references'=>{'sourceUrl'=>'http://www.itu.int/oth/T02020000D1/en'},'generalDesc'=>{'nationalNumberPattern'=>'[29]\\d{7}'},'countryCode'=>'228'};
+  return {
+  'mobile'=>{
+              'possibleLengths'=>{
+                                   'national'=>'8'
+                                 },
+              'nationalNumberPattern'=>'9[0-36-9]\\d{6}',
+              'exampleNumber'=>'90112345'
+            },
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T02020000D1/en'
+                },
+  'countryCode'=>'228',
+  'internationalPrefix'=>'00',
+  'CountryCode'=>'TG',
+  'availableFormats'=>{
+                          'numberFormat'=>[
+                                              {
+                                                'leadingDigits'=>'[29]',
+                                                'format'=>'$1 $2 $3 $4',
+                                                'pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{2})'
+                                              }
+                                            ]
+                        },
+  'TerritoryName'=>'French Southern Territories',
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[29]\\d{7}'
+                 },
+  'fixedLine'=>{
+                 'exampleNumber'=>'22212345',
+                 'nationalNumberPattern'=>'2(?:2[2-7]|3[23]|44|55|66|77)\\d{5}',
+                 'possibleLengths'=>{
+                                      'national'=>'8'
+                                    }
+               }
+}
+;
 }
 
 1;

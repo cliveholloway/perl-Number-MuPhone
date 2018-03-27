@@ -1,18 +1,19 @@
-#!/usr/bin/perl;
+#!/usr/bin/env perl
+
+# This script is used to build out the country parsers and global data
+# from Google's libphonenumber XML file
+
 use 5.012;
 use strict;
 use warnings;
-
 use FindBin qw($Bin);
 use Cwd qw(abs_path);
 use XML::Simple;
 use Template;
 
 use Data::Dumper 'Dumper';
-$Data::Dumper::Indent=0;
-$Data::Dumper::Purity=1;
-$Data::Dumper::Terse=1;
-$Data::Dumper::Pair='=>';
+$Data::Dumper::Indent=2;    $Data::Dumper::Purity=1;
+$Data::Dumper::Terse=1;     $Data::Dumper::Pair='=>';
 
 our %TMPL_CFG=(
   INCLUDE_PATH => abs_path($Bin."/../etc/template"),
@@ -101,7 +102,6 @@ else {
 my $data_pm_data = {};
 $data_pm_data->{nanp_lookup} = Dumper($nanp_lookup);
 
-
 # Have to get country names from source XML - they're only in the comments!
 my $countries = { reverse $xml_data =~ /<!-- ([^>]*) -->\s*(?:<!--[^>]+-->\s*){0,}\S*<territory id="([^"]{2})"/gs };
 $data_pm_data->{country_lookup} = Dumper($countries);
@@ -117,6 +117,9 @@ my $all_data;
 }
 
 my $international_dial_codes;
+
+# print Data::Dumper::Dumper($all_data->{territories}->{territory}->{US});exit(0);
+
 foreach my $territory ( sort keys %{ $all_data->{territories}->{territory} } ) {
   my $data = $all_data->{territories}->{territory}->{$territory};
   $data->{TerritoryName} = $countries->{$territory} or die "Bad territory: $territory";
@@ -131,11 +134,22 @@ foreach my $territory ( sort keys %{ $all_data->{territories}->{territory} } ) {
       and $data->{$key}->{nationalNumberPattern} =~ s/\s//g;
   }
 
+  # if country code is 1, use US rules for display and formatting
+  if ($country_code == 1) {
+    $data->{availableFormats}->{numberFormat} = $all_data->{territories}->{territory}->{US}->{availableFormats}->{numberFormat};
+    $data->{nationalPrefixOptionalWhenFormatting} = 'true';
+  }
+
   # clean up number format regexes
   $data->{availableFormats}->{numberFormat} ||= [];
   if (ref $data->{availableFormats}->{numberFormat} eq 'HASH') {
     $data->{availableFormats}->{numberFormat} = [ $data->{availableFormats}->{numberFormat} ];
   }
+
+  # strip out any formats where intlFormat is 'NA' - these are local number formats and we don't support them
+  $data->{availableFormats}->{numberFormat} = [
+    grep { !defined $_->{intlFormat} or $_->{intlFormat} ne 'NA' } @{$data->{availableFormats}->{numberFormat} }
+  ];
 
   foreach my $format ( @{ $data->{availableFormats}->{numberFormat} } ) {
     # we don't care about leadingDigits except for last entry
@@ -168,11 +182,9 @@ foreach my $territory ( sort keys %{ $all_data->{territories}->{territory} } ) {
 }
 
 # create the Number::MuPhone::Data file
-# NANP needs to be explicitly set
-$international_dial_codes->{1}=['NANP'];
 $data_pm_data->{idd_codes} = Dumper($international_dial_codes); 
 
-#  populate $data_pm_data in the Number::MuPhone::Data module from template
+# TODO - populate $data_pm_data in the Number::MuPhone::Data module from template
 {
   my $tt = Template->new(\%TMPL_CFG)
     or die Template->error();

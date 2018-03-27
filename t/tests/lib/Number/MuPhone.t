@@ -64,5 +64,19 @@ use Number::MuPhone;
 
 }
 
+{ # load a US number by relying on default country
+  my $num = Number::MuPhone->new('310 452 4522');
+  is( $num->country, 'US', 'Loaded US number' );
+}
 
-done_testing();
+{ # load a US number by relying from possible countries array (1)
+  my $num = Number::MuPhone->new({ number => '310 452 4522', country => ['GB','US']});
+  is( $num->country, 'US', 'Loaded US number' );
+}
+
+{ # load a US number by relying from possible countries array (2)
+  my $num = Number::MuPhone->new({ number => '310 452 4522', country => ['US','GB']});
+  is( $num->country, 'US', 'Loaded US number' );
+}
+
+done_testing;

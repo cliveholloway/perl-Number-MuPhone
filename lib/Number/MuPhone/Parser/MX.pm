@@ -6,7 +6,101 @@ use Moo;
 extends 'Number::MuPhone::Parser';
 
 sub config { 
-  return {'nationalPrefixForParsing'=>'0[12]|04[45](\\d{10})','personalNumber'=>{'nationalNumberPattern'=>'500\\d{7}','possibleLengths'=>{'national'=>'10'},'exampleNumber'=>'5001234567'},'nationalPrefixOptionalWhenFormatting'=>'true','availableFormats'=>{'numberFormat'=>[{'format'=>'$1 $2 $3','leadingDigits'=>'33|55|81','pattern'=>'([358]\\d)(\\d{4})(\\d{4})'},{'leadingDigits'=>'[2467]|3[0-2457-9]|5[089]|8[02-9]|9[0-35-9]','pattern'=>'(\\d{3})(\\d{3})(\\d{4})','format'=>'$1 $2 $3'},{'nationalPrefixFormattingRule'=>'$FG','leadingDigits'=>'1(?:33|55|81)','pattern'=>'(1)([358]\\d)(\\d{4})(\\d{4})','intlFormat'=>'$1 $2 $3 $4','format'=>'044 $2 $3 $4'},{'pattern'=>'(1)(\\d{3})(\\d{3})(\\d{4})','intlFormat'=>'$1 $2 $3 $4','nationalPrefixFormattingRule'=>'$FG','leadingDigits'=>'1(?:[2467]|3[0-2457-9]|5[089]|8[2-9]|9[1-35-9])','format'=>'044 $2 $3 $4'}]},'tollFree'=>{'exampleNumber'=>'8001234567','possibleLengths'=>{'national'=>'10'},'nationalNumberPattern'=>'8(?:00|88)\\d{7}'},'sharedCost'=>{'nationalNumberPattern'=>'300\\d{7}','possibleLengths'=>{'national'=>'10'},'exampleNumber'=>'3001234567'},'TerritoryName'=>'Mexico','mobile'=>{'exampleNumber'=>'12221234567','possibleLengths'=>{'national'=>'11'},'nationalNumberPattern'=>'1(?:(?:33|55|81)\\d{8}|(?:2(?:2[1-9]|3[1-35-8]|4[13-9]|7[1-689]|8[1-578]|9[467])|3(?:1[1-79]|[2458][1-9]|7[1-8]|9[1-5])|4(?:1[1-57-9]|[24-6][1-9]|[37][1-8]|8[1-35-9]|9[2-689])|5(?:88|9[1-79])|6(?:1[2-68]|[2-4][1-9]|5[1-3689]|6[12457-9]|7[1-7]|8[67]|9[4-8])|7(?:[13467][1-9]|2[1-8]|5[13-9]|8[1-69]|9[17])|8(?:2[13-689]|3[1-6]|4[124-6]|6[1246-9]|7[1-378]|9[12479])|9(?:1[346-9]|2[1-4]|3[2-46-8]|5[1348]|[69][1-9]|7[12]|8[1-8]))\\d{7})'},'nationalPrefix'=>'01','internationalPrefix'=>'0[09]','premiumRate'=>{'nationalNumberPattern'=>'900\\d{7}','possibleLengths'=>{'national'=>'10'},'exampleNumber'=>'9001234567'},'generalDesc'=>{'nationalNumberPattern'=>'[1-9]\\d{9,10}'},'countryCode'=>'52','references'=>{'sourceUrl'=>['http://www.itu.int/oth/T020200008A/en','http://en.wikipedia.org/wiki/%2B52','http://en.wikipedia.org/wiki/Premium-rate_telephone_number#Mexico','http://en.wikipedia.org/wiki/Toll-free_telephone_number']},'mobileNumberPortableRegion'=>'true','fixedLine'=>{'nationalNumberPattern'=>'(?:33|55|81)\\d{8}|(?:2(?:0[01]|2[2-9]|3[1-35-8]|4[13-9]|7[1-689]|8[1-578]|9[467])|3(?:1[1-79]|[2458][1-9]|7[1-8]|9[1-5])|4(?:1[1-57-9]|[24-6][1-9]|[37][1-8]|8[1-35-9]|9[2-689])|5(?:88|9[1-79])|6(?:1[2-68]|[234][1-9]|5[1-3689]|6[12457-9]|7[1-7]|8[67]|9[4-8])|7(?:[13467][1-9]|2[1-8]|5[13-9]|8[1-69]|9[17])|8(?:2[13-689]|3[1-6]|4[124-6]|6[1246-9]|7[1-378]|9[12479])|9(?:1[346-9]|2[1-4]|3[2-46-8]|5[1348]|[69][1-9]|7[12]|8[1-8]))\\d{7}','possibleLengths'=>{'localOnly'=>'7,8','national'=>'10'},'exampleNumber'=>'2221234567'},'CountryCode'=>'MX','nationalPrefixTransformRule'=>'1$1','nationalPrefixFormattingRule'=>'$NP $FG'};
+  return {
+  'CountryCode'=>'MX',
+  'TerritoryName'=>'Mexico',
+  'premiumRate'=>{
+                   'nationalNumberPattern'=>'900\\d{7}',
+                   'possibleLengths'=>{
+                                        'national'=>'10'
+                                      },
+                   'exampleNumber'=>'9001234567'
+                 },
+  'personalNumber'=>{
+                      'possibleLengths'=>{
+                                           'national'=>'10'
+                                         },
+                      'nationalNumberPattern'=>'500\\d{7}',
+                      'exampleNumber'=>'5001234567'
+                    },
+  'mobile'=>{
+              'nationalNumberPattern'=>'1(?:(?:33|55|81)\\d{8}|(?:2(?:2[1-9]|3[1-35-8]|4[13-9]|7[1-689]|8[1-578]|9[467])|3(?:1[1-79]|[2458][1-9]|7[1-8]|9[1-5])|4(?:1[1-57-9]|[24-6][1-9]|[37][1-8]|8[1-35-9]|9[2-689])|5(?:88|9[1-79])|6(?:1[2-68]|[2-4][1-9]|5[1-3689]|6[12457-9]|7[1-7]|8[67]|9[4-8])|7(?:[13467][1-9]|2[1-8]|5[13-9]|8[1-69]|9[17])|8(?:2[13-689]|3[1-6]|4[124-6]|6[1246-9]|7[1-378]|9[12479])|9(?:1[346-9]|2[1-4]|3[2-46-8]|5[1348]|[69][1-9]|7[12]|8[1-8]))\\d{7})',
+              'possibleLengths'=>{
+                                   'national'=>'11'
+                                 },
+              'exampleNumber'=>'12221234567'
+            },
+  'nationalPrefixOptionalWhenFormatting'=>'true',
+  'references'=>{
+                  'sourceUrl'=>[
+                                 'http://www.itu.int/oth/T020200008A/en',
+                                 'http://en.wikipedia.org/wiki/%2B52',
+                                 'http://en.wikipedia.org/wiki/Premium-rate_telephone_number#Mexico',
+                                 'http://en.wikipedia.org/wiki/Toll-free_telephone_number'
+                               ]
+                },
+  'mobileNumberPortableRegion'=>'true',
+  'countryCode'=>'52',
+  'internationalPrefix'=>'0[09]',
+  'sharedCost'=>{
+                  'possibleLengths'=>{
+                                       'national'=>'10'
+                                     },
+                  'nationalNumberPattern'=>'300\\d{7}',
+                  'exampleNumber'=>'3001234567'
+                },
+  'availableFormats'=>{
+                          'numberFormat'=>[
+                                              {
+                                                'pattern'=>'([358]\\d)(\\d{4})(\\d{4})',
+                                                'leadingDigits'=>'33|55|81',
+                                                'format'=>'$1 $2 $3'
+                                              },
+                                              {
+                                                'leadingDigits'=>'[2467]|3[0-2457-9]|5[089]|8[02-9]|9[0-35-9]',
+                                                'format'=>'$1 $2 $3',
+                                                'pattern'=>'(\\d{3})(\\d{3})(\\d{4})'
+                                              },
+                                              {
+                                                'intlFormat'=>'$1 $2 $3 $4',
+                                                'nationalPrefixFormattingRule'=>'$FG',
+                                                'pattern'=>'(1)([358]\\d)(\\d{4})(\\d{4})',
+                                                'format'=>'044 $2 $3 $4',
+                                                'leadingDigits'=>'1(?:33|55|81)'
+                                              },
+                                              {
+                                                'format'=>'044 $2 $3 $4',
+                                                'leadingDigits'=>'1(?:[2467]|3[0-2457-9]|5[089]|8[2-9]|9[1-35-9])',
+                                                'intlFormat'=>'$1 $2 $3 $4',
+                                                'pattern'=>'(1)(\\d{3})(\\d{3})(\\d{4})',
+                                                'nationalPrefixFormattingRule'=>'$FG'
+                                              }
+                                            ]
+                        },
+  'nationalPrefixTransformRule'=>'1$1',
+  'tollFree'=>{
+                'exampleNumber'=>'8001234567',
+                'possibleLengths'=>{
+                                     'national'=>'10'
+                                   },
+                'nationalNumberPattern'=>'8(?:00|88)\\d{7}'
+              },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[1-9]\\d{9,10}'
+                 },
+  'nationalPrefixForParsing'=>'0[12]|04[45](\\d{10})',
+  'nationalPrefixFormattingRule'=>'$NP $FG',
+  'fixedLine'=>{
+                 'nationalNumberPattern'=>'(?:33|55|81)\\d{8}|(?:2(?:0[01]|2[2-9]|3[1-35-8]|4[13-9]|7[1-689]|8[1-578]|9[467])|3(?:1[1-79]|[2458][1-9]|7[1-8]|9[1-5])|4(?:1[1-57-9]|[24-6][1-9]|[37][1-8]|8[1-35-9]|9[2-689])|5(?:88|9[1-79])|6(?:1[2-68]|[234][1-9]|5[1-3689]|6[12457-9]|7[1-7]|8[67]|9[4-8])|7(?:[13467][1-9]|2[1-8]|5[13-9]|8[1-69]|9[17])|8(?:2[13-689]|3[1-6]|4[124-6]|6[1246-9]|7[1-378]|9[12479])|9(?:1[346-9]|2[1-4]|3[2-46-8]|5[1348]|[69][1-9]|7[12]|8[1-8]))\\d{7}',
+                 'possibleLengths'=>{
+                                      'national'=>'10',
+                                      'localOnly'=>'7,8'
+                                    },
+                 'exampleNumber'=>'2221234567'
+               },
+  'nationalPrefix'=>'01'
+}
+;
 }
 
 1;

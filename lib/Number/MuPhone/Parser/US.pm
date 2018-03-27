@@ -6,7 +6,73 @@ use Moo;
 extends 'Number::MuPhone::Parser';
 
 sub config { 
-  return {'mobile'=>{'exampleNumber'=>'2015550123','possibleLengths'=>{'national'=>'10','localOnly'=>'7'},'nationalNumberPattern'=>'(?:2(?:0[1-35-9]|1[02-9]|2[04589]|3[149]|4[08]|5[1-46]|6[0279]|7[026]|8[13])|3(?:0[1-57-9]|1[02-9]|2[0135]|3[0-24679]|4[67]|5[12]|6[014]|8[056])|4(?:0[124-9]|1[02-579]|2[3-5]|3[0245]|4[0235]|58|6[39]|7[0589]|8[04])|5(?:0[1-57-9]|1[0235-8]|20|3[0149]|4[01]|5[19]|6[1-37]|7[013-5]|8[056])|6(?:0[1-35-9]|1[024-9]|2[03689]|3[016]|4[16]|5[017]|6[0-279]|78|8[012])|7(?:0[1-46-8]|1[02-9]|2[0457]|3[1247]|4[037]|5[47]|6[02359]|7[02-59]|8[156])|8(?:0[1-68]|1[02-8]|28|3[0-25]|4[3578]|5[046-9]|6[02-5]|7[028])|9(?:0[1346-9]|1[02-9]|2[0589]|3[014678]|4[0179]|5[12469]|7[0-3589]|8[0459]))[2-9]\\d{6}'},'internationalPrefix'=>'011','nationalPrefix'=>'1','availableFormats'=>{'numberFormat'=>[{'leadingDigits'=>'','pattern'=>'(\\d{3})(\\d{4})','intlFormat'=>'NA','format'=>'$1-$2'},{'format'=>'($1) $2-$3','leadingDigits'=>'','intlFormat'=>'$1-$2-$3','pattern'=>'(\\d{3})(\\d{3})(\\d{4})'}]},'tollFree'=>{'exampleNumber'=>'8002345678','possibleLengths'=>{'national'=>'10'},'nationalNumberPattern'=>'8(?:00|33|44|55|66|77|88)[2-9]\\d{6}'},'TerritoryName'=>'United States','personalNumber'=>{'possibleLengths'=>{'national'=>'10'},'nationalNumberPattern'=>'5(?:00|22|33|44|66|77|88)[2-9]\\d{6}','exampleNumber'=>'5002345678'},'nationalPrefixOptionalWhenFormatting'=>'true','mainCountryForCode'=>'true','fixedLine'=>{'exampleNumber'=>'2015550123','nationalNumberPattern'=>'(?:2(?:0[1-35-9]|1[02-9]|2[04589]|3[149]|4[08]|5[1-46]|6[0279]|7[026]|8[13])|3(?:0[1-57-9]|1[02-9]|2[0135]|3[0-24679]|4[67]|5[12]|6[014]|8[056])|4(?:0[124-9]|1[02-579]|2[3-5]|3[0245]|4[0235]|58|6[39]|7[0589]|8[04])|5(?:0[1-57-9]|1[0235-8]|20|3[0149]|4[01]|5[19]|6[1-37]|7[013-5]|8[056])|6(?:0[1-35-9]|1[024-9]|2[03689]|3[016]|4[16]|5[017]|6[0-279]|78|8[012])|7(?:0[1-46-8]|1[02-9]|2[0457]|3[1247]|4[037]|5[47]|6[02359]|7[02-59]|8[156])|8(?:0[1-68]|1[02-8]|28|3[0-25]|4[3578]|5[046-9]|6[02-5]|7[028])|9(?:0[1346-9]|1[02-9]|2[0589]|3[014678]|4[0179]|5[12469]|7[0-3589]|8[0459]))[2-9]\\d{6}','possibleLengths'=>{'national'=>'10','localOnly'=>'7'}},'CountryCode'=>'US','references'=>{'sourceUrl'=>['http://www.nanpa.com/reports/reports_npa.html','http://en.wikipedia.org/wiki/North_American_Numbering_Plan']},'mobileNumberPortableRegion'=>'true','generalDesc'=>{'nationalNumberPattern'=>'[2-9]\\d{9}'},'countryCode'=>'1','premiumRate'=>{'possibleLengths'=>{'national'=>'10'},'nationalNumberPattern'=>'900[2-9]\\d{6}','exampleNumber'=>'9002345678'}};
+  return {
+  'personalNumber'=>{
+                      'possibleLengths'=>{
+                                           'national'=>'10'
+                                         },
+                      'nationalNumberPattern'=>'5(?:00|22|33|44|66|77|88)[2-9]\\d{6}',
+                      'exampleNumber'=>'5002345678'
+                    },
+  'premiumRate'=>{
+                   'nationalNumberPattern'=>'900[2-9]\\d{6}',
+                   'possibleLengths'=>{
+                                        'national'=>'10'
+                                      },
+                   'exampleNumber'=>'9002345678'
+                 },
+  'TerritoryName'=>'United States',
+  'CountryCode'=>'US',
+  'internationalPrefix'=>'011',
+  'mobileNumberPortableRegion'=>'true',
+  'countryCode'=>'1',
+  'references'=>{
+                  'sourceUrl'=>[
+                                 'http://www.nanpa.com/reports/reports_npa.html',
+                                 'http://en.wikipedia.org/wiki/North_American_Numbering_Plan'
+                               ]
+                },
+  'mobile'=>{
+              'possibleLengths'=>{
+                                   'national'=>'10',
+                                   'localOnly'=>'7'
+                                 },
+              'nationalNumberPattern'=>'(?:2(?:0[1-35-9]|1[02-9]|2[04589]|3[149]|4[08]|5[1-46]|6[0279]|7[026]|8[13])|3(?:0[1-57-9]|1[02-9]|2[0135]|3[0-24679]|4[67]|5[12]|6[014]|8[056])|4(?:0[124-9]|1[02-579]|2[3-5]|3[0245]|4[0235]|58|6[39]|7[0589]|8[04])|5(?:0[1-57-9]|1[0235-8]|20|3[0149]|4[01]|5[19]|6[1-37]|7[013-5]|8[056])|6(?:0[1-35-9]|1[024-9]|2[03689]|3[016]|4[16]|5[017]|6[0-279]|78|8[012])|7(?:0[1-46-8]|1[02-9]|2[0457]|3[1247]|4[037]|5[47]|6[02359]|7[02-59]|8[156])|8(?:0[1-68]|1[02-8]|28|3[0-25]|4[3578]|5[046-9]|6[02-5]|7[028])|9(?:0[1346-9]|1[02-9]|2[0589]|3[014678]|4[0179]|5[12469]|7[0-3589]|8[0459]))[2-9]\\d{6}',
+              'exampleNumber'=>'2015550123'
+            },
+  'nationalPrefixOptionalWhenFormatting'=>'true',
+  'fixedLine'=>{
+                 'possibleLengths'=>{
+                                      'localOnly'=>'7',
+                                      'national'=>'10'
+                                    },
+                 'nationalNumberPattern'=>'(?:2(?:0[1-35-9]|1[02-9]|2[04589]|3[149]|4[08]|5[1-46]|6[0279]|7[026]|8[13])|3(?:0[1-57-9]|1[02-9]|2[0135]|3[0-24679]|4[67]|5[12]|6[014]|8[056])|4(?:0[124-9]|1[02-579]|2[3-5]|3[0245]|4[0235]|58|6[39]|7[0589]|8[04])|5(?:0[1-57-9]|1[0235-8]|20|3[0149]|4[01]|5[19]|6[1-37]|7[013-5]|8[056])|6(?:0[1-35-9]|1[024-9]|2[03689]|3[016]|4[16]|5[017]|6[0-279]|78|8[012])|7(?:0[1-46-8]|1[02-9]|2[0457]|3[1247]|4[037]|5[47]|6[02359]|7[02-59]|8[156])|8(?:0[1-68]|1[02-8]|28|3[0-25]|4[3578]|5[046-9]|6[02-5]|7[028])|9(?:0[1346-9]|1[02-9]|2[0589]|3[014678]|4[0179]|5[12469]|7[0-3589]|8[0459]))[2-9]\\d{6}',
+                 'exampleNumber'=>'2015550123'
+               },
+  'nationalPrefix'=>'1',
+  'tollFree'=>{
+                'exampleNumber'=>'8002345678',
+                'possibleLengths'=>{
+                                     'national'=>'10'
+                                   },
+                'nationalNumberPattern'=>'8(?:00|33|44|55|66|77|88)[2-9]\\d{6}'
+              },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[2-9]\\d{9}'
+                 },
+  'mainCountryForCode'=>'true',
+  'availableFormats'=>{
+                          'numberFormat'=>[
+                                              {
+                                                'format'=>'($1) $2-$3',
+                                                'leadingDigits'=>'',
+                                                'intlFormat'=>'$1-$2-$3',
+                                                'pattern'=>'(\\d{3})(\\d{3})(\\d{4})'
+                                              }
+                                            ]
+                        }
+}
+;
 }
 
 1;

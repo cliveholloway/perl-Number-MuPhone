@@ -12,38 +12,49 @@ our $VERSION = '0.06';
 # (useful when amending parsers, to keep an eye out for issues)
 # Only really used when checking tweaks to the Parser modules
 # bad syntax silently dies otherwise and it can be confusing while developing
-our $DEBUG=0;
+our $DEBUG=1;
 
 
 sub new {
   my ($class,@args) = @_;
 
-  my ($country,$number,$is_number_phone)=('','',0);
+  my ($country_or_countries,$number,$is_number_phone)=('','',0);
   # normal instantiation
   if ( ref $args[0] eq 'HASH' ) {
-    $country = $args[0]->{country};
-    $number  = $args[0]->{number};
+    $country_or_countries = $args[0]->{country};
+    $number               = $args[0]->{number};
   }
   # Number::Phone style
   else {
     $number  = pop @args;
-    $country = pop @args;
+    $country_or_countries = pop @args;
     $is_number_phone=1;
   }
   $number||='';
 
   # only number supplied - let's look up the country or use default (if set)
-  if (!$country) {
-    $country = _phone2country($number)
-               || $Number::MuPhone::Config::config->{default_country}
-               || '';
+  if (!$country_or_countries) {
+    $country_or_countries = _phone2country($number);
   }
 
-  $country = uc($country);
+  $country_or_countries = defined $country_or_countries
+                          ? $country_or_countries
+                          : [ $Number::MuPhone::Config::config->{default_country} ];
+
+  # country_or_countries can be an array of possible countries or a string
+  # if string, coerce to array
+  unless (ref $country_or_countries eq 'ARRAY') {
+    $country_or_countries = [ uc($country_or_countries) ];
+  }
 
   # at this point we have enough valid data to instantiate a parser
+  # by iterating through possible countries
   my $parser_obj;
-  if ($country) {
+  COUNTRY: foreach my $country (@$country_or_countries) {
+    unless ($country =~ /^[A-Z]{2}$/) {
+      warn "Invalid country: $country";
+      next COUNTRY;
+    }
     my $parser_module = "Number::MuPhone::Parser::$country";
     eval {
       eval "use $parser_module";
@@ -59,6 +70,7 @@ sub new {
       });
       $parser_obj->error("Invalid country ($country)");
     }
+    last COUNTRY unless $parser_obj->error;
   }
 
   # if load fails, default back to base class and set an error
@@ -83,7 +95,7 @@ sub _phone2country {
 
   # if number doesn't begins with + we can't determine the country
   # if you need a default country, set 'default_country' in a config file, set it in a config file
-  $num =~ /^\s*\+/ or return '';
+  $num =~ /^\s*\+/ or return undef;
 
   # strip out non-digits
   $num =~ s/[^0-9]//g;
@@ -91,21 +103,21 @@ sub _phone2country {
   # deal with NANP insanity
   if( $num =~ m/^1(\d{3})\d{7}/ ) {
     my $area = $1;
-    if (my $country = $Number::MuPhone::Data::NANP_areas{$area}) {
+    if (my $country = $Number::MuPhone::Data::nanp->{$area}) {
       return $country;
     }
     else {
-      return 'NANP';
+      return undef;
     }
   } else {
     my @prefixes = map { substr($num, 0, $_) } reverse 1..7;
     foreach my $idd (@prefixes) {
-      if( my $country = $Number::MuPhone::Data::idd_codes{$idd} ) {
-        return $country;
+      if( my $country_arrayref = $Number::MuPhone::Data::idd_codes->{$idd} ) {
+        return $country_arrayref;
       }
     }
   }
-  return '';
+  return undef;
 }
 
 1;
@@ -238,12 +250,9 @@ $num->storage_formatted_number
   my $num = Number::MuPhone->new({ number => '203 503 1111 extension 1234', country => 'US' });
   $num->storage_formatted_number -> '+1 2035031111 x1234'  
 
-$num->E123
-  Number in E.123 format for display
-
 $num->international_display
   Display number in standard +COUNTRY_CODE NUMBER format 
-  Alias of $num->E123
+  E123 international format of number
 
 $num->dial_from( $obj || num || '2 char country code');
 $num->display_from( $obj || num || '2 char country code');
@@ -261,13 +270,13 @@ $num->display_from( $obj || num || '2 char country code');
   my $num_us = Number::MuPhone->new('+12035031111');
 
   $num_uk->dial                                 # 02012341234
-  $num_uk->dial_from('UK')                      # 02012341234
+  $num_uk->dial_from('GB')                      # 02012341234
   $num_uk->dial_from('US')                      # 011442012341234
   $num_uk->dial_from('+12035031111')            # 011442012341234
   $num_uk->dial_from($num_us)                   # 011442012341234
   
   $num_uk->display                              # 020 1234 1234
-  $num_uk->display_from('UK')                   # 020 1234 1234
+  $num_uk->display_from('GB')                   # 020 1234 1234
   $num_uk->display_from('US')                   # 011 44 20 1234 1234
   $num_uk->display_from('+12035031111')         # 011 44 20 1234 1234
   $num_uk->display_from($num_us)                # 011 44 20 1234 1234
@@ -280,10 +289,6 @@ $num->E164
 $num->international_dial
   Full number to dial, including extension
   $num->E164 + dialer pause + $num->extension
-
-$num->E123
-  Number in E.123 format - see https://en.wikipedia.org/wiki/E.123
-  Includes extension
 
 =head2 Configuration file
 
