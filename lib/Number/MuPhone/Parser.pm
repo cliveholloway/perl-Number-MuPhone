@@ -418,10 +418,6 @@ __END__
 
 Number::MuPhone::Parser
 
-=head1 VERSION
-
-version 0,01
-
 =head1 DESCRIPTION
 
 Base phone number parser class. Inherited by all parser classes
