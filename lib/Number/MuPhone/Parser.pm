@@ -154,7 +154,7 @@ has international_display => (
 
 # dial number when you're in the country
 # this default should work for most countries
-has _national_dial => (
+has national_dial => (
   is      => 'ro',
   lazy    => 1,
   default => sub {
@@ -248,7 +248,7 @@ sub dial_from {
   my ($self,$str) = @_;
   my $obj = $self->_get_obj_from($str);
   if ( $obj->country_code eq $self->country_code ) {
-    return $self->_national_dial;
+    return $self->national_dial;
   }
   else {
     return $obj->_international_dial_prefix.$self->country_code.$self->_cleaned_number;
@@ -310,7 +310,7 @@ has national_prefix_optional_when_formatting => (
   lazy    => 1,
   default => sub {
     my $optional_format = shift->config->{nationalPrefixOptionalWhenFormatting};
-    return defined $optional_format and $optional_format eq 'true'
+    return (defined $optional_format and $optional_format eq 'true')
     ? 1
     : 0;
   },
@@ -424,80 +424,36 @@ version 0,01
 
 =head1 DESCRIPTION
 
-Base phone number parser class. Contains sane defaults.
+Base phone number parser class. Inherited by all parser classes
 
-This document covers how you might want to tweak Parser methods on a per
-country basis. For further documentation, please see the Number::MuPhone POD.
-
-If you do find a need, please contact me so I can merge useful changes in
-as needed.
-
-For each Number::MuPhone::Parser::COUNTRY.pm module, you must set values
-for the attributes country, country_code, country_name, 
-_national_dial_prefix and _international_dial_prefix. eg:
-
-    has '+country'                    => ( default => 'GB'             );
-    has '+country_code'               => ( default => '44'             );
-    has '+country_name'               => ( default => 'United Kingdom' );
-    has '+_national_dial_prefix'      => ( default => '0'              );
-    has '+_international_dial_prefix' => ( default => '00'             );
-
-These are already set for known countries.
-
-=head1 COMMONLY OVERLOADED METHODS
-
-Pretty much anything *may* benefit from overloading on a per country basis,
-but these are the most common methods that are need to be overloaded.
-
-=head2 _format_number() 
-
-Different countries have different ways of displaying phone numbers.
-
-The method _format_number is used to take the raw number (minus any extension)
-and format it a way that is normal for that country. The US's formatter is 
-simple; GB, not so much. It doesn't just do that though. It:
-
-* confirms the number is valid;
-* formats the number for common display; 
-* sets an error() if there's a problem; and
-* sets the value in the _formatted_number accessor.
-
-On completion of validation, it returns the formatted number if valid, or the
-original number if an error was encountered.
-
-There's a generic default, but it should be overloaded in each country's 
-Parser. This is an ongoing project to replace.
-
-=head2 _extension_text
-
-Text to display after the number plus a space, but before the extension.
-
-This defaults to the english 'ext ' but can be overloaded in individual 
-countries as needed.
-
+=head1 METHODS
 
 =head2 display_from( $num | $num_obj | country )
 
 This works out of the box for 90% of countries, but there are a few places 
-where this may need overwriting - eg, dialing French territories from France.
+where this may not work for some 'odd cases' - eg, dialing French territories from France.
+
+=head2 display()
+
+Alias for $num->display_from($num);
 
 =head2 dial_from( $num | $num_obj | country )
 
 This works out of the box for 90% of countries, but there are a few places 
 where this may need overwriting - eg, dialing French territories from France.
 
-=head2 _parse_number_and_extension
+=head2 dial()
 
-Basically split the entered number on a string that marks an extension.
+Alias for $num->dial_from($num);
 
-Defaults to English.
 
-Can amend this rule as needed in country classes
+TODO - finish documentation soon :D
+
 
 =head1 AUTHOR
 
 Clive Holloway <clive.holloway@gmail.com>
 
-Copyright (c) 2017 Clive Holloway 
+Copyright (c) 2017-2018 Clive Holloway 
 
 =cut
