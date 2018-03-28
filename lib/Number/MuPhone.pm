@@ -83,7 +83,7 @@ sub new {
 
   # Improve error message for some strings
   # starts with a + but not a valid international country?
-  if ( $parser_obj->error && !$country && $number =~ /^\s*\+(.)/ ) {
+  if ( $parser_obj->error && $number =~ /^\s*\+(.)/ ) {
     my $first_digit = $1;
     if ( $first_digit eq '0' ) {
       $parser_obj ->error('Invalid country code - no country code begins with a zero');

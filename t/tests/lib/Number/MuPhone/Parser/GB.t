@@ -23,7 +23,7 @@ for my $number('+44 1929 552619','01929 552619') {
   is( $num->_national_dial_prefix,      '0'               ,'national_prefix');
   is( $num->_formatted_number,          '1929 552619'     ,'format');
   is( $num->national_display,           '01929 552619'    ,'national_display');
-  is( $num->_national_dial,             '01929552619'     ,'_national_dial');
+  is( $num->national_dial,              '01929552619'     ,'_national_dial');
   is( $num->dial_from($num),            '01929552619'     ,'dial_from same country');
   is( $num->international_display ,     '+44 1929 552619' ,'international_display');
   is( $num->international_dial,         '+441929552619'   ,'international_dial');
