@@ -1,12 +1,127 @@
 package Number::MuPhone::Parser::SK;
+use strict;
+use warnings;
 use Moo;
 
 extends 'Number::MuPhone::Parser';
 
-has '+country'              => ( default => 'SK'             );
-has '+country_code'         => ( default => '421'             );
-has '+country_name'         => ( default => 'Slovakia' );
-has '+_national_dial_prefix'      => ( default => '0' );
-has '+_international_dial_prefix' => ( default => '00' );
+sub config { 
+  return {
+  'nationalPrefixFormattingRule'=>'$NP$FG',
+  'pager'=>{
+             'exampleNumber'=>'9090123',
+             'possibleLengths'=>{
+                                  'national'=>'7'
+                                },
+             'nationalNumberPattern'=>'9090\\d{3}'
+           },
+  'availableFormats'=>{
+                          'numberFormat'=>[
+                                              {
+                                                'pattern'=>'(2)(1[67])(\\d{3,4})',
+                                                'leadingDigits'=>'21[67]',
+                                                'format'=>'$1 $2 $3'
+                                              },
+                                              {
+                                                'pattern'=>'([3-5]\\d)(1[67])(\\d{2,3})',
+                                                'format'=>'$1 $2 $3',
+                                                'leadingDigits'=>'[3-5]'
+                                              },
+                                              {
+                                                'pattern'=>'(2)(\\d{3})(\\d{3})(\\d{2})',
+                                                'format'=>'$1/$2 $3 $4',
+                                                'leadingDigits'=>'2'
+                                              },
+                                              {
+                                                'pattern'=>'([3-5]\\d)(\\d{3})(\\d{2})(\\d{2})',
+                                                'format'=>'$1/$2 $3 $4',
+                                                'leadingDigits'=>'[3-5]'
+                                              },
+                                              {
+                                                'format'=>'$1 $2 $3',
+                                                'leadingDigits'=>'[689]',
+                                                'pattern'=>'([689]\\d{2})(\\d{3})(\\d{3})'
+                                              },
+                                              {
+                                                'pattern'=>'(9090)(\\d{3})',
+                                                'leadingDigits'=>'9090',
+                                                'format'=>'$1 $2'
+                                              }
+                                            ]
+                        },
+  'noInternationalDialling'=>{
+                               'nationalNumberPattern'=>'(?:602|8(?:00|[5-9]\\d)|9(?:00|[78]\\d))\\d{6}|9090\\d{3}',
+                               'possibleLengths'=>{
+                                                    'national'=>'7,9'
+                                                  },
+                               'exampleNumber'=>'800123456'
+                             },
+  'tollFree'=>{
+                'exampleNumber'=>'800123456',
+                'nationalNumberPattern'=>'800\\d{6}',
+                'possibleLengths'=>{
+                                     'national'=>'9'
+                                   }
+              },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'(?:[2-68]\\d{5,8}|9\\d{6,8})'
+                 },
+  'nationalPrefix'=>'0',
+  'fixedLine'=>{
+                 'nationalNumberPattern'=>'2(?:1(?:6\\d{3,4}|7\\d{3})|[2-9]\\d{7})|[3-5][1-8](?:1(?:6\\d{2,3}|7\\d{3})|\\d{7})',
+                 'possibleLengths'=>{
+                                      'national'=>'6,7,9'
+                                    },
+                 'exampleNumber'=>'221234567'
+               },
+  'references'=>{
+                  'sourceUrl'=>[
+                                 'http://www.itu.int/oth/T02020000BD/en',
+                                 'http://www.teleoff.gov.sk/data/files/25211.pdf'
+                               ]
+                },
+  'mobile'=>{
+              'exampleNumber'=>'912123456',
+              'possibleLengths'=>{
+                                   'national'=>'9'
+                                 },
+              'nationalNumberPattern'=>'9(?:0(?:[1-8]\\d|9[1-9])|(?:1[0-24-9]|[45]\\d)\\d)\\d{5}'
+            },
+  'countryCode'=>'421',
+  'mobileNumberPortableRegion'=>'true',
+  'internationalPrefix'=>'00',
+  'CountryCode'=>'SK',
+  'TerritoryName'=>'Slovakia',
+  'premiumRate'=>{
+                   'nationalNumberPattern'=>'9(?:[78]\\d{7}|00\\d{6})',
+                   'possibleLengths'=>{
+                                        'national'=>'9'
+                                      },
+                   'exampleNumber'=>'900123456'
+                 },
+  'voip'=>{
+            'possibleLengths'=>{
+                                 'national'=>'9'
+                               },
+            'nationalNumberPattern'=>'6(?:02|5[0-4]|9[0-6])\\d{6}',
+            'exampleNumber'=>'690123456'
+          },
+  'uan'=>{
+           'exampleNumber'=>'961234567',
+           'nationalNumberPattern'=>'96\\d{7}',
+           'possibleLengths'=>{
+                                'national'=>'9'
+                              }
+         },
+  'sharedCost'=>{
+                  'exampleNumber'=>'850123456',
+                  'possibleLengths'=>{
+                                       'national'=>'9'
+                                     },
+                  'nationalNumberPattern'=>'8[5-9]\\d{7}'
+                }
+}
+;
+}
 
 1;

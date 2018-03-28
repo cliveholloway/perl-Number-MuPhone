@@ -1,12 +1,142 @@
 package Number::MuPhone::Parser::JP;
+use strict;
+use warnings;
 use Moo;
 
 extends 'Number::MuPhone::Parser';
 
-has '+country'              => ( default => 'JP'             );
-has '+country_code'         => ( default => '81'             );
-has '+country_name'         => ( default => 'Japan' );
-has '+_national_dial_prefix'      => ( default => '0' );
-has '+_international_dial_prefix' => ( default => '010' );
+sub config { 
+  return {
+  'references'=>{
+                  'sourceUrl'=>[
+                                 'http://www.soumu.go.jp/main_sosiki/joho_tsusin/top/tel_number/number_shitei.html',
+                                 'http://www.numberingplans.com/?page=dialling&sub=areacodes&ac=JP'
+                               ]
+                },
+  'mobile'=>{
+              'possibleLengths'=>{
+                                   'national'=>'10'
+                                 },
+              'nationalNumberPattern'=>'[7-9]0[1-9]\\d{7}',
+              'exampleNumber'=>'9012345678'
+            },
+  'internationalPrefix'=>'010',
+  'mobileNumberPortableRegion'=>'true',
+  'countryCode'=>'81',
+  'CountryCode'=>'JP',
+  'TerritoryName'=>'Japan',
+  'voip'=>{
+            'exampleNumber'=>'5012345678',
+            'nationalNumberPattern'=>'50[1-9]\\d{7}',
+            'possibleLengths'=>{
+                                 'national'=>'10'
+                               }
+          },
+  'premiumRate'=>{
+                   'nationalNumberPattern'=>'990\\d{6}',
+                   'possibleLengths'=>{
+                                        'national'=>'9'
+                                      },
+                   'exampleNumber'=>'990123456'
+                 },
+  'personalNumber'=>{
+                      'possibleLengths'=>{
+                                           'national'=>'9'
+                                         },
+                      'nationalNumberPattern'=>'60\\d{7}',
+                      'exampleNumber'=>'601234567'
+                    },
+  'uan'=>{
+           'exampleNumber'=>'570123456',
+           'nationalNumberPattern'=>'570\\d{6}',
+           'possibleLengths'=>{
+                                'national'=>'9'
+                              }
+         },
+  'nationalPrefixFormattingRule'=>'$NP$FG',
+  'pager'=>{
+             'exampleNumber'=>'2012345678',
+             'nationalNumberPattern'=>'20\\d{8}',
+             'possibleLengths'=>{
+                                  'national'=>'10'
+                                }
+           },
+  'availableFormats'=>{
+                          'numberFormat'=>[
+                                              {
+                                                'pattern'=>'(\\d{3})(\\d{3})(\\d{3})',
+                                                'format'=>'$1-$2-$3',
+                                                'leadingDigits'=>'(?:12|57|99)0'
+                                              },
+                                              {
+                                                'pattern'=>'(\\d{3})(\\d{3})(\\d{4})',
+                                                'leadingDigits'=>'800',
+                                                'format'=>'$1-$2-$3'
+                                              },
+                                              {
+                                                'pattern'=>'(\\d{2})(\\d{4})(\\d{4})',
+                                                'format'=>'$1-$2-$3',
+                                                'leadingDigits'=>'[2579]0|80[1-9]'
+                                              },
+                                              {
+                                                'pattern'=>'(\\d{4})(\\d)(\\d{4})',
+                                                'leadingDigits'=>'1(?:267|3(?:7[247]|9[278])|4(?:5[67]|66)|5(?:47|58|64|8[67])|6(?:3[245]|48|5[4-68]))|5(?:769|979[2-69])|499[2468]|7468|8(?:3(?:8[78]|96[2457-9])|636[2-57-9]|477|51[24])|9(?:496|802|9(?:1[23]|69))',
+                                                'format'=>'$1-$2-$3'
+                                              },
+                                              {
+                                                'format'=>'$1-$2-$3',
+                                                'leadingDigits'=>'1(?:2[3-6]|3[3-9]|4[2-6]|5(?:[236-8]|[45][2-69])|[68][2-7]|7[2-689]|9[1-578])|2(?:2(?:[04-689]|3[23])|3[3-58]|4[0-468]|5(?:5[78]|7[2-4]|[0468][2-9])|6(?:[0135-8]|4[2-5])|7(?:[0679]|8[2-7])|8(?:[024578]|3[25-9]|9[6-9])|9(?:11|3[2-4]))|4(?:2(?:2[2-9]|8[237-9])|3[689]|6[035-7]|7(?:[059][2-8]|[68])|80|9[3-5])|5(?:3[1-36-9]|4[4578]|5[013-8]|6[1-9]|7[2-8]|8[14-7]|9(?:[89][2-8]|[4-7]))|7(?:2[15]|3[5-9]|4[02-9]|6[135-8]|7[0-4689]|9(?:[017-9]|4[6-8]|5[2-478]|6[2-589]))|8(?:2(?:4[4-8]|9(?:[3578]|20|4[04-9]|6(?:5[25]|60)))|3(?:7(?:[2-5]|6[0-59])|[3-6][2-9]|8[2-5])|4[5-8]|5[2-9]|6(?:[37]|5(?:[467]|5[014-9])|6(?:[2-8]|9[02-69])|8[2-8]|9(?:[236-8]|9[23]))|7[579]|8[03-579]|9[2-8])|9(?:[23]0|4[02-46-9]|5[024-79]|6[4-9]|7[2-47-9]|8[02-7]|9(?:3(?:3[02-9]|4[0-24689])|4[2-69]|[5-7]))',
+                                                'pattern'=>'(\\d{3})(\\d{2})(\\d{4})'
+                                              },
+                                              {
+                                                'format'=>'$1-$2-$3',
+                                                'leadingDigits'=>'1|2(?:2[37]|5(?:[57]|[68]0|9(?:17|99))|64|78|8[39]|917)|4(?:2(?:[68]|20|9[178])|64|7[347])|5(?:[2-589]|39[67])|60|8(?:[46-9]|3[279]|2[124589])|9(?:[235-8]|93(?:31|4))',
+                                                'pattern'=>'(\\d{2})(\\d{3})(\\d{4})'
+                                              },
+                                              {
+                                                'pattern'=>'(\\d{3})(\\d{2})(\\d{4})',
+                                                'leadingDigits'=>'2(?:9[14-79]|74|[34]7|[56]9)|82|993',
+                                                'format'=>'$1-$2-$3'
+                                              },
+                                              {
+                                                'format'=>'$1-$2-$3',
+                                                'leadingDigits'=>'3|4(?:2[09]|7[01])|6[1-9]',
+                                                'pattern'=>'(\\d)(\\d{4})(\\d{4})'
+                                              },
+                                              {
+                                                'pattern'=>'(\\d{2})(\\d{3})(\\d{4})',
+                                                'leadingDigits'=>'[2479][1-9]',
+                                                'format'=>'$1-$2-$3'
+                                              }
+                                            ]
+                        },
+  'tollFree'=>{
+                'exampleNumber'=>'120123456',
+                'nationalNumberPattern'=>'120\\d{6}|800\\d{7}|00(?:37\\d{6,13}|66\\d{6,13}|777(?:[01]\\d{2}|5\\d{3}|8\\d{4})|882[1245]\\d{4})',
+                'possibleLengths'=>{
+                                     'national'=>'[8-17]'
+                                   }
+              },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[1-9]\\d{8,9}|00(?:[36]\\d{7,14}|7\\d{5,7}|8\\d{7})'
+                 },
+  'noInternationalDialling'=>{
+                               'possibleLengths'=>{
+                                                    'national'=>'[8-17]'
+                                                  },
+                               'nationalNumberPattern'=>'00(?:37\\d{6,13}|66\\d{6,13}|777(?:[01]\\d{2}|5\\d{3}|8\\d{4})|882[1245]\\d{4})',
+                               'exampleNumber'=>'00777012'
+                             },
+  'nationalPrefix'=>'0',
+  'fixedLine'=>{
+                 'exampleNumber'=>'312345678',
+                 'possibleLengths'=>{
+                                      'national'=>'9'
+                                    },
+                 'nationalNumberPattern'=>'(?:1(?:1[235-8]|2[3-6]|3[3-9]|4[2-6]|[58][2-8]|6[2-7]|7[2-9]|9[1-9])|2[2-9]\\d|[36][1-9]\\d|4(?:6[02-8]|[2-578]\\d|9[2-59])|5(?:6[1-9]|7[2-8]|[2-589]\\d)|7(?:3[4-9]|4[02-9]|[25-9]\\d)|8(?:3[2-9]|4[5-9]|5[1-9]|8[03-9]|[2679]\\d)|9(?:[679][1-9]|[2-58]\\d))\\d{6}'
+               }
+}
+;
+}
 
 1;

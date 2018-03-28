@@ -1,0 +1,30 @@
+---
+TerritoryName: New Caledonia (Territoire franÃ§ais d'outre-mer)
+availableFormats:
+  numberFormat:
+  - format: $1.$2.$3
+    leadingDigits: '[2-46-9]|5[0-4]'
+    pattern: (\d{2})(\d{2})(\d{2})
+countryCode: '687'
+fixedLine:
+  exampleNumber: '201234'
+  nationalNumberPattern: (?:2[03-9]|3[0-5]|4[1-7]|88)\d{4}
+  possibleLengths:
+    national: '6'
+generalDesc:
+  nationalNumberPattern: '[2-57-9]\d{5}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '751234'
+  nationalNumberPattern: (?:5[0-4]|[79]\d|8[0-79])\d{4}
+  possibleLengths:
+    national: '6'
+premiumRate:
+  exampleNumber: '366711'
+  nationalNumberPattern: 36\d{4}
+  possibleLengths:
+    national: '6'
+references:
+  sourceUrl:
+  - http://www.itu.int/oth/T0202000098/en
+  - http://www.opt.nc

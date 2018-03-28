@@ -1,7 +1,4 @@
 # example good config file
-default_country: 'UK'
-countries:
-  US:
-    coming: 'soon'
+default_country: 'GB'
 dialer:
   pause: ','

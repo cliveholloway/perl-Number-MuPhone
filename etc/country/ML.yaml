@@ -1,0 +1,39 @@
+---
+TerritoryName: Mali
+availableFormats:
+  numberFormat:
+  - format: $1 $2 $3 $4
+    leadingDigits: '[246-9]'
+    pattern: (\d{2})(\d{2})(\d{2})(\d{2})
+  - format: $1
+    intlFormat: NA
+    leadingDigits: 67|74
+    pattern: (\d{4})
+countryCode: '223'
+fixedLine:
+  exampleNumber: '20212345'
+  nationalNumberPattern: (?:2(?:0(?:2\d|7[0-8])|1(?:2[5-7]|[3-689]\d))|44[1239]\d)\d{4}
+  possibleLengths:
+    national: '8'
+generalDesc:
+  nationalNumberPattern: '[246-9]\d{7}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '65012345'
+  nationalNumberPattern: (?:2(?:079|17\d)|[679]\d{3}|8[239]\d{2})\d{4}
+  possibleLengths:
+    national: '8'
+noInternationalDialling:
+  exampleNumber: '80012345'
+  nationalNumberPattern: 80\d{6}
+  possibleLengths:
+    national: '8'
+references:
+  sourceUrl:
+  - http://www.itu.int/oth/T0202000083/en
+  - http://crt-mali.org/pdf/plan_num
+tollFree:
+  exampleNumber: '80012345'
+  nationalNumberPattern: 80\d{6}
+  possibleLengths:
+    national: '8'

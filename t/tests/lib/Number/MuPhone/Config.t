@@ -10,15 +10,12 @@ my $test_data_dir = abs_path($FindBin::Bin.'/../../../../data');
   # load a good config 
   $ENV{MUPHONE_CONF_FILEPATH} = $test_data_dir."/good_conf.yaml";
   _load_config();
-  is( $Number::MuPhone::Config::config->{default_country},               'UK', "valid conf 1a" );
-  ok( $Number::MuPhone::Config::config->{countries}->{US}->{coming},     "valid conf 1b" );
-  ok( $Number::MuPhone::Config::config->{dialer}->{pause},               "valid conf 1c" );
+  is( $Number::MuPhone::Config::config->{default_country}, 'GB', "valid default_country" );
+  is( $Number::MuPhone::Config::config->{dialer}->{pause}, ',',  "valid dialer pause" );
 
   # check default country instantiates correct parser class
   my $num = Number::MuPhone->new('01929 552619');
-  is( $num->country, 'UK', 'check conf based default country works' );
-
-  is ( $num->config->{default_country}, 'UK', 'config accessor' );
+  is( $num->country, 'GB', 'check conf based default country works' );
 
 }
 
@@ -26,7 +23,7 @@ my $test_data_dir = abs_path($FindBin::Bin.'/../../../../data');
   # this fails, so it will fall back to the default
   $ENV{MUPHONE_CONF_FILEPATH} = $test_data_dir."/bad_conf.yaml";
   _load_config();
-  ok( $Number::MuPhone::Config::config->{is_default}, "bad conf" );
+  ok( $Number::MuPhone::Config::config->{default_country}, "US" );
 }
 
 {

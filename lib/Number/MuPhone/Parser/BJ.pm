@@ -1,12 +1,68 @@
 package Number::MuPhone::Parser::BJ;
+use strict;
+use warnings;
 use Moo;
 
 extends 'Number::MuPhone::Parser';
 
-has '+country'              => ( default => 'BJ'             );
-has '+country_code'         => ( default => '229'             );
-has '+country_name'         => ( default => 'Benin' );
-has '+_national_dial_prefix'      => ( default => '' );
-has '+_international_dial_prefix' => ( default => '00' );
+sub config { 
+  return {
+  'tollFree'=>{
+                'nationalNumberPattern'=>'7[3-5]\\d{2}',
+                'possibleLengths'=>{
+                                     'national'=>'4'
+                                   },
+                'exampleNumber'=>'7312'
+              },
+  'voip'=>{
+            'nationalNumberPattern'=>'857[58]\\d{4}',
+            'possibleLengths'=>{
+                                 'national'=>'8'
+                               },
+            'exampleNumber'=>'85751234'
+          },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[2689]\\d{7}|7\\d{3}'
+                 },
+  'TerritoryName'=>'Benin',
+  'CountryCode'=>'BJ',
+  'availableFormats'=>{
+                          'numberFormat'=>[
+                                              {
+                                                'leadingDigits'=>'',
+                                                'format'=>'$1 $2 $3 $4',
+                                                'pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{2})'
+                                              }
+                                            ]
+                        },
+  'countryCode'=>'229',
+  'internationalPrefix'=>'00',
+  'mobile'=>{
+              'exampleNumber'=>'90011234',
+              'nationalNumberPattern'=>'(?:6[1-8]|9[03-9])\\d{6}',
+              'possibleLengths'=>{
+                                   'national'=>'8'
+                                 }
+            },
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T0202000017/en'
+                },
+  'fixedLine'=>{
+                 'nationalNumberPattern'=>'2(?:02|1[037]|2[45]|3[68])\\d{5}',
+                 'possibleLengths'=>{
+                                      'national'=>'8'
+                                    },
+                 'exampleNumber'=>'20211234'
+               },
+  'uan'=>{
+           'exampleNumber'=>'81123456',
+           'possibleLengths'=>{
+                                'national'=>'8'
+                              },
+           'nationalNumberPattern'=>'81\\d{6}'
+         }
+}
+;
+}
 
 1;

@@ -1,0 +1,39 @@
+---
+TerritoryName: Virgin Islands, United States
+availableFormats:
+  numberFormat: []
+countryCode: '1'
+fixedLine:
+  exampleNumber: '3406421234'
+  nationalNumberPattern: 340(?:2(?:01|2[0678]|44|77)|3(?:32|44)|4(?:22|7[34])|5(?:1[34]|55)|6(?:26|4[23]|77|9[023])|7(?:1[2-589]|27|7\d)|884|998)\d{4}
+  possibleLengths:
+    localOnly: '7'
+    national: '10'
+generalDesc:
+  nationalNumberPattern: '[3589]\d{9}'
+internationalPrefix: '011'
+leadingDigits: '340'
+mobile:
+  exampleNumber: '3406421234'
+  nationalNumberPattern: 340(?:2(?:01|2[0678]|44|77)|3(?:32|44)|4(?:22|7[34])|5(?:1[34]|55)|6(?:26|4[23]|77|9[023])|7(?:1[2-589]|27|7\d)|884|998)\d{4}
+  possibleLengths:
+    localOnly: '7'
+    national: '10'
+nationalPrefix: '1'
+personalNumber:
+  exampleNumber: '5002345678'
+  nationalNumberPattern: 5(?:00|22|33|44|66|77|88)[2-9]\d{6}
+  possibleLengths:
+    national: '10'
+premiumRate:
+  exampleNumber: '9002345678'
+  nationalNumberPattern: 900[2-9]\d{6}
+  possibleLengths:
+    national: '10'
+references:
+  sourceUrl: http://www.itu.int/oth/T02020000DF/en
+tollFree:
+  exampleNumber: '8002345678'
+  nationalNumberPattern: 8(?:00|33|44|55|66|77|88)[2-9]\d{6}
+  possibleLengths:
+    national: '10'

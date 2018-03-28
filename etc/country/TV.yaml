@@ -1,0 +1,22 @@
+---
+TerritoryName: Tuvalu
+availableFormats:
+  numberFormat: []
+countryCode: '688'
+fixedLine:
+  exampleNumber: '20123'
+  nationalNumberPattern: 2[02-9]\d{3}
+  possibleLengths:
+    national: '5'
+generalDesc:
+  nationalNumberPattern: '[279]\d{4,6}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '901234'
+  nationalNumberPattern: (?:70\d|90)\d{4}
+  possibleLengths:
+    national: 6,7
+references:
+  sourceUrl:
+  - http://www.itu.int/oth/T02020000D9/en
+  - http://en.wikipedia.org/wiki/Telephone_numbers_in_Tuvalu

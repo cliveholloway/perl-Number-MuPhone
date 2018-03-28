@@ -1,0 +1,26 @@
+---
+TerritoryName: "Libya (Soc. Peopleâ\x80\x99s Libyan Arab Jamahiriya)"
+availableFormats:
+  numberFormat:
+  - format: $1-$2
+    leadingDigits: ''
+    pattern: ([25679]\d)(\d{7})
+countryCode: '218'
+fixedLine:
+  exampleNumber: '212345678'
+  nationalNumberPattern: (?:2[1345]|5[1347]|6[123479]|71)\d{7}
+  possibleLengths:
+    localOnly: '7'
+    national: '9'
+generalDesc:
+  nationalNumberPattern: '[25679]\d{8}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '912345678'
+  nationalNumberPattern: 9[1-6]\d{7}
+  possibleLengths:
+    national: '9'
+nationalPrefix: '0'
+nationalPrefixFormattingRule: $NP$FG
+references:
+  sourceUrl: http://hlc.ly/price.php

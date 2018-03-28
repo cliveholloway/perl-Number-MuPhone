@@ -1,0 +1,48 @@
+---
+TerritoryName: Senegal
+availableFormats:
+  numberFormat:
+  - format: $1 $2 $3 $4
+    leadingDigits: '[379]'
+    pattern: (\d{2})(\d{3})(\d{2})(\d{2})
+  - format: $1 $2 $3 $4
+    leadingDigits: '8'
+    pattern: (\d{3})(\d{2})(\d{2})(\d{2})
+countryCode: '221'
+fixedLine:
+  exampleNumber: '301012345'
+  nationalNumberPattern: 3(?:0(?:1[0-2]|80)|282|3(?:8[1-9]|9[3-9])|611)\d{5}
+  possibleLengths:
+    national: '9'
+generalDesc:
+  nationalNumberPattern: '[3789]\d{8}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '701234567'
+  nationalNumberPattern: 7(?:[06-8]\d|21|90)\d{6}
+  possibleLengths:
+    national: '9'
+premiumRate:
+  exampleNumber: '884123456'
+  nationalNumberPattern: 88[4689]\d{6}
+  possibleLengths:
+    national: '9'
+references:
+  sourceUrl:
+  - http://www.itu.int/oth/T02020000B8/en
+  - http://www.artpsenegal.net/index.php?option=com_content&view=article&id=50
+sharedCost:
+  exampleNumber: '810123456'
+  nationalNumberPattern: 81[02468]\d{6}
+  possibleLengths:
+    national: '9'
+tollFree:
+  exampleNumber: '800123456'
+  nationalNumberPattern: 800\d{6}
+  possibleLengths:
+    national: '9'
+voip:
+  exampleNumber: '933301234'
+  nationalNumberPattern: 39[01]\d{6}|3392\d{5}|93330\d{4}
+  possibleLengths:
+    national: '9'

@@ -2,10 +2,11 @@ package Number::MuPhone::Parser;
 use 5.012;
 use Moo;
 use Number::MuPhone::Config;
-
+use Data::Dumper 'Dumper';
 
 # base class for number parsers
-# many countries don't have parsers (yet), so this is a sane default
+# This should be enough for most countries, but you have flexibility 
+# to overload in individual country parsers as needed
 
 # user shouldn't be calling the parser module direct
 # if they do, ensure all args exist
@@ -13,41 +14,132 @@ use Number::MuPhone::Config;
 
 ########################################
 # attributes
-# - first 2 are required at instantiation
-# - and only 2 expected
+# - 'country' and 'number' are required at instantiation
+# - and only 2 expected to be supplied
 ########################################
 
-# originally supplied phone number
-has number => (
-  is       => 'ro',
+# loaded from file or use default
+has global_config => (
+  is => 'ro',
+  default => sub {
+    return $Number::MuPhone::Config::config;
+  }
 );
 
-# 2 upper case char country code (except for catchall NANP)
-#  - inherited from subclass (matches module name
-has country => ( is => 'ro' );
-
-# common name for the country
-#  - inherited from subclass
-has 'country_name' => ( is => 'ro' );
-
-# international country code - numeric country code
-#  - inherited from subclass
-has country_code => ( is => 'ro' );
-
-# optional extension
-# - determined from number
-has extension => ( is => 'rw', default => '' );
-
-# store error message (silently ignored under Number::Phone
-has error => ( is => 'rw', default => '' );
-
-# default or loaded config
+# must be overloaded in country parser
 has config => (
   is => 'ro',
   default => sub {
-    return $Number::MuPhone::Config::config 
+    return { error => "Config needs overloading from the country's parser" };
   }
 );
+
+# store error message (silently ignored under Number::Phone)
+# if parse has no config, default error set
+has error => (
+  is => 'rw', 
+  default => '',
+);
+
+# originally supplied raw phone number, with possible formatting.
+has number => ( is => 'ro',);
+
+# 2 upper case char country code (except for catchall NANP)
+has country => (
+  is => 'ro',
+  lazy => 1,
+  default => sub {
+    shift->config->{CountryCode};
+  }
+);
+
+# international country code - numeric country code
+has country_code => (
+  is => 'ro',
+  lazy => 1,
+  default => sub {
+    shift->config->{countryCode};
+  }
+);
+
+# created in BUILD from 'number'
+has _cleaned_number => (
+  is => 'rw',
+);
+
+# prefix you dial when dialing *out* of the country to an international number
+has _international_dial_prefix => (
+  is => 'ro',
+  lazy => 1,
+  default => sub {
+    shift->config->{internationalPrefix};
+  },
+);
+
+# prefix you dial when dialing the _cleaned_number within the country
+has _national_dial_prefix => (
+  is => 'ro',
+  lazy => 1,
+  default => sub {
+    shift->config->{nationalPrefix};
+  },
+);
+
+# created in BUILD from config formats
+has _formatted_number => ( is => 'rw' );
+sub _format_number {
+  my $self = shift;
+  my $cleaned_number = $self->_cleaned_number||'';
+
+  my $formatted_number = $cleaned_number;
+  my $formatted;
+
+  # no formatting rules? Just return the number - TODO examine if this is right
+  return $cleaned_number unless @{ $self->config->{availableFormats}->{numberFormat} };
+
+  FORMAT: foreach my $format_hash (@{ $self->config->{availableFormats}->{numberFormat} }) {
+
+    # not all countries have leading digit mappings
+    if (my $leading_digits = $format_hash->{leadingDigits}) {
+      next FORMAT unless ( $cleaned_number =~ /^(?:$leading_digits)/ );
+    }
+
+    my $regex  = $format_hash->{pattern};
+    next FORMAT unless ( $cleaned_number =~ /^(?:$regex)$/ );
+
+    my $format = $format_hash->{format};
+
+    my $regex_statement = "\$formatted = \$formatted_number =~ s/$regex/$format/;";
+    eval $regex_statement;
+    if ($@) {
+      $self->error("Can't format number($cleaned_number) with regex($regex_statement): $@");
+      return undef;
+    }
+    last FORMAT;
+  }
+
+  if ($formatted) {
+    return $formatted_number;
+  }
+  else {
+    $self->error("Invalid Number");
+    return undef;
+  }
+}
+
+# common name for the country
+# - retrieve from subclass config
+has 'country_name' => (
+  is => 'ro',
+  lazy => 1,
+  default => sub {
+    shift->config->{TerritoryName};
+  },
+);
+
+# optional extension
+# - determined from number at instantiation
+has extension => ( is => 'rw', default => '' );
 
 # "standard" way to display the number in International Format
 # E.123 format
@@ -62,7 +154,7 @@ has international_display => (
 
 # dial number when you're in the country
 # this default should work for most countries
-has _national_dial => (
+has national_dial => (
   is      => 'ro',
   lazy    => 1,
   default => sub {
@@ -71,9 +163,23 @@ has _national_dial => (
   }
 );
 
-# return number formatted in E164 format (note, this drops the extension)
-# https://en.wikipedia.org/wiki/E164
+# return number formatted in E164 format, including extension
+# https://en.wikipedia.org/wiki/E.164
 has E164 => (
+  is      => 'ro',
+  lazy    => 1,
+  default => sub {
+    my $self = shift;
+    my $ext = $self->extension
+              ? ";ext=".$self->extension
+              : '';
+    return $self->E164_no_ext.$ext;
+  }
+);
+
+# return number formatted in E164 format
+# but without the extension
+has E164_no_ext => (
   is      => 'ro',
   lazy    => 1,
   default => sub {
@@ -86,22 +192,13 @@ has E164 => (
 # just an alias for E.164 format with (pause) extension added
 sub international_dial { 
   my $self = shift;
-  return $self->E164.$self->_extension_dial;
+  return $self->E164_no_ext.$self->_extension_dial;
 }
 
-# E123 format is like E164 + spacing
-# https://en.wikipedia.org/wiki/E123
-has E123 => (
-  is      => 'ro',
-  lazy    => 1,
-  default => sub {
-    my $self = shift;
-    return '+'.$self->country_code.' '.$self->_formatted_number.$self->_extension_display;
-  }
-);
 
 # How you want to store the number (say, in the DB)
 # defaults to +C N[ xE] (where C=Country code, N=number and E is optional extension)
+# TODO
 has storage_formatted_number => (
   is      => 'ro',
   lazy    => 1,
@@ -115,12 +212,14 @@ has storage_formatted_number => (
 );
 
 # shortcut
+# TODO
 sub display {
   my $self = shift;
   return $self->display_from( $self );
 }
 
 # shortcut 
+# TODO
 sub dial {
   my $self = shift;
   return $self->dial_from( $self );
@@ -128,26 +227,28 @@ sub dial {
 
 # return formatted number in national or international format, depending on where
 # the 'from' number (arg sent) is located
+# TODO
 sub display_from {
   my ($self,$str) = @_;
   my $from = $self->_get_obj_from($str);
   if ( $from->country_code eq $self->country_code ) {
-    return $self->_national_display;
+    return $self->national_display;
   }
   else {
-    # (DIAL PREFIX) (SPACER) (COUNTRY CODE) (FORMATTED NUMBER) [ (EXTENSION) ]
-    return $from->_international_dial_prefix.$from->_international_dial_spacer.$self->country_code.' '
+    # (DIAL PREFIX) (COUNTRY CODE) (FORMATTED NUMBER) [ (EXTENSION) ]
+    return $from->_international_dial_prefix.' '.$self->country_code.' '
           .$self->_formatted_number.$from->_extension_display;
   }
 }
 
 # return dial number in national or international format, depending on where
 # the 'for' number (arg sent) is located
+# TODO
 sub dial_from {
   my ($self,$str) = @_;
   my $obj = $self->_get_obj_from($str);
   if ( $obj->country_code eq $self->country_code ) {
-    return $self->_national_dial;
+    return $self->national_dial;
   }
   else {
     return $obj->_international_dial_prefix.$self->country_code.$self->_cleaned_number;
@@ -155,6 +256,7 @@ sub dial_from {
 }
 
 sub BUILD {
+# TODO
   my $self = shift;
 
   $self->number  or $self->error("'number' is required")  and return;
@@ -181,71 +283,47 @@ sub BUILD {
   $self->_formatted_number( $self->_format_number );
 };
 
-# on init, this is created from the raw number
-has _cleaned_number => (
-  is => 'rw',
-);
-
-# prefix you dial when dialing the _cleaned_number within the country
-#  - inherited from subclass
-has _national_dial_prefix => ( is => 'ro' );
-
-# prefix you dial when dialing *out* of the country to an international number
-#  - inherited from subclass
-has _international_dial_prefix => ( is => 'ro' );
-
-# spacer to put between _international_dial_pref and country_code
-# when displaying a full number
-has _international_dial_spacer => ( is => 'ro', default => ' ' );
-
-# When overloading this, try to keep as spaces and numbers only
-# (to stay in E.123 format)
-# If national_display uses different punctuation, add that in there, not here.
-# this is the general, "how should I space the number in an expected way" method
-has _formatted_number => ( is => 'rw' );
-sub _format_number {
-  my $self = shift;
-  my $num = $self->_cleaned_number||'';
-
-  if ( length($num) == 12 ) {
-    $num =~ s/^(\d{4})(\d{4})(\d{4})$/$1 $2 $3/;
-  }
-  elsif ( length($num) == 11 ) {
-    $num =~ s/^(\d{3})(\d{4})(\d{4})$/$1 $2 $3/;
-  }
-  elsif ( length($num) == 10 ) {
-    $num =~ s/^(\d{3})(\d{3})(\d{4})$/$1 $2 $3/;
-  }
-  elsif ( length($num) == 9 ) {
-    $num =~ s/^(\d{4})(\d{5})$/$1 $2/;
-  }
-  elsif ( length($num) == 8 ) {
-    $num =~ s/^(\d{4})(\d{4})$/$1 $2/;
-  }
-  elsif ( length($num) == 7 ) {
-    $num =~ s/^(\d{3})(\d{4})$/$1 $2/;
-  }
-  return $num;
-}
-
 # text to display before extension
+# TODO
 has _extension_text => ( is => 'rw', default => 'ext ' );
 
 # How do you display the number when you're in the country?
 # this default should work for most countries
-has _national_display => (
+# TODO
+has national_display => (
   is      => 'ro',
   lazy    => 1,
   default => sub {
     my $self = shift;
-    return $self->_national_dial_prefix.$self->_formatted_number.$self->_extension_display;
+    my $dial_prefix = $self->national_prefix_optional_when_formatting
+                      ? ''
+                      : $self->_national_dial_prefix;
+
+    return $dial_prefix.$self->_formatted_number.$self->_extension_display;
   }
 );
+
+# some countries (eg US) don't require the national prefix in displayed numbers
+# others (eg GB), do
+has national_prefix_optional_when_formatting => (
+  is      => 'ro',
+  lazy    => 1,
+  default => sub {
+    my $optional_format = shift->config->{nationalPrefixOptionalWhenFormatting};
+    return (defined $optional_format and $optional_format eq 'true')
+    ? 1
+    : 0;
+  },
+);
+
 
 # sane default in English - overload as needed
 # MUST return the parsed out phone number and extension
 # can contain extraneous characters - this is basically just splitting
 # the number from the extension
+# TODO - add country specific text for split to the template for each country
+# also add language specific data files (Number::MuPhone::Data::Language::English, say)
+# so we can set sane defaults for most countries
 sub _parse_number_and_extension {
   my $self = shift;
   # note - extension / ext / x must be in that order for highest chance of valid match
@@ -256,23 +334,33 @@ sub _parse_number_and_extension {
 
 # sane default - overload in country class if needed
 # this should work for most numbers
+# TODO
 sub _parse_number {
   my ($self,$rawnum) = @_;
 
-  my $country_code         = $self->country_code;
+  my $country_code          = $self->country_code;
   my $_national_dial_prefix = $self->_national_dial_prefix;   
 
   $rawnum =~ s/[^\+0-9]//g;                   # remove non-digits (except +)
-  $rawnum =~ s/\+$country_code//;             # remove country_code()
-  $rawnum =~ s/^$_national_dial_prefix//;     # remove _national_dial_prefix()
 
-  return $rawnum;
+  if (   $rawnum =~ s/^\+$country_code//                    # remove country_code; or
+      or $rawnum =~ s/^$_national_dial_prefix//             # remove national dial prefix; or
+      or $self->national_prefix_optional_when_formatting    # national dial prefix is optional
+     ) {
+    return $rawnum;
+  }
+  else {
+    return undef;
+  }
+
 }
 
 # for flexibility, we can parse out the country from
 # - another Number::MuPhone::Parser::* object
 # - a phone number string
 #   - return local country if we can't parse this
+# TODO
+# TODO
 sub _get_obj_from {
   my ($self,$str) = @_;
 
@@ -299,6 +387,7 @@ sub _get_obj_from {
   }
 }
 
+# TODO
 sub _extension_display {
   my $self = shift;
   my $ext = 
@@ -307,9 +396,10 @@ sub _extension_display {
          : '';
 }
 
+# TODO
 sub _extension_dial {
   my $self = shift;
-  my $pause = $self->config->{dialer}->{pause} || '';
+  my $pause = $self->global_config->{dialer}->{pause} || '';
   return $self->extension
          ? $pause.$self->extension
          : '';
@@ -319,6 +409,7 @@ sub _extension_dial {
 
 __END__
 
+# TODO
 =pod
 
 =encoding UTF-8
@@ -327,86 +418,38 @@ __END__
 
 Number::MuPhone::Parser
 
-=head1 VERSION
-
-version 0,01
-
 =head1 DESCRIPTION
 
-Base phone number parser class. Contains sane defaults.
+Base phone number parser class. Inherited by all parser classes
 
-This document covers how you might want to tweak Parser methods on a per
-country basis. For further documentation, please see the Number::MuPhone POD.
-
-If you do find a need, please contact me so I can merge useful changes in
-as needed.
-
-For each Number::MuPhone::Parser::COUNTRY.pm module, you must set values
-for the attributes country, country_code, country_name, 
-_national_dial_prefix and _international_dial_prefix. eg:
-
-    has '+country'                    => ( default => 'UK'             );
-    has '+country_code'               => ( default => '44'             );
-    has '+country_name'               => ( default => 'United Kingdom' );
-    has '+_national_dial_prefix'      => ( default => '0'              );
-    has '+_international_dial_prefix' => ( default => '00'             );
-
-These are already set for known countries.
-
-=head1 COMMONLY OVERLOADED METHODS
-
-Pretty much anything *may* benefit from overloading on a per country basis,
-but these are the most common methods that are need to be overloaded.
-
-=head2 _format_number() 
-
-Different countries have different ways of displaying phone numbers.
-
-The method _format_number is used to take the raw number (minus any extension)
-and format it a way that is normal for that country. The US's formatter is 
-simple; the UK's, not so much. It doesn't just do that though. It:
-
-* confirms the number is valid;
-* formats the number for common display; 
-* sets an error() if there's a problem; and
-* sets the value in the _formatted_number accessor.
-
-On completion of validation, it returns the formatted number if valid, or the
-original number if an error was encountered.
-
-There's a generic default, but it should be overloaded in each country's 
-Parser. This is an ongoing project to replace.
-
-=head2 _extension_text
-
-Text to display after the number plus a space, but before the extension.
-
-This defaults to the english 'ext ' but can be overloaded in individual 
-countries as needed.
-
+=head1 METHODS
 
 =head2 display_from( $num | $num_obj | country )
 
 This works out of the box for 90% of countries, but there are a few places 
-where this may need overwriting - eg, dialing French territories from France.
+where this may not work for some 'odd cases' - eg, dialing French territories from France.
+
+=head2 display()
+
+Alias for $num->display_from($num);
 
 =head2 dial_from( $num | $num_obj | country )
 
 This works out of the box for 90% of countries, but there are a few places 
 where this may need overwriting - eg, dialing French territories from France.
 
-=head2 _parse_number_and_extension
+=head2 dial()
 
-Basically split the entered number on a string that marks an extension.
+Alias for $num->dial_from($num);
 
-Defaults to English.
 
-Can amend this rule as needed in country classes
+TODO - finish documentation soon :D
+
 
 =head1 AUTHOR
 
 Clive Holloway <clive.holloway@gmail.com>
 
-Copyright (c) 2017 Clive Holloway 
+Copyright (c) 2017-2018 Clive Holloway 
 
 =cut

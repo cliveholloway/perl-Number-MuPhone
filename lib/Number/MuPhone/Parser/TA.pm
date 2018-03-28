@@ -1,12 +1,34 @@
 package Number::MuPhone::Parser::TA;
+use strict;
+use warnings;
 use Moo;
 
 extends 'Number::MuPhone::Parser';
 
-has '+country'              => ( default => 'TA'             );
-has '+country_code'         => ( default => '290'             );
-has '+country_name'         => ( default => 'Tristan da Cunha - kinda sorta part of Saint Helena' );
-has '+_national_dial_prefix'      => ( default => '' );
-has '+_international_dial_prefix' => ( default => '00' );
+sub config { 
+  return {
+  'fixedLine'=>{
+                 'exampleNumber'=>'8999',
+                 'possibleLengths'=>{
+                                      'national'=>'4'
+                                    },
+                 'nationalNumberPattern'=>'8\\d{3}'
+               },
+  'availableFormats'=>{
+                          'numberFormat'=>[]
+                        },
+  'CountryCode'=>'TA',
+  'TerritoryName'=>'Tristan da Cunha',
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'8\\d{3}'
+                 },
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T02020000AF/en'
+                },
+  'internationalPrefix'=>'00',
+  'countryCode'=>'290'
+}
+;
+}
 
 1;

@@ -8,25 +8,19 @@ use Carp;
 # - ENV{MUPHONE_CONF_FILEPATH}
 # - $ENV{HOME}/.muphone_conf.yaml
 
-# your config MUST contain the elements 'default_country', 'countries' and 'dialer'
+# your config MUST contain the elements 'default_country' and 'dialer'
 
-# default empty config 
+# default basic config 
 $Number::MuPhone::Config::config = {
   # two letter country code
-  # if a number is supplied withoput a country attr and doesn't begin with +CODE
+  # if a number is supplied without a country attr and doesn't begin with +CODE
   # try to parse the number as if it's in this country
-  default_country => '',
-
-  countries => {
-    US => {
-
-    },
-  },
+  default_country => 'US',
+  
   dialer => {
     # what is the pause / wait for extension character for your dialer
     pause => ','
   },
-  is_default => 1,
 };
 
 my $home_conf = $ENV{HOME}

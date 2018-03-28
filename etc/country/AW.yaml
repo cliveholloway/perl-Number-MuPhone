@@ -1,0 +1,38 @@
+---
+TerritoryName: Aruba
+availableFormats:
+  numberFormat:
+  - format: $1 $2
+    leadingDigits: ''
+    pattern: (\d{3})(\d{4})
+countryCode: '297'
+fixedLine:
+  exampleNumber: '5212345'
+  nationalNumberPattern: 5(?:2\d|8[1-9])\d{4}
+  possibleLengths:
+    national: '7'
+generalDesc:
+  nationalNumberPattern: '[25-9]\d{6}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '5601234'
+  nationalNumberPattern: (?:5(?:6\d|9[2-478])|6(?:[039]0|22|4[01]|6[0-2])|7[34]\d|9(?:6[45]|9[4-8]))\d{4}
+  possibleLengths:
+    national: '7'
+premiumRate:
+  exampleNumber: '9001234'
+  nationalNumberPattern: 900\d{4}
+  possibleLengths:
+    national: '7'
+references:
+  sourceUrl: http://www.itu.int/oth/T020200000B/en
+tollFree:
+  exampleNumber: '8001234'
+  nationalNumberPattern: 800\d{4}
+  possibleLengths:
+    national: '7'
+voip:
+  exampleNumber: '5011234'
+  nationalNumberPattern: 28\d{5}|501\d{4}
+  possibleLengths:
+    national: '7'

@@ -1,0 +1,51 @@
+---
+TerritoryName: Malta
+availableFormats:
+  numberFormat:
+  - format: $1 $2
+    leadingDigits: ''
+    pattern: (\d{4})(\d{4})
+countryCode: '356'
+fixedLine:
+  exampleNumber: '21001234'
+  nationalNumberPattern: 2(?:0(?:1[0-6]|3[1-4]|[69]\d)|[1-357]\d{2})\d{4}
+  possibleLengths:
+    national: '8'
+generalDesc:
+  nationalNumberPattern: '[2357-9]\d{7}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '96961234'
+  nationalNumberPattern: (?:7(?:210|[79]\d{2})|9(?:2(?:1[01]|31)|696|8(?:1[1-3]|89|97)|9\d{2}))\d{4}
+  possibleLengths:
+    national: '8'
+mobileNumberPortableRegion: 'true'
+pager:
+  exampleNumber: '71171234'
+  nationalNumberPattern: 7117\d{4}
+  possibleLengths:
+    national: '8'
+premiumRate:
+  exampleNumber: '50037123'
+  nationalNumberPattern: 5(?:0(?:0(?:37|43)|6\d{2}|70\d|9[0168]\d)|[12]\d0[1-5])\d{3}
+  possibleLengths:
+    national: '8'
+references:
+  sourceUrl:
+  - http://www.itu.int/oth/T0202000084/en
+  - http://www.mca.org.mt
+tollFree:
+  exampleNumber: '80071234'
+  nationalNumberPattern: 800[3467]\d{4}
+  possibleLengths:
+    national: '8'
+uan:
+  exampleNumber: '50112345'
+  nationalNumberPattern: 501\d{5}
+  possibleLengths:
+    national: '8'
+voip:
+  exampleNumber: '35501234'
+  nationalNumberPattern: 3550\d{4}
+  possibleLengths:
+    national: '8'

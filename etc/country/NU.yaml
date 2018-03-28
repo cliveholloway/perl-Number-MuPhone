@@ -1,0 +1,22 @@
+---
+TerritoryName: Niue
+availableFormats:
+  numberFormat: []
+countryCode: '683'
+fixedLine:
+  exampleNumber: '4002'
+  nationalNumberPattern: '[34]\d{3}'
+  possibleLengths:
+    national: '4'
+generalDesc:
+  nationalNumberPattern: '[1-5]\d{3}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '1234'
+  nationalNumberPattern: '[125]\d{3}'
+  possibleLengths:
+    national: '4'
+references:
+  sourceUrl:
+  - http://www.itu.int/oth/T02020000EC/en
+  - http://en.wikipedia.org/wiki/Telephone_numbers_in_Niue

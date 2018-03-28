@@ -1,0 +1,44 @@
+---
+TerritoryName: Rwanda
+availableFormats:
+  numberFormat:
+  - format: $1 $2 $3
+    leadingDigits: '2'
+    nationalPrefixFormattingRule: $FG
+    pattern: (2\d{2})(\d{3})(\d{3})
+  - format: $1 $2 $3
+    leadingDigits: '[7-9]'
+    nationalPrefixFormattingRule: $NP$FG
+    pattern: ([7-9]\d{2})(\d{3})(\d{3})
+  - format: $1 $2 $3 $4
+    leadingDigits: ''
+    pattern: (0\d)(\d{2})(\d{2})(\d{2})
+countryCode: '250'
+fixedLine:
+  exampleNumber: '250123456'
+  nationalNumberPattern: 2[258]\d{7}|06\d{6}
+  possibleLengths:
+    national: 8,9
+generalDesc:
+  nationalNumberPattern: '[027-9]\d{7,8}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '720123456'
+  nationalNumberPattern: 7[238]\d{7}
+  possibleLengths:
+    national: '9'
+nationalPrefix: '0'
+premiumRate:
+  exampleNumber: '900123456'
+  nationalNumberPattern: 900\d{6}
+  possibleLengths:
+    national: '9'
+references:
+  sourceUrl:
+  - http://www.rura.gov.rw/docs/RWANDA_NATIONAL_NUMBERING_PLAN.pdf
+  - http://en.wikipedia.org/wiki/+250
+tollFree:
+  exampleNumber: '800123456'
+  nationalNumberPattern: 800\d{6}
+  possibleLengths:
+    national: '9'

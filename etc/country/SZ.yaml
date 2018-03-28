@@ -1,0 +1,33 @@
+---
+TerritoryName: Swaziland
+availableFormats:
+  numberFormat:
+  - format: $1 $2
+    leadingDigits: '[027]'
+    pattern: (\d{4})(\d{4})
+countryCode: '268'
+fixedLine:
+  exampleNumber: '22171234'
+  nationalNumberPattern: 2[2-5]\d{6}
+  possibleLengths:
+    national: '8'
+generalDesc:
+  nationalNumberPattern: '[027]\d{7}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '76123456'
+  nationalNumberPattern: 7[6-8]\d{6}
+  possibleLengths:
+    national: '8'
+noInternationalDialling:
+  exampleNumber: '08001234'
+  nationalNumberPattern: 0800\d{4}
+  possibleLengths:
+    national: '8'
+references:
+  sourceUrl: http://www.itu.int/oth/T02020000C6/en
+tollFree:
+  exampleNumber: '08001234'
+  nationalNumberPattern: 0800\d{4}
+  possibleLengths:
+    national: '8'

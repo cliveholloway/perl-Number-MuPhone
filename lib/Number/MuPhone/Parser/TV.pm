@@ -1,12 +1,44 @@
 package Number::MuPhone::Parser::TV;
+use strict;
+use warnings;
 use Moo;
 
 extends 'Number::MuPhone::Parser';
 
-has '+country'              => ( default => 'TV'             );
-has '+country_code'         => ( default => '688'             );
-has '+country_name'         => ( default => 'Tuvalu' );
-has '+_national_dial_prefix'      => ( default => '' );
-has '+_international_dial_prefix' => ( default => '00' );
+sub config { 
+  return {
+  'CountryCode'=>'TV',
+  'availableFormats'=>{
+                          'numberFormat'=>[]
+                        },
+  'TerritoryName'=>'Tuvalu',
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[279]\\d{4,6}'
+                 },
+  'references'=>{
+                  'sourceUrl'=>[
+                                 'http://www.itu.int/oth/T02020000D9/en',
+                                 'http://en.wikipedia.org/wiki/Telephone_numbers_in_Tuvalu'
+                               ]
+                },
+  'mobile'=>{
+              'exampleNumber'=>'901234',
+              'nationalNumberPattern'=>'(?:70\\d|90)\\d{4}',
+              'possibleLengths'=>{
+                                   'national'=>'6,7'
+                                 }
+            },
+  'countryCode'=>'688',
+  'internationalPrefix'=>'00',
+  'fixedLine'=>{
+                 'exampleNumber'=>'20123',
+                 'nationalNumberPattern'=>'2[02-9]\\d{3}',
+                 'possibleLengths'=>{
+                                      'national'=>'5'
+                                    }
+               }
+}
+;
+}
 
 1;

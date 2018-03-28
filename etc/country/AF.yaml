@@ -1,0 +1,26 @@
+---
+TerritoryName: Afghanistan
+availableFormats:
+  numberFormat:
+  - format: $1 $2 $3
+    leadingDigits: '[2-7]'
+    pattern: ([2-7]\d)(\d{3})(\d{4})
+countryCode: '93'
+fixedLine:
+  exampleNumber: '234567890'
+  nationalNumberPattern: (?:[25][0-8]|[34][0-4]|6[0-5])[2-9]\d{6}
+  possibleLengths:
+    localOnly: '7'
+    national: '9'
+generalDesc:
+  nationalNumberPattern: '[2-7]\d{8}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '701234567'
+  nationalNumberPattern: 7(?:[014-9]\d|2[89]|30)\d{6}
+  possibleLengths:
+    national: '9'
+nationalPrefix: '0'
+nationalPrefixFormattingRule: $NP$FG
+references:
+  sourceUrl: http://www.itu.int/oth/T0202000001/en

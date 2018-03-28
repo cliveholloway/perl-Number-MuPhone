@@ -1,0 +1,23 @@
+---
+TerritoryName: Micronesia, Federated States of
+availableFormats:
+  numberFormat:
+  - format: $1 $2
+    leadingDigits: ''
+    pattern: (\d{3})(\d{4})
+countryCode: '691'
+fixedLine:
+  exampleNumber: '3201234'
+  nationalNumberPattern: 3[2357]0[1-9]\d{3}|9[2-6]\d{5}
+  possibleLengths:
+    national: '7'
+generalDesc:
+  nationalNumberPattern: '[39]\d{6}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '3501234'
+  nationalNumberPattern: 3[2357]0[1-9]\d{3}|9[2-7]\d{5}
+  possibleLengths:
+    national: '7'
+references:
+  sourceUrl: http://www.itu.int/oth/T020200008B/en

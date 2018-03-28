@@ -1,12 +1,67 @@
 package Number::MuPhone::Parser::CW;
+use strict;
+use warnings;
 use Moo;
 
 extends 'Number::MuPhone::Parser';
 
-has '+country'              => ( default => 'CW'             );
-has '+country_code'         => ( default => '599'             );
-has '+country_name'         => ( default => 'Curacao' );
-has '+_national_dial_prefix'      => ( default => '' );
-has '+_international_dial_prefix' => ( default => '00' );
+sub config { 
+  return {
+  'sharedCost'=>{
+                  'nationalNumberPattern'=>'60[0-2]\\d{4}',
+                  'possibleLengths'=>{
+                                       'national'=>'7'
+                                     },
+                  'exampleNumber'=>'6001234'
+                },
+  'fixedLine'=>{
+                 'possibleLengths'=>{
+                                      'national'=>'8'
+                                    },
+                 'nationalNumberPattern'=>'9(?:[48]\\d{2}|50\\d|7(?:2[0-24]|[34]\\d|6[35-7]|77|8[7-9]))\\d{4}',
+                 'exampleNumber'=>'94151234'
+               },
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T02020000F5/en'
+                },
+  'mobile'=>{
+              'exampleNumber'=>'95181234',
+              'possibleLengths'=>{
+                                   'national'=>'8'
+                                 },
+              'nationalNumberPattern'=>'9(?:5(?:[12467]\\d|3[01])|6(?:[15-9]\\d|3[01]))\\d{4}'
+            },
+  'countryCode'=>'599',
+  'internationalPrefix'=>'00',
+  'pager'=>{
+             'exampleNumber'=>'95581234',
+             'possibleLengths'=>{
+                                  'national'=>'8'
+                                },
+             'nationalNumberPattern'=>'955\\d{5}'
+           },
+  'CountryCode'=>'CW',
+  'TerritoryName'=>'Curaçao',
+  'availableFormats'=>{
+                          'numberFormat'=>[
+                                              {
+                                                'pattern'=>'(\\d{3})(\\d{4})',
+                                                'format'=>'$1 $2',
+                                                'leadingDigits'=>'[13-7]'
+                                              },
+                                              {
+                                                'pattern'=>'(9)(\\d{3})(\\d{4})',
+                                                'leadingDigits'=>'9',
+                                                'format'=>'$1 $2 $3'
+                                              }
+                                            ]
+                        },
+  'mainCountryForCode'=>'true',
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[169]\\d{6,7}'
+                 }
+}
+;
+}
 
 1;

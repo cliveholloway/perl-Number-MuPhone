@@ -1,0 +1,39 @@
+---
+TerritoryName: Qatar
+availableFormats:
+  numberFormat:
+  - format: $1 $2
+    leadingDigits: '[28]'
+    pattern: ([28]\d{2})(\d{4})
+  - format: $1 $2
+    leadingDigits: '[3-7]'
+    pattern: ([3-7]\d{3})(\d{4})
+countryCode: '974'
+fixedLine:
+  exampleNumber: '44123456'
+  nationalNumberPattern: 4[04]\d{6}
+  possibleLengths:
+    national: '8'
+generalDesc:
+  nationalNumberPattern: '[2-8]\d{6,7}'
+internationalPrefix: '00'
+mobile:
+  exampleNumber: '33123456'
+  nationalNumberPattern: '[3567]\d{7}'
+  possibleLengths:
+    national: '8'
+mobileNumberPortableRegion: 'true'
+pager:
+  exampleNumber: '2123456'
+  nationalNumberPattern: 2(?:[12]\d|61)\d{4}
+  possibleLengths:
+    national: '7'
+references:
+  sourceUrl:
+  - http://www.itu.int/oth/T02020000AB/en
+  - http://wtng.info/wtng-qq.html
+tollFree:
+  exampleNumber: '8001234'
+  nationalNumberPattern: 800\d{4}
+  possibleLengths:
+    national: '7'
