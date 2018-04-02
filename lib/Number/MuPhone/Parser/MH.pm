@@ -7,17 +7,21 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
-  'nationalPrefix'=>'1',
-  'fixedLine'=>{
-                 'nationalNumberPattern'=>'(?:247|528|625)\\d{4}',
-                 'possibleLengths'=>{
-                                      'national'=>'7'
-                                    },
-                 'exampleNumber'=>'2471234'
-               },
+  'internationalPrefix'=>'011',
   'references'=>{
                   'sourceUrl'=>'http://www.itu.int/oth/T0202000085/en'
                 },
+  'CountryCode'=>'MH',
+  'TerritoryName'=>'Marshall Islands',
+  'nationalPrefix'=>'1',
+  'countryCode'=>'692',
+  'fixedLine'=>{
+                 'exampleNumber'=>'2471234',
+                 'nationalNumberPattern'=>'(?:247|528|625)\\d{4}',
+                 'possibleLengths'=>{
+                                      'national'=>'7'
+                                    }
+               },
   'mobile'=>{
               'exampleNumber'=>'2351234',
               'nationalNumberPattern'=>'(?:235|329|45[56]|545)\\d{4}',
@@ -25,29 +29,25 @@ sub config {
                                    'national'=>'7'
                                  }
             },
-  'countryCode'=>'692',
-  'internationalPrefix'=>'011',
-  'CountryCode'=>'MH',
-  'TerritoryName'=>'Marshall Islands',
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
                                                 'leadingDigits'=>'',
-                                                'format'=>'$1-$2',
-                                                'pattern'=>'(\\d{3})(\\d{4})'
+                                                'pattern'=>'(\\d{3})(\\d{4})',
+                                                'format'=>'$1-$2'
                                               }
                                             ]
                         },
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'[2-6]\\d{6}'
-                 },
   'voip'=>{
-            'exampleNumber'=>'6351234',
+            'nationalNumberPattern'=>'635\\d{4}',
             'possibleLengths'=>{
                                  'national'=>'7'
                                },
-            'nationalNumberPattern'=>'635\\d{4}'
-          }
+            'exampleNumber'=>'6351234'
+          },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[2-6]\\d{6}'
+                 }
 }
 ;
 }

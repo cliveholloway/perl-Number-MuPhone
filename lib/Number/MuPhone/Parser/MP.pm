@@ -14,9 +14,6 @@ sub config {
                                    },
                 'exampleNumber'=>'8002123456'
               },
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'[5689]\\d{9}'
-                 },
   'premiumRate'=>{
                    'exampleNumber'=>'9002123456',
                    'nationalNumberPattern'=>'900[2-9]\\d{6}',
@@ -24,52 +21,55 @@ sub config {
                                         'national'=>'10'
                                       }
                  },
+  'internationalPrefix'=>'011',
   'personalNumber'=>{
                       'exampleNumber'=>'5002345678',
+                      'nationalNumberPattern'=>'5(?:00|22|33|44|66|77|88)[2-9]\\d{6}',
                       'possibleLengths'=>{
                                            'national'=>'10'
-                                         },
-                      'nationalNumberPattern'=>'5(?:00|22|33|44|66|77|88)[2-9]\\d{6}'
+                                         }
                     },
-  'availableFormats'=>{
-                          'numberFormat'=>[
-                                              {
-                                                'format'=>'($1) $2-$3',
-                                                'leadingDigits'=>'',
-                                                'intlFormat'=>'$1-$2-$3',
-                                                'pattern'=>'(\\d{3})(\\d{3})(\\d{4})'
-                                              }
-                                            ]
-                        },
-  'CountryCode'=>'MP',
-  'TerritoryName'=>'Northern Mariana Islands',
-  'internationalPrefix'=>'011',
-  'countryCode'=>'1',
-  'nationalPrefixOptionalWhenFormatting'=>'true',
+  'leadingDigits'=>'670',
   'references'=>{
                   'sourceUrl'=>[
                                  'http://www.itu.int/oth/T02020000EE/en',
                                  'http://www.cnmiphonebook.com/'
                                ]
                 },
-  'mobile'=>{
-              'nationalNumberPattern'=>'670(?:2(?:3[3-7]|56|8[5-8])|32[1238]|4(?:33|8[348])|5(?:32|55|88)|6(?:64|70|82)|78[3589]|8[3-9]8|989)\\d{4}',
-              'possibleLengths'=>{
-                                   'national'=>'10',
-                                   'localOnly'=>'7'
-                                 },
-              'exampleNumber'=>'6702345678'
-            },
-  'leadingDigits'=>'670',
+  'nationalPrefixOptionalWhenFormatting'=>'true',
+  'CountryCode'=>'MP',
+  'TerritoryName'=>'Northern Mariana Islands',
   'fixedLine'=>{
-                 'exampleNumber'=>'6702345678',
+                 'nationalNumberPattern'=>'670(?:2(?:3[3-7]|56|8[5-8])|32[1238]|4(?:33|8[348])|5(?:32|55|88)|6(?:64|70|82)|78[3589]|8[3-9]8|989)\\d{4}',
                  'possibleLengths'=>{
-                                      'national'=>'10',
-                                      'localOnly'=>'7'
+                                      'localOnly'=>'7',
+                                      'national'=>'10'
                                     },
-                 'nationalNumberPattern'=>'670(?:2(?:3[3-7]|56|8[5-8])|32[1238]|4(?:33|8[348])|5(?:32|55|88)|6(?:64|70|82)|78[3589]|8[3-9]8|989)\\d{4}'
+                 'exampleNumber'=>'6702345678'
                },
-  'nationalPrefix'=>'1'
+  'nationalPrefix'=>'1',
+  'countryCode'=>'1',
+  'availableFormats'=>{
+                          'numberFormat'=>[
+                                              {
+                                                'pattern'=>'(\\d{3})(\\d{3})(\\d{4})',
+                                                'leadingDigits'=>'',
+                                                'intlFormat'=>'$1-$2-$3',
+                                                'format'=>'($1) $2-$3'
+                                              }
+                                            ]
+                        },
+  'mobile'=>{
+              'exampleNumber'=>'6702345678',
+              'possibleLengths'=>{
+                                   'localOnly'=>'7',
+                                   'national'=>'10'
+                                 },
+              'nationalNumberPattern'=>'670(?:2(?:3[3-7]|56|8[5-8])|32[1238]|4(?:33|8[348])|5(?:32|55|88)|6(?:64|70|82)|78[3589]|8[3-9]8|989)\\d{4}'
+            },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[5689]\\d{9}'
+                 }
 }
 ;
 }

@@ -7,29 +7,16 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
-  'nationalPrefix'=>'0',
-  'fixedLine'=>{
-                 'nationalNumberPattern'=>'41\\d{4}',
-                 'possibleLengths'=>{
-                                      'national'=>'6'
-                                    },
-                 'exampleNumber'=>'411234'
-               },
-  'nationalPrefixFormattingRule'=>'$NP$FG',
-  'references'=>{
-                  'sourceUrl'=>'http://www.itu.int/oth/T02020000B2/en'
-                },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[45]\\d{5}'
+                 },
   'mobile'=>{
               'exampleNumber'=>'551234',
+              'nationalNumberPattern'=>'(?:40|55)\\d{4}',
               'possibleLengths'=>{
                                    'national'=>'6'
-                                 },
-              'nationalNumberPattern'=>'(?:40|55)\\d{4}'
+                                 }
             },
-  'internationalPrefix'=>'00',
-  'countryCode'=>'508',
-  'CountryCode'=>'PM',
-  'TerritoryName'=>'Saint Pierre and Miquelon (Collectivité territoriale de la République française)',
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
@@ -39,9 +26,22 @@ sub config {
                                               }
                                             ]
                         },
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'[45]\\d{5}'
-                 }
+  'nationalPrefix'=>'0',
+  'countryCode'=>'508',
+  'fixedLine'=>{
+                 'exampleNumber'=>'411234',
+                 'possibleLengths'=>{
+                                      'national'=>'6'
+                                    },
+                 'nationalNumberPattern'=>'41\\d{4}'
+               },
+  'nationalPrefixFormattingRule'=>'$NP$FG',
+  'TerritoryName'=>'Saint Pierre and Miquelon (Collectivité territoriale de la République française)',
+  'CountryCode'=>'PM',
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T02020000B2/en'
+                },
+  'internationalPrefix'=>'00'
 }
 ;
 }

@@ -7,14 +7,34 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
+  'internationalPrefix'=>'00',
+  'tollFree'=>{
+                'nationalNumberPattern'=>'800\\d{6}',
+                'possibleLengths'=>{
+                                     'national'=>'9'
+                                   },
+                'exampleNumber'=>'800123456'
+              },
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T0202000091/en'
+                },
+  'CountryCode'=>'MZ',
+  'TerritoryName'=>'Mozambique',
+  'countryCode'=>'258',
   'fixedLine'=>{
-                 'nationalNumberPattern'=>'2(?:[1346]\\d|5[0-2]|[78][12]|93)\\d{5}',
+                 'exampleNumber'=>'21123456',
                  'possibleLengths'=>{
                                       'national'=>'8'
                                     },
-                 'exampleNumber'=>'21123456'
+                 'nationalNumberPattern'=>'2(?:[1346]\\d|5[0-2]|[78][12]|93)\\d{5}'
                },
-  'CountryCode'=>'MZ',
+  'mobile'=>{
+              'exampleNumber'=>'821234567',
+              'nationalNumberPattern'=>'8[2-7]\\d{7}',
+              'possibleLengths'=>{
+                                   'national'=>'9'
+                                 }
+            },
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
@@ -29,29 +49,9 @@ sub config {
                                               }
                                             ]
                         },
-  'TerritoryName'=>'Mozambique',
-  'tollFree'=>{
-                'exampleNumber'=>'800123456',
-                'possibleLengths'=>{
-                                     'national'=>'9'
-                                   },
-                'nationalNumberPattern'=>'800\\d{6}'
-              },
   'generalDesc'=>{
                    'nationalNumberPattern'=>'[28]\\d{7,8}'
-                 },
-  'mobile'=>{
-              'exampleNumber'=>'821234567',
-              'nationalNumberPattern'=>'8[2-7]\\d{7}',
-              'possibleLengths'=>{
-                                   'national'=>'9'
-                                 }
-            },
-  'references'=>{
-                  'sourceUrl'=>'http://www.itu.int/oth/T0202000091/en'
-                },
-  'internationalPrefix'=>'00',
-  'countryCode'=>'258'
+                 }
 }
 ;
 }

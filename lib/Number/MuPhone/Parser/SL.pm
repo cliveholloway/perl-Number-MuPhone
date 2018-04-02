@@ -7,42 +7,42 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
-  'CountryCode'=>'SL',
-  'TerritoryName'=>'Sierra Leone',
+  'nationalPrefixFormattingRule'=>'($NP$FG)',
+  'nationalPrefix'=>'0',
+  'countryCode'=>'232',
+  'fixedLine'=>{
+                 'nationalNumberPattern'=>'[235]2[2-4][2-9]\\d{4}',
+                 'possibleLengths'=>{
+                                      'localOnly'=>'6',
+                                      'national'=>'8'
+                                    },
+                 'exampleNumber'=>'22221234'
+               },
+  'mobile'=>{
+              'exampleNumber'=>'25123456',
+              'possibleLengths'=>{
+                                   'national'=>'8'
+                                 },
+              'nationalNumberPattern'=>'(?:2[15]|3[03-5]|4[04]|5[05]|66|7[6-9]|8[08]|99)\\d{6}'
+            },
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
+                                                'format'=>'$1 $2',
                                                 'pattern'=>'(\\d{2})(\\d{6})',
-                                                'leadingDigits'=>'',
-                                                'format'=>'$1 $2'
+                                                'leadingDigits'=>''
                                               }
                                             ]
                         },
   'generalDesc'=>{
                    'nationalNumberPattern'=>'[2-9]\\d{7}'
                  },
-  'nationalPrefixFormattingRule'=>'($NP$FG)',
-  'mobile'=>{
-              'nationalNumberPattern'=>'(?:2[15]|3[03-5]|4[04]|5[05]|66|7[6-9]|8[08]|99)\\d{6}',
-              'possibleLengths'=>{
-                                   'national'=>'8'
-                                 },
-              'exampleNumber'=>'25123456'
-            },
+  'internationalPrefix'=>'00',
   'references'=>{
                   'sourceUrl'=>'http://www.itu.int/oth/T02020000BB/en'
                 },
-  'internationalPrefix'=>'00',
-  'countryCode'=>'232',
-  'fixedLine'=>{
-                 'possibleLengths'=>{
-                                      'localOnly'=>'6',
-                                      'national'=>'8'
-                                    },
-                 'nationalNumberPattern'=>'[235]2[2-4][2-9]\\d{4}',
-                 'exampleNumber'=>'22221234'
-               },
-  'nationalPrefix'=>'0'
+  'CountryCode'=>'SL',
+  'TerritoryName'=>'Sierra Leone'
 }
 ;
 }

@@ -7,45 +7,25 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
-  'CountryCode'=>'KE',
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
                                                 'leadingDigits'=>'[24-6]',
-                                                'format'=>'$1 $2',
-                                                'pattern'=>'(\\d{2})(\\d{5,7})'
+                                                'pattern'=>'(\\d{2})(\\d{5,7})',
+                                                'format'=>'$1 $2'
                                               },
                                               {
+                                                'pattern'=>'(\\d{3})(\\d{6})',
                                                 'leadingDigits'=>'7',
-                                                'format'=>'$1 $2',
-                                                'pattern'=>'(\\d{3})(\\d{6})'
+                                                'format'=>'$1 $2'
                                               },
                                               {
-                                                'pattern'=>'(\\d{3})(\\d{3})(\\d{3,4})',
                                                 'format'=>'$1 $2 $3',
+                                                'pattern'=>'(\\d{3})(\\d{3})(\\d{3,4})',
                                                 'leadingDigits'=>'[89]'
                                               }
                                             ]
                         },
-  'TerritoryName'=>'Kenya',
-  'premiumRate'=>{
-                   'exampleNumber'=>'900223456',
-                   'possibleLengths'=>{
-                                        'national'=>'9'
-                                      },
-                   'nationalNumberPattern'=>'900[02-9]\\d{5}'
-                 },
-  'nationalPrefixForParsing'=>'005|0',
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'20\\d{6,7}|[4-9]\\d{6,9}'
-                 },
-  'tollFree'=>{
-                'exampleNumber'=>'800223456',
-                'nationalNumberPattern'=>'800[24-8]\\d{5,6}',
-                'possibleLengths'=>{
-                                     'national'=>'9,10'
-                                   }
-              },
   'mobile'=>{
               'possibleLengths'=>{
                                    'national'=>'9'
@@ -53,7 +33,20 @@ sub config {
               'nationalNumberPattern'=>'7(?:[0-3679]\\d|4[0-4679]|5[0-6]|8[0-25-9])\\d{6}',
               'exampleNumber'=>'712123456'
             },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'20\\d{6,7}|[4-9]\\d{6,9}'
+                 },
   'nationalPrefixFormattingRule'=>'$NP$FG',
+  'mobileNumberPortableRegion'=>'true',
+  'fixedLine'=>{
+                 'possibleLengths'=>{
+                                      'national'=>'[7-9]'
+                                    },
+                 'nationalNumberPattern'=>'20\\d{6,7}|4(?:0\\d{6,7}|[136]\\d{7}|[245]\\d{5,7})|5(?:[08]\\d{7}|[1-79]\\d{5,7})|6(?:[01457-9]\\d{5,7}|2\\d{7}|6\\d{6,7})',
+                 'exampleNumber'=>'202012345'
+               },
+  'nationalPrefix'=>'0',
+  'countryCode'=>'254',
   'references'=>{
                   'sourceUrl'=>[
                                  'http://www.ca.go.ke/index.php/numbering',
@@ -61,17 +54,24 @@ sub config {
                                  'http://en.wikipedia.org/wiki/+254'
                                ]
                 },
-  'countryCode'=>'254',
-  'mobileNumberPortableRegion'=>'true',
+  'CountryCode'=>'KE',
+  'nationalPrefixForParsing'=>'005|0',
+  'TerritoryName'=>'Kenya',
   'internationalPrefix'=>'000',
-  'fixedLine'=>{
-                 'exampleNumber'=>'202012345',
-                 'possibleLengths'=>{
-                                      'national'=>'[7-9]'
-                                    },
-                 'nationalNumberPattern'=>'20\\d{6,7}|4(?:0\\d{6,7}|[136]\\d{7}|[245]\\d{5,7})|5(?:[08]\\d{7}|[1-79]\\d{5,7})|6(?:[01457-9]\\d{5,7}|2\\d{7}|6\\d{6,7})'
-               },
-  'nationalPrefix'=>'0'
+  'premiumRate'=>{
+                   'exampleNumber'=>'900223456',
+                   'possibleLengths'=>{
+                                        'national'=>'9'
+                                      },
+                   'nationalNumberPattern'=>'900[02-9]\\d{5}'
+                 },
+  'tollFree'=>{
+                'nationalNumberPattern'=>'800[24-8]\\d{5,6}',
+                'possibleLengths'=>{
+                                     'national'=>'9,10'
+                                   },
+                'exampleNumber'=>'800223456'
+              }
 }
 ;
 }

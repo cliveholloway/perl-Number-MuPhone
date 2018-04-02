@@ -3,117 +3,56 @@ use strict;
 use warnings;
 
 $Number::MuPhone::Data::idd_codes = {
-  '230'=>[
-           'MU'
+  '31'=>[
+          'NL'
+        ],
+  '54'=>[
+          'AR'
+        ],
+  '229'=>[
+           'BJ'
          ],
-  '355'=>[
-           'AL'
+  '232'=>[
+           'SL'
          ],
-  '240'=>[
-           'GQ'
+  '225'=>[
+           'CI'
          ],
-  '351'=>[
-           'PT'
+  '290'=>[
+           'SH',
+           'TA'
          ],
-  '961'=>[
-           'LB'
-         ],
-  '7'=>[
-         'KZ',
-         'RU'
-       ],
-  '247'=>[
-           'AC'
+  '60'=>[
+          'MY'
+        ],
+  '81'=>[
+          'JP'
+        ],
+  '354'=>[
+           'IS'
          ],
   '61'=>[
           'AU',
           'CC',
           'CX'
         ],
-  '57'=>[
-          'CO'
-        ],
-  '852'=>[
-           'HK'
+  '220'=>[
+           'GM'
          ],
-  '249'=>[
-           'SD'
+  '355'=>[
+           'AL'
          ],
-  '598'=>[
-           'UY'
+  '357'=>[
+           'CY'
          ],
-  '880'=>[
-           'BD'
+  '254'=>[
+           'KE'
          ],
-  '39'=>[
-          'IT',
-          'VA'
-        ],
-  '387'=>[
-           'BA'
+  '597'=>[
+           'SR'
          ],
-  '226'=>[
-           'BF'
-         ],
-  '81'=>[
-          'JP'
-        ],
-  '595'=>[
-           'PY'
-         ],
-  '591'=>[
-           'BO'
-         ],
-  '385'=>[
-           'HR'
-         ],
-  '974'=>[
-           'QA'
-         ],
-  '371'=>[
-           'LV'
-         ],
-  '237'=>[
-           'CM'
-         ],
-  '268'=>[
-           'SZ'
-         ],
-  '389'=>[
-           'MK'
-         ],
-  '992'=>[
-           'TJ'
-         ],
-  '689'=>[
-           'PF'
-         ],
-  '92'=>[
-          'PK'
-        ],
-  '359'=>[
-           'BG'
-         ],
-  '40'=>[
-          'RO'
-        ],
-  '267'=>[
-           'BW'
-         ],
-  '225'=>[
-           'CI'
-         ],
-  '500'=>[
-           'FK'
-         ],
-  '233'=>[
-           'GH'
-         ],
-  '298'=>[
-           'FO'
-         ],
-  '968'=>[
-           'OM'
+  '592'=>[
+           'GY'
          ],
   '44'=>[
           'GB',
@@ -121,281 +60,545 @@ $Number::MuPhone::Data::idd_codes = {
           'IM',
           'JE'
         ],
-  '269'=>[
-           'KM'
+  '596'=>[
+           'MQ'
          ],
-  '676'=>[
-           'TO'
-         ],
-  '975'=>[
-           'BT'
-         ],
-  '850'=>[
-           'KP'
-         ],
-  '63'=>[
-          'PH'
+  '48'=>[
+          'PL'
         ],
-  '31'=>[
-          'NL'
+  '55'=>[
+          'BR'
         ],
-  '297'=>[
-           'AW'
-         ],
-  '995'=>[
-           'GE'
-         ],
-  '46'=>[
-          'SE'
-        ],
-  '252'=>[
-           'SO'
-         ],
-  '47'=>[
-          'NO',
-          'SJ'
-        ],
-  '53'=>[
-          'CU'
-        ],
-  '966'=>[
-           'SA'
-         ],
-  '266'=>[
-           'LS'
-         ],
-  '372'=>[
-           'EE'
-         ],
-  '228'=>[
-           'TG'
-         ],
-  '257'=>[
-           'BI'
-         ],
-  '43'=>[
-          'AT'
-        ],
-  '685'=>[
-           'WS'
-         ],
-  '242'=>[
-           'CG'
-         ],
-  '674'=>[
-           'NR'
-         ],
-  '353'=>[
-           'IE'
-         ],
-  '504'=>[
-           'HN'
-         ],
-  '967'=>[
-           'YE'
-         ],
-  '91'=>[
-          'IN'
-        ],
-  '93'=>[
-          'AF'
-        ],
-  '679'=>[
-           'FJ'
-         ],
-  '373'=>[
-           'MD'
-         ],
-  '382'=>[
-           'ME'
-         ],
-  '354'=>[
-           'IS'
-         ],
-  '49'=>[
-          'DE'
-        ],
-  '386'=>[
-           'SI'
-         ],
-  '593'=>[
-           'EC'
-         ],
-  '299'=>[
-           'GL'
-         ],
-  '594'=>[
-           'GF'
-         ],
-  '963'=>[
-           'SY'
-         ],
-  '238'=>[
-           'CV'
-         ],
-  '64'=>[
-          'NZ'
-        ],
-  '231'=>[
-           'LR'
-         ],
-  '686'=>[
-           'KI'
-         ],
-  '688'=>[
-           'TV'
-         ],
-  '244'=>[
-           'AO'
-         ],
-  '682'=>[
-           'CK'
-         ],
-  '212'=>[
-           'EH',
-           'MA'
-         ],
-  '993'=>[
-           'TM'
-         ],
-  '501'=>[
-           'BZ'
-         ],
-  '856'=>[
-           'LA'
-         ],
-  '27'=>[
-          'ZA'
-        ],
-  '375'=>[
-           'BY'
-         ],
-  '262'=>[
-           'RE',
-           'YT'
-         ],
-  '251'=>[
-           'ET'
-         ],
-  '239'=>[
-           'ST'
-         ],
-  '680'=>[
-           'PW'
-         ],
-  '20'=>[
-          'EG'
-        ],
-  '95'=>[
-          'MM'
+  '30'=>[
+          'GR'
         ],
   '421'=>[
            'SK'
          ],
-  '853'=>[
-           'MO'
+  '382'=>[
+           'ME'
          ],
-  '358'=>[
-           'AX',
-           'FI'
+  '353'=>[
+           'IE'
          ],
-  '994'=>[
-           'AZ'
+  '228'=>[
+           'TG'
          ],
-  '243'=>[
-           'CD'
-         ],
-  '255'=>[
-           'TZ'
-         ],
-  '976'=>[
-           'MN'
-         ],
-  '86'=>[
-          'CN'
-        ],
-  '216'=>[
-           'TN'
-         ],
-  '221'=>[
-           'SN'
-         ],
-  '965'=>[
-           'KW'
-         ],
-  '677'=>[
-           'SB'
-         ],
-  '232'=>[
-           'SL'
-         ],
-  '670'=>[
-           'TL'
+  '598'=>[
+           'UY'
          ],
   '65'=>[
           'SG'
         ],
-  '254'=>[
-           'KE'
-         ],
-  '998'=>[
-           'UZ'
-         ],
-  '62'=>[
-          'ID'
-        ],
-  '51'=>[
-          'PE'
-        ],
-  '224'=>[
-           'GN'
-         ],
-  '357'=>[
-           'CY'
-         ],
-  '241'=>[
-           'GA'
-         ],
-  '34'=>[
-          'ES'
-        ],
-  '218'=>[
-           'LY'
-         ],
-  '962'=>[
-           'JO'
-         ],
-  '56'=>[
-          'CL'
-        ],
-  '376'=>[
-           'AD'
-         ],
-  '248'=>[
-           'SC'
-         ],
-  '506'=>[
-           'CR'
-         ],
-  '229'=>[
-           'BJ'
-         ],
-  '264'=>[
-           'NA'
-         ],
-  '352'=>[
-           'LU'
+  '212'=>[
+           'EH',
+           'MA'
          ],
   '599'=>[
            'BQ',
            'CW'
          ],
+  '968'=>[
+           'OM'
+         ],
+  '243'=>[
+           'CD'
+         ],
+  '351'=>[
+           'PT'
+         ],
+  '227'=>[
+           'NE'
+         ],
+  '218'=>[
+           'LY'
+         ],
+  '960'=>[
+           'MV'
+         ],
+  '82'=>[
+          'KR'
+        ],
+  '253'=>[
+           'DJ'
+         ],
+  '298'=>[
+           'FO'
+         ],
+  '690'=>[
+           'TK'
+         ],
+  '673'=>[
+           'BN'
+         ],
+  '676'=>[
+           'TO'
+         ],
+  '32'=>[
+          'BE'
+        ],
+  '850'=>[
+           'KP'
+         ],
+  '36'=>[
+          'HU'
+        ],
+  '975'=>[
+           'BT'
+         ],
+  '40'=>[
+          'RO'
+        ],
+  '967'=>[
+           'YE'
+         ],
+  '672'=>[
+           'NF'
+         ],
+  '505'=>[
+           'NI'
+         ],
+  '93'=>[
+          'AF'
+        ],
+  '678'=>[
+           'VU'
+         ],
+  '216'=>[
+           'TN'
+         ],
+  '359'=>[
+           'BG'
+         ],
+  '53'=>[
+          'CU'
+        ],
+  '964'=>[
+           'IQ'
+         ],
+  '506'=>[
+           'CR'
+         ],
+  '995'=>[
+           'GE'
+         ],
+  '963'=>[
+           'SY'
+         ],
+  '691'=>[
+           'FM'
+         ],
+  '242'=>[
+           'CG'
+         ],
+  '385'=>[
+           'HR'
+         ],
+  '507'=>[
+           'PA'
+         ],
+  '376'=>[
+           'AD'
+         ],
+  '251'=>[
+           'ET'
+         ],
+  '57'=>[
+          'CO'
+        ],
+  '685'=>[
+           'WS'
+         ],
+  '66'=>[
+          'TH'
+        ],
+  '503'=>[
+           'SV'
+         ],
+  '260'=>[
+           'ZM'
+         ],
+  '46'=>[
+          'SE'
+        ],
+  '423'=>[
+           'LI'
+         ],
+  '224'=>[
+           'GN'
+         ],
+  '378'=>[
+           'SM'
+         ],
+  '33'=>[
+          'FR'
+        ],
+  '244'=>[
+           'AO'
+         ],
+  '358'=>[
+           'AX',
+           'FI'
+         ],
+  '255'=>[
+           'TZ'
+         ],
+  '970'=>[
+           'PS'
+         ],
+  '509'=>[
+           'HT'
+         ],
+  '234'=>[
+           'NG'
+         ],
+  '20'=>[
+          'EG'
+        ],
+  '377'=>[
+           'MC'
+         ],
+  '297'=>[
+           'AW'
+         ],
+  '223'=>[
+           'ML'
+         ],
+  '996'=>[
+           'KG'
+         ],
+  '56'=>[
+          'CL'
+        ],
+  '993'=>[
+           'TM'
+         ],
+  '373'=>[
+           'MD'
+         ],
+  '886'=>[
+           'TW'
+         ],
+  '976'=>[
+           'MN'
+         ],
+  '34'=>[
+          'ES'
+        ],
+  '7'=>[
+         'KZ',
+         'RU'
+       ],
+  '973'=>[
+           'BH'
+         ],
+  '370'=>[
+           'LT'
+         ],
+  '269'=>[
+           'KM'
+         ],
+  '679'=>[
+           'FJ'
+         ],
+  '977'=>[
+           'NP'
+         ],
+  '501'=>[
+           'BZ'
+         ],
+  '381'=>[
+           'RS'
+         ],
+  '299'=>[
+           'GL'
+         ],
+  '47'=>[
+          'NO',
+          'SJ'
+        ],
+  '49'=>[
+          'DE'
+        ],
+  '508'=>[
+           'PM'
+         ],
+  '595'=>[
+           'PY'
+         ],
+  '45'=>[
+          'DK'
+        ],
+  '998'=>[
+           'UZ'
+         ],
+  '389'=>[
+           'MK'
+         ],
+  '371'=>[
+           'LV'
+         ],
+  '235'=>[
+           'TD'
+         ],
+  '994'=>[
+           'AZ'
+         ],
+  '241'=>[
+           'GA'
+         ],
+  '350'=>[
+           'GI'
+         ],
+  '356'=>[
+           'MT'
+         ],
+  '86'=>[
+          'CN'
+        ],
+  '64'=>[
+          'NZ'
+        ],
+  '992'=>[
+           'TJ'
+         ],
+  '856'=>[
+           'LA'
+         ],
+  '590'=>[
+           'BL',
+           'GP',
+           'MF'
+         ],
+  '502'=>[
+           'GT'
+         ],
+  '90'=>[
+          'TR'
+        ],
+  '692'=>[
+           'MH'
+         ],
+  '263'=>[
+           'ZW'
+         ],
+  '681'=>[
+           'WF'
+         ],
+  '682'=>[
+           'CK'
+         ],
+  '687'=>[
+           'NC'
+         ],
+  '211'=>[
+           'SS'
+         ],
+  '239'=>[
+           'ST'
+         ],
+  '677'=>[
+           'SB'
+         ],
+  '686'=>[
+           'KI'
+         ],
+  '267'=>[
+           'BW'
+         ],
+  '880'=>[
+           'BD'
+         ],
+  '213'=>[
+           'DZ'
+         ],
+  '226'=>[
+           'BF'
+         ],
+  '258'=>[
+           'MZ'
+         ],
+  '674'=>[
+           'NR'
+         ],
+  '236'=>[
+           'CF'
+         ],
+  '974'=>[
+           'QA'
+         ],
+  '266'=>[
+           'LS'
+         ],
+  '62'=>[
+          'ID'
+        ],
+  '966'=>[
+           'SA'
+         ],
+  '265'=>[
+           'MW'
+         ],
+  '58'=>[
+          'VE'
+        ],
+  '246'=>[
+           'IO'
+         ],
+  '98'=>[
+          'IR'
+        ],
+  '231'=>[
+           'LR'
+         ],
+  '688'=>[
+           'TV'
+         ],
+  '689'=>[
+           'PF'
+         ],
+  '39'=>[
+          'IT',
+          'VA'
+        ],
   '261'=>[
            'MG'
+         ],
+  '352'=>[
+           'LU'
+         ],
+  '233'=>[
+           'GH'
+         ],
+  '386'=>[
+           'SI'
          ],
   '41'=>[
           'CH'
         ],
+  '92'=>[
+          'PK'
+        ],
+  '591'=>[
+           'BO'
+         ],
+  '593'=>[
+           'EC'
+         ],
+  '675'=>[
+           'PG'
+         ],
+  '222'=>[
+           'MR'
+         ],
+  '961'=>[
+           'LB'
+         ],
+  '853'=>[
+           'MO'
+         ],
+  '95'=>[
+          'MM'
+        ],
+  '374'=>[
+           'AM'
+         ],
+  '237'=>[
+           'CM'
+         ],
+  '94'=>[
+          'LK'
+        ],
+  '240'=>[
+           'GQ'
+         ],
+  '256'=>[
+           'UG'
+         ],
+  '852'=>[
+           'HK'
+         ],
+  '245'=>[
+           'GW'
+         ],
+  '680'=>[
+           'PW'
+         ],
+  '264'=>[
+           'NA'
+         ],
+  '252'=>[
+           'SO'
+         ],
+  '248'=>[
+           'SC'
+         ],
+  '500'=>[
+           'FK'
+         ],
+  '971'=>[
+           'AE'
+         ],
+  '84'=>[
+          'VN'
+        ],
+  '249'=>[
+           'SD'
+         ],
+  '504'=>[
+           'HN'
+         ],
+  '594'=>[
+           'GF'
+         ],
+  '52'=>[
+          'MX'
+        ],
+  '27'=>[
+          'ZA'
+        ],
+  '962'=>[
+           'JO'
+         ],
+  '683'=>[
+           'NU'
+         ],
+  '420'=>[
+           'CZ'
+         ],
+  '291'=>[
+           'ER'
+         ],
+  '268'=>[
+           'SZ'
+         ],
+  '670'=>[
+           'TL'
+         ],
+  '972'=>[
+           'IL'
+         ],
+  '250'=>[
+           'RW'
+         ],
+  '63'=>[
+          'PH'
+        ],
+  '238'=>[
+           'CV'
+         ],
+  '965'=>[
+           'KW'
+         ],
+  '43'=>[
+          'AT'
+        ],
+  '380'=>[
+           'UA'
+         ],
+  '230'=>[
+           'MU'
+         ],
   '1'=>[
          'AG',
          'AI',
@@ -423,874 +626,671 @@ $Number::MuPhone::Data::idd_codes = {
          'VG',
          'VI'
        ],
-  '675'=>[
-           'PG'
-         ],
-  '356'=>[
-           'MT'
-         ],
-  '502'=>[
-           'GT'
-         ],
-  '692'=>[
-           'MH'
-         ],
-  '220'=>[
-           'GM'
-         ],
-  '996'=>[
-           'KG'
-         ],
-  '378'=>[
-           'SM'
-         ],
-  '66'=>[
-          'TH'
-        ],
-  '263'=>[
-           'ZW'
-         ],
-  '683'=>[
-           'NU'
-         ],
-  '971'=>[
-           'AE'
-         ],
-  '672'=>[
-           'NF'
-         ],
-  '260'=>[
-           'ZM'
-         ],
-  '505'=>[
-           'NI'
-         ],
-  '48'=>[
-          'PL'
-        ],
-  '420'=>[
-           'CZ'
-         ],
-  '82'=>[
-          'KR'
-        ],
   '855'=>[
            'KH'
          ],
-  '886'=>[
-           'TW'
-         ],
-  '977'=>[
-           'NP'
-         ],
-  '681'=>[
-           'WF'
-         ],
-  '265'=>[
-           'MW'
-         ],
-  '33'=>[
-          'FR'
+  '51'=>[
+          'PE'
         ],
-  '234'=>[
-           'NG'
+  '262'=>[
+           'RE',
+           'YT'
          ],
-  '222'=>[
-           'MR'
+  '387'=>[
+           'BA'
          ],
-  '32'=>[
-          'BE'
+  '91'=>[
+          'IN'
         ],
-  '54'=>[
-          'AR'
-        ],
-  '673'=>[
-           'BN'
+  '221'=>[
+           'SN'
          ],
-  '691'=>[
-           'FM'
+  '375'=>[
+           'BY'
          ],
-  '509'=>[
-           'HT'
+  '257'=>[
+           'BI'
          ],
-  '84'=>[
-          'VN'
-        ],
-  '596'=>[
-           'MQ'
+  '372'=>[
+           'EE'
          ],
-  '250'=>[
-           'RW'
-         ],
-  '36'=>[
-          'HU'
-        ],
-  '245'=>[
-           'GW'
-         ],
-  '211'=>[
-           'SS'
-         ],
-  '377'=>[
-           'MC'
-         ],
-  '503'=>[
-           'SV'
-         ],
-  '52'=>[
-          'MX'
-        ],
-  '592'=>[
-           'GY'
-         ],
-  '291'=>[
-           'ER'
-         ],
-  '970'=>[
-           'PS'
-         ],
-  '45'=>[
-          'DK'
-        ],
-  '256'=>[
-           'UG'
-         ],
-  '370'=>[
-           'LT'
-         ],
-  '253'=>[
-           'DJ'
-         ],
-  '381'=>[
-           'RS'
-         ],
-  '597'=>[
-           'SR'
-         ],
-  '687'=>[
-           'NC'
-         ],
-  '246'=>[
-           'IO'
-         ],
-  '213'=>[
-           'DZ'
-         ],
-  '972'=>[
-           'IL'
-         ],
-  '690'=>[
-           'TK'
-         ],
-  '508'=>[
-           'PM'
-         ],
-  '590'=>[
-           'BL',
-           'GP',
-           'MF'
-         ],
-  '98'=>[
-          'IR'
-        ],
-  '90'=>[
-          'TR'
-        ],
-  '94'=>[
-          'LK'
-        ],
-  '55'=>[
-          'BR'
-        ],
-  '678'=>[
-           'VU'
-         ],
-  '258'=>[
-           'MZ'
-         ],
-  '290'=>[
-           'SH',
-           'TA'
-         ],
-  '374'=>[
-           'AM'
-         ],
-  '960'=>[
-           'MV'
-         ],
-  '58'=>[
-          'VE'
-        ],
-  '227'=>[
-           'NE'
-         ],
-  '235'=>[
-           'TD'
-         ],
-  '973'=>[
-           'BH'
-         ],
-  '350'=>[
-           'GI'
-         ],
-  '30'=>[
-          'GR'
-        ],
-  '60'=>[
-          'MY'
-        ],
-  '964'=>[
-           'IQ'
-         ],
-  '423'=>[
-           'LI'
-         ],
-  '380'=>[
-           'UA'
-         ],
-  '223'=>[
-           'ML'
-         ],
-  '507'=>[
-           'PA'
-         ],
-  '236'=>[
-           'CF'
+  '247'=>[
+           'AC'
          ]
 }
 ;
 
 $Number::MuPhone::Data::nanp      = {
-  '802'=>'US',
-  '306'=>'CA',
-  '252'=>'US',
-  '630'=>'US',
-  '337'=>'US',
-  '920'=>'US',
-  '610'=>'US',
-  '949'=>'US',
-  '269'=>'US',
-  '267'=>'US',
-  '628'=>'US',
-  '272'=>'US',
-  '268'=>'AG',
-  '304'=>'US',
-  '347'=>'US',
-  '773'=>'US',
-  '202'=>'US',
-  '437'=>'CA',
-  '408'=>'US',
-  '570'=>'US',
-  '469'=>'US',
-  '618'=>'US',
-  '330'=>'US',
-  '321'=>'US',
-  '717'=>'US',
-  '534'=>'US',
-  '806'=>'US',
-  '575'=>'US',
-  '319'=>'US',
-  '249'=>'CA',
-  '903'=>'US',
-  '980'=>'US',
-  '743'=>'US',
-  '754'=>'US',
-  '262'=>'US',
-  '680'=>'US',
-  '310'=>'US',
-  '856'=>'US',
-  '979'=>'US',
-  '501'=>'US',
-  '548'=>'CA',
-  '212'=>'US',
-  '682'=>'US',
-  '818'=>'US',
-  '705'=>'CA',
-  '475'=>'US',
-  '847'=>'US',
-  '562'=>'US',
-  '303'=>'US',
-  '623'=>'US',
-  '410'=>'US',
-  '231'=>'US',
-  '432'=>'US',
-  '708'=>'US',
-  '952'=>'US',
-  '865'=>'US',
-  '825'=>'CA',
-  '947'=>'US',
-  '819'=>'CA',
-  '816'=>'US',
-  '463'=>'US',
-  '620'=>'US',
-  '320'=>'US',
-  '929'=>'US',
-  '601'=>'US',
-  '934'=>'US',
-  '205'=>'US',
-  '405'=>'US',
-  '706'=>'US',
-  '873'=>'CA',
-  '817'=>'US',
-  '832'=>'US',
-  '907'=>'US',
-  '219'=>'US',
-  '613'=>'CA',
-  '639'=>'CA',
-  '417'=>'US',
-  '580'=>'US',
-  '808'=>'US',
-  '517'=>'US',
-  '403'=>'CA',
-  '215'=>'US',
-  '849'=>'DO',
-  '242'=>'BS',
-  '581'=>'CA',
-  '989'=>'US',
-  '647'=>'CA',
-  '440'=>'US',
-  '918'=>'US',
-  '516'=>'US',
-  '908'=>'US',
-  '914'=>'US',
-  '710'=>'US',
-  '617'=>'US',
-  '971'=>'US',
-  '414'=>'US',
-  '641'=>'US',
-  '220'=>'US',
-  '541'=>'US',
-  '854'=>'US',
-  '609'=>'US',
-  '769'=>'US',
-  '727'=>'US',
-  '352'=>'US',
-  '450'=>'CA',
-  '248'=>'US',
-  '229'=>'US',
-  '815'=>'US',
-  '401'=>'US',
-  '520'=>'US',
-  '803'=>'US',
-  '406'=>'US',
-  '902'=>'CA',
-  '331'=>'US',
-  '224'=>'US',
-  '283'=>'US',
-  '315'=>'US',
-  '513'=>'US',
-  '404'=>'US',
-  '925'=>'US',
-  '775'=>'US',
-  '670'=>'MP',
-  '515'=>'US',
-  '707'=>'US',
-  '445'=>'US',
-  '626'=>'US',
-  '829'=>'DO',
-  '812'=>'US',
-  '784'=>'VC',
-  '758'=>'LC',
-  '361'=>'US',
-  '216'=>'US',
-  '661'=>'US',
-  '660'=>'US',
-  '703'=>'US',
-  '561'=>'US',
-  '531'=>'US',
-  '858'=>'US',
-  '878'=>'US',
-  '416'=>'CA',
-  '805'=>'US',
-  '507'=>'US',
-  '236'=>'CA',
-  '916'=>'US',
-  '985'=>'US',
-  '859'=>'US',
-  '712'=>'US',
-  '325'=>'US',
-  '415'=>'US',
-  '940'=>'US',
-  '765'=>'US',
-  '740'=>'US',
-  '678'=>'US',
-  '864'=>'US',
-  '508'=>'US',
-  '863'=>'US',
-  '518'=>'US',
-  '972'=>'US',
-  '684'=>'AS',
-  '413'=>'US',
-  '563'=>'US',
-  '270'=>'US',
-  '860'=>'US',
-  '951'=>'US',
-  '206'=>'US',
-  '704'=>'US',
-  '435'=>'US',
-  '651'=>'US',
-  '809'=>'DO',
-  '720'=>'US',
-  '530'=>'US',
-  '814'=>'US',
-  '289'=>'CA',
-  '970'=>'US',
-  '721'=>'SX',
-  '313'=>'US',
-  '845'=>'US',
-  '510'=>'US',
-  '931'=>'US',
-  '316'=>'US',
-  '203'=>'US',
-  '250'=>'CA',
-  '473'=>'GD',
-  '780'=>'CA',
-  '438'=>'CA',
-  '509'=>'US',
-  '662'=>'US',
-  '681'=>'US',
-  '734'=>'US',
-  '604'=>'CA',
-  '912'=>'US',
-  '669'=>'US',
-  '930'=>'US',
-  '664'=>'MS',
-  '612'=>'US',
-  '850'=>'US',
-  '975'=>'US',
-  '431'=>'CA',
-  '308'=>'US',
-  '779'=>'US',
-  '905'=>'CA',
-  '412'=>'US',
-  '225'=>'US',
-  '336'=>'US',
-  '763'=>'US',
-  '636'=>'US',
-  '785'=>'US',
-  '443'=>'US',
-  '284'=>'VG',
-  '302'=>'US',
-  '774'=>'US',
-  '631'=>'US',
-  '936'=>'US',
-  '954'=>'US',
-  '862'=>'US',
-  '715'=>'US',
-  '385'=>'US',
-  '701'=>'US',
-  '719'=>'US',
-  '226'=>'CA',
-  '984'=>'US',
-  '713'=>'US',
-  '747'=>'US',
-  '801'=>'US',
-  '786'=>'US',
-  '441'=>'BM',
-  '804'=>'US',
-  '807'=>'CA',
-  '629'=>'US',
-  '848'=>'US',
-  '724'=>'US',
-  '913'=>'US',
-  '607'=>'US',
-  '586'=>'US',
-  '240'=>'US',
-  '351'=>'US',
-  '571'=>'US',
-  '419'=>'US',
-  '649'=>'TC',
-  '867'=>'CA',
-  '770'=>'US',
-  '424'=>'US',
-  '239'=>'US',
-  '251'=>'US',
+  '762'=>'US',
+  '813'=>'US',
   '600'=>'CA',
-  '484'=>'US',
-  '928'=>'US',
-  '514'=>'CA',
-  '868'=>'TT',
-  '201'=>'US',
-  '767'=>'DM',
-  '574'=>'US',
-  '732'=>'US',
-  '782'=>'CA',
-  '939'=>'PR',
-  '941'=>'US',
-  '622'=>'CA',
-  '458'=>'US',
+  '858'=>'US',
+  '317'=>'US',
+  '616'=>'US',
+  '916'=>'US',
+  '540'=>'US',
+  '864'=>'US',
   '343'=>'CA',
-  '956'=>'US',
-  '843'=>'US',
-  '442'=>'US',
-  '386'=>'US',
-  '614'=>'US',
-  '781'=>'US',
-  '787'=>'PR',
-  '305'=>'US',
-  '605'=>'US',
-  '409'=>'US',
-  '702'=>'US',
-  '901'=>'US',
-  '214'=>'US',
-  '835'=>'US',
-  '402'=>'US',
-  '567'=>'US',
-  '425'=>'US',
-  '909'=>'US',
-  '276'=>'US',
-  '504'=>'US',
-  '318'=>'US',
-  '603'=>'US',
-  '778'=>'CA',
-  '346'=>'US',
-  '718'=>'US',
-  '340'=>'VI',
-  '209'=>'US',
-  '228'=>'US',
-  '208'=>'US',
-  '470'=>'US',
-  '281'=>'US',
-  '260'=>'US',
-  '505'=>'US',
-  '828'=>'US',
-  '519'=>'CA',
-  '585'=>'US',
-  '502'=>'US',
   '418'=>'CA',
-  '904'=>'US',
-  '434'=>'US',
-  '671'=>'GU',
-  '264'=>'AI',
-  '919'=>'US',
-  '506'=>'CA',
-  '314'=>'US',
+  '458'=>'US',
+  '313'=>'US',
+  '806'=>'US',
+  '614'=>'US',
+  '609'=>'US',
+  '925'=>'US',
+  '212'=>'US',
+  '878'=>'US',
+  '307'=>'US',
+  '408'=>'US',
+  '805'=>'US',
+  '721'=>'SX',
   '602'=>'US',
   '831'=>'US',
-  '657'=>'US',
-  '937'=>'US',
-  '218'=>'US',
-  '323'=>'US',
-  '301'=>'US',
-  '332'=>'US',
-  '512'=>'US',
-  '309'=>'US',
-  '579'=>'CA',
-  '616'=>'US',
-  '254'=>'US',
-  '407'=>'US',
-  '539'=>'US',
-  '204'=>'CA',
-  '725'=>'US',
-  '709'=>'CA',
-  '608'=>'US',
-  '757'=>'US',
-  '478'=>'US',
-  '978'=>'US',
-  '714'=>'US',
-  '559'=>'US',
-  '667'=>'US',
-  '615'=>'US',
-  '312'=>'US',
-  '551'=>'US',
-  '480'=>'US',
-  '938'=>'US',
-  '872'=>'US',
-  '317'=>'US',
-  '762'=>'US',
-  '869'=>'KN',
-  '772'=>'US',
-  '365'=>'CA',
-  '915'=>'US',
-  '606'=>'US',
-  '217'=>'US',
-  '423'=>'US',
-  '910'=>'US',
-  '380'=>'US',
-  '619'=>'US',
-  '731'=>'US',
-  '479'=>'US',
-  '364'=>'US',
-  '973'=>'US',
-  '573'=>'US',
-  '813'=>'US',
-  '650'=>'US',
-  '810'=>'US',
-  '360'=>'US',
-  '210'=>'US',
-  '870'=>'US',
-  '334'=>'US',
-  '207'=>'US',
-  '213'=>'US',
-  '246'=>'BB',
-  '737'=>'US',
-  '307'=>'US',
-  '587'=>'CA',
-  '253'=>'US',
-  '256'=>'US',
-  '345'=>'KY',
-  '503'=>'US',
-  '339'=>'US',
-  '857'=>'US',
-  '646'=>'US',
-  '760'=>'US',
-  '876'=>'JM',
+  '469'=>'US',
   '959'=>'US',
-  '906'=>'US',
-  '917'=>'US',
-  '830'=>'US',
+  '716'=>'US',
+  '952'=>'US',
+  '284'=>'VG',
+  '619'=>'US',
+  '913'=>'US',
+  '254'=>'US',
+  '918'=>'US',
+  '204'=>'CA',
+  '340'=>'VI',
+  '649'=>'TC',
+  '849'=>'DO',
+  '478'=>'US',
+  '713'=>'US',
+  '857'=>'US',
+  '832'=>'US',
+  '828'=>'US',
+  '225'=>'US',
+  '740'=>'US',
+  '431'=>'CA',
+  '445'=>'US',
+  '229'=>'US',
+  '314'=>'US',
+  '531'=>'US',
   '430'=>'US',
+  '424'=>'US',
+  '628'=>'US',
+  '872'=>'US',
+  '440'=>'US',
+  '604'=>'CA',
+  '773'=>'US',
+  '463'=>'US',
+  '539'=>'US',
+  '517'=>'US',
+  '410'=>'US',
+  '346'=>'US',
+  '605'=>'US',
+  '810'=>'US',
+  '817'=>'US',
+  '808'=>'US',
+  '704'=>'US',
+  '345'=>'KY',
+  '787'=>'PR',
+  '364'=>'US',
+  '934'=>'US',
+  '617'=>'US',
+  '720'=>'US',
+  '318'=>'US',
+  '224'=>'US',
+  '270'=>'US',
+  '423'=>'US',
+  '757'=>'US',
+  '412'=>'US',
+  '743'=>'US',
+  '734'=>'US',
+  '480'=>'US',
+  '747'=>'US',
+  '470'=>'US',
+  '242'=>'BS',
+  '559'=>'US',
+  '406'=>'US',
+  '785'=>'US',
+  '551'=>'US',
+  '781'=>'US',
+  '506'=>'CA',
+  '580'=>'US',
+  '352'=>'US',
+  '667'=>'US',
+  '936'=>'US',
+  '727'=>'US',
+  '219'=>'US',
+  '954'=>'US',
+  '920'=>'US',
+  '548'=>'CA',
+  '868'=>'TT',
+  '905'=>'CA',
+  '848'=>'US',
+  '202'=>'US',
+  '334'=>'US',
+  '479'=>'US',
+  '405'=>'US',
+  '236'=>'CA',
+  '608'=>'US',
+  '226'=>'CA',
+  '213'=>'US',
+  '912'=>'US',
+  '312'=>'US',
+  '276'=>'US',
+  '709'=>'CA',
+  '475'=>'US',
+  '330'=>'US',
+  '682'=>'US',
+  '706'=>'US',
+  '681'=>'US',
+  '870'=>'US',
+  '646'=>'US',
+  '914'=>'US',
+  '323'=>'US',
+  '737'=>'US',
+  '770'=>'US',
+  '660'=>'US',
+  '407'=>'US',
+  '754'=>'US',
+  '215'=>'US',
+  '519'=>'CA',
+  '819'=>'CA',
+  '930'=>'US',
+  '636'=>'US',
+  '778'=>'CA',
+  '869'=>'KN',
+  '416'=>'CA',
+  '518'=>'US',
+  '618'=>'US',
+  '360'=>'US',
+  '717'=>'US',
+  '765'=>'US',
+  '626'=>'US',
+  '949'=>'US',
+  '207'=>'US',
+  '601'=>'US',
+  '724'=>'US',
+  '442'=>'US',
+  '512'=>'US',
+  '301'=>'US',
+  '567'=>'US',
+  '283'=>'US',
+  '825'=>'CA',
+  '901'=>'US',
+  '203'=>'US',
+  '262'=>'US',
+  '380'=>'US',
+  '425'=>'US',
+  '931'=>'US',
+  '843'=>'US',
+  '725'=>'US',
+  '250'=>'CA',
+  '513'=>'US',
+  '972'=>'US',
+  '657'=>'US',
+  '438'=>'CA',
+  '705'=>'CA',
+  '941'=>'US',
+  '268'=>'AG',
+  '703'=>'US',
+  '450'=>'CA',
+  '403'=>'CA',
+  '206'=>'US',
+  '951'=>'US',
+  '530'=>'US',
+  '205'=>'US',
+  '417'=>'US',
+  '514'=>'CA',
+  '325'=>'US',
+  '504'=>'US',
+  '402'=>'US',
+  '971'=>'US',
+  '252'=>'US',
+  '404'=>'US',
+  '610'=>'US',
+  '867'=>'CA',
+  '587'=>'CA',
+  '409'=>'US',
+  '708'=>'US',
+  '419'=>'US',
+  '809'=>'DO',
+  '907'=>'US',
+  '767'=>'DM',
+  '718'=>'US',
+  '347'=>'US',
+  '807'=>'CA',
+  '216'=>'US',
+  '862'=>'US',
+  '678'=>'US',
+  '281'=>'US',
+  '505'=>'US',
+  '332'=>'US',
+  '473'=>'GD',
+  '336'=>'US',
+  '662'=>'US',
+  '579'=>'CA',
+  '975'=>'US',
+  '850'=>'US',
+  '365'=>'CA',
+  '816'=>'US',
+  '306'=>'CA',
+  '319'=>'US',
+  '253'=>'US',
+  '217'=>'US',
+  '218'=>'US',
+  '803'=>'US',
+  '909'=>'US',
+  '815'=>'US',
+  '607'=>'US',
+  '351'=>'US',
+  '650'=>'US',
+  '413'=>'US',
+  '331'=>'US',
+  '228'=>'US',
+  '786'=>'US',
+  '906'=>'US',
+  '830'=>'US',
+  '917'=>'US',
+  '758'=>'LC',
+  '574'=>'US',
+  '302'=>'US',
+  '303'=>'US',
+  '910'=>'US',
+  '220'=>'US',
+  '622'=>'CA',
+  '714'=>'US',
+  '812'=>'US',
+  '339'=>'US',
+  '710'=>'US',
+  '919'=>'US',
+  '802'=>'US',
+  '441'=>'BM',
+  '501'=>'US',
+  '320'=>'US',
+  '269'=>'US',
+  '561'=>'US',
+  '309'=>'US',
+  '973'=>'US',
+  '630'=>'US',
+  '782'=>'CA',
+  '701'=>'US',
+  '763'=>'US',
+  '939'=>'PR',
+  '316'=>'US',
+  '415'=>'US',
+  '937'=>'US',
+  '712'=>'US',
+  '684'=>'AS',
+  '661'=>'US',
   '234'=>'US',
-  '540'=>'US',
-  '716'=>'US'
+  '970'=>'US',
+  '814'=>'US',
+  '509'=>'US',
+  '603'=>'US',
+  '414'=>'US',
+  '978'=>'US',
+  '484'=>'US',
+  '515'=>'US',
+  '732'=>'US',
+  '209'=>'US',
+  '562'=>'US',
+  '516'=>'US',
+  '612'=>'US',
+  '769'=>'US',
+  '310'=>'US',
+  '586'=>'US',
+  '873'=>'CA',
+  '651'=>'US',
+  '902'=>'CA',
+  '707'=>'US',
+  '260'=>'US',
+  '503'=>'US',
+  '859'=>'US',
+  '989'=>'US',
+  '541'=>'US',
+  '876'=>'JM',
+  '631'=>'US',
+  '731'=>'US',
+  '647'=>'CA',
+  '903'=>'US',
+  '251'=>'US',
+  '507'=>'US',
+  '940'=>'US',
+  '308'=>'US',
+  '385'=>'US',
+  '845'=>'US',
+  '613'=>'CA',
+  '979'=>'US',
+  '985'=>'US',
+  '865'=>'US',
+  '571'=>'US',
+  '289'=>'CA',
+  '715'=>'US',
+  '386'=>'US',
+  '702'=>'US',
+  '435'=>'US',
+  '829'=>'DO',
+  '664'=>'MS',
+  '563'=>'US',
+  '231'=>'US',
+  '719'=>'US',
+  '321'=>'US',
+  '246'=>'BB',
+  '315'=>'US',
+  '201'=>'US',
+  '779'=>'US',
+  '669'=>'US',
+  '860'=>'US',
+  '401'=>'US',
+  '780'=>'CA',
+  '267'=>'US',
+  '239'=>'US',
+  '784'=>'VC',
+  '510'=>'US',
+  '928'=>'US',
+  '337'=>'US',
+  '502'=>'US',
+  '908'=>'US',
+  '856'=>'US',
+  '520'=>'US',
+  '272'=>'US',
+  '210'=>'US',
+  '801'=>'US',
+  '775'=>'US',
+  '570'=>'US',
+  '361'=>'US',
+  '818'=>'US',
+  '304'=>'US',
+  '641'=>'US',
+  '956'=>'US',
+  '432'=>'US',
+  '508'=>'US',
+  '585'=>'US',
+  '214'=>'US',
+  '804'=>'US',
+  '573'=>'US',
+  '443'=>'US',
+  '854'=>'US',
+  '760'=>'US',
+  '575'=>'US',
+  '904'=>'US',
+  '915'=>'US',
+  '615'=>'US',
+  '835'=>'US',
+  '863'=>'US',
+  '929'=>'US',
+  '772'=>'US',
+  '581'=>'CA',
+  '984'=>'US',
+  '670'=>'MP',
+  '208'=>'US',
+  '629'=>'US',
+  '434'=>'US',
+  '620'=>'US',
+  '639'=>'CA',
+  '623'=>'US',
+  '249'=>'CA',
+  '980'=>'US',
+  '248'=>'US',
+  '671'=>'GU',
+  '437'=>'CA',
+  '264'=>'AI',
+  '680'=>'US',
+  '606'=>'US',
+  '256'=>'US',
+  '240'=>'US',
+  '847'=>'US',
+  '305'=>'US',
+  '947'=>'US',
+  '774'=>'US',
+  '938'=>'US',
+  '534'=>'US'
 }
 ;
 
 $Number::MuPhone::Data::countries = {
-  'BR'=>'Brazil',
-  'GT'=>'Guatemala',
-  'YT'=>'Mayotte',
-  'UY'=>'Uruguay',
-  'DZ'=>'Algeria',
-  'ER'=>'Eritrea',
-  'CG'=>'Congo (Rep. of the) (Brazzaville)',
-  'GP'=>'Guadeloupe',
-  'LS'=>'Lesotho',
-  'MC'=>'Monaco',
-  'GG'=>'Guernsey',
-  'BN'=>'Brunei Darussalam',
-  'PR'=>'Pitcairn Island',
-  'MP'=>'Northern Mariana Islands',
-  'ZM'=>'Zambia',
-  'SJ'=>'Svalbard',
-  'NR'=>'Nauru',
-  'ML'=>'Mali',
-  'UA'=>'Ukraine',
-  'NE'=>'Niger',
-  'IO'=>'British Indian Ocean Territory / Diego Garcia',
-  'HR'=>'Croatia',
-  'NU'=>'Niue',
-  'RW'=>'Rwanda',
-  'ZW'=>'Zimbabwe',
-  'CD'=>'Congo, Dem. Rep. of the (formerly Zaire)',
-  'MZ'=>'Mozambique',
-  'TN'=>'Tunisia',
-  'MD'=>'Moldova, Rep. of',
-  'BM'=>'Bermuda',
-  'TL'=>'Timor-Leste (East Timor)',
-  'VG'=>'Virgin Islands, British',
-  'OM'=>'Oman',
-  'MF'=>'Saint-Martin, French Antilles',
-  'FO'=>'Faroe Islands',
-  'CH'=>'Switzerland',
-  'EG'=>'Egypt',
-  'AI'=>'Anguilla',
-  'IR'=>'Iran, Islamic Republic of',
-  'DM'=>'Dominica',
+  'KW'=>'Kuwait',
+  'CL'=>'Chile',
   'KZ'=>'Kazakhstan',
-  'TD'=>'Chad',
-  'BT'=>'Bhutan',
-  'PY'=>'Paraguay',
-  'FJ'=>'Fiji',
-  'CI'=>'Côte d\'Ivoire',
-  'BS'=>'Bahamas',
-  'GY'=>'Guyana',
-  'AM'=>'Armenia',
-  'PG'=>'Papua New Guinea',
-  'CK'=>'Cook Islands',
-  'BJ'=>'Benin',
-  'GW'=>'Guinea-Bissau',
-  'PF'=>'French Polynesia (Tahiti) (Territoire français d\'outre-mer)',
-  'AE'=>'United Arab Emirates',
-  'MR'=>'Mauritania',
-  'SO'=>'Somalia',
-  'FM'=>'Micronesia, Federated States of',
-  'RS'=>'Serbia',
-  'EE'=>'Estonia',
-  'GA'=>'Gabon',
-  'ME'=>'Montenegro',
-  'BI'=>'Burundi',
-  'VA'=>'Vatican City',
-  'IQ'=>'Iraq',
-  'AS'=>'American Samoa',
-  'AZ'=>'Azerbaijan',
-  'DO'=>'Dominican Rep.',
-  'MK'=>'Macedonia, Former Yugoslav Rep. of',
-  'ES'=>'Spain',
-  'UZ'=>'Uzbekistan',
-  'GQ'=>'Equatorial Guinea',
-  'JE'=>'Jersey',
-  'MS'=>'Montserrat',
-  'DE'=>'Germany',
-  'MX'=>'Mexico',
-  'GR'=>'Greece',
-  'JO'=>'Jordan',
-  'AW'=>'Aruba',
-  'CU'=>'Cuba',
-  'ZA'=>'South Africa',
-  'KH'=>'Cambodia',
-  'SD'=>'Sudan',
-  'BQ'=>'Bonaire, Sint Eustatius and Saba',
-  'PS'=>'Palestinian Authority',
-  'HT'=>'Haiti',
-  'BY'=>'Belarus',
-  'NZ'=>'New Zealand',
-  'SR'=>'Suriname',
-  'JM'=>'Jamaica',
-  'CC'=>'Cocos Islands',
-  'MG'=>'Madagascar',
-  'AU'=>'Australia',
-  'TC'=>'Turks and Caicos Islands',
-  'AG'=>'Antigua and Barbuda',
-  'CY'=>'Cyprus',
-  'EC'=>'Ecuador',
-  'MA'=>'Morocco',
-  'SL'=>'Sierra Leone',
-  'IE'=>'Ireland',
-  'WF'=>'Wallis and Futuna (Territoire français d\'outre-mer)',
-  'PT'=>'Portugal',
-  'MM'=>'Myanmar',
-  'MN'=>'Mongolia',
-  'LY'=>'Libya (Soc. People’s Libyan Arab Jamahiriya)',
-  'LR'=>'Liberia',
-  'KP'=>'Korea, Dem. People\'s Rep. of',
-  'PL'=>'Poland',
-  'BB'=>'Barbados',
-  'TJ'=>'Tajikistan',
-  'IN'=>'India',
-  'NL'=>'Netherlands',
-  'LA'=>'Lao People\'s Dem. Rep.',
-  'GI'=>'Gibraltar',
-  'KR'=>'Korea (Rep. of)',
-  'CN'=>'China',
-  'NG'=>'Nigeria',
-  'VU'=>'Vanuatu',
-  'RE'=>'Réunion (French Departments and Territories in the Indian Ocean)',
-  'NA'=>'Namibia',
-  'AD'=>'Andorra',
-  'SG'=>'Singapore',
-  'HN'=>'Honduras',
-  'BG'=>'Bulgaria',
-  'PW'=>'Palau',
-  'AR'=>'Argentina',
-  'LB'=>'Lebanon',
-  'HU'=>'Hungary',
-  'BO'=>'Bolivia',
-  'LU'=>'Luxembourg',
-  'SH'=>'Saint Helena',
-  'KE'=>'Kenya',
-  'BE'=>'Belgium',
-  'GD'=>'Grenada',
-  'LI'=>'Liechtenstein',
-  'VI'=>'Virgin Islands, United States',
-  'LV'=>'Latvia',
-  'ID'=>'Indonesia',
-  'FK'=>'Falkland Islands (Malvinas)',
-  'BA'=>'Bosnia and Herzegovina',
-  'SV'=>'El Salvador',
-  'GB'=>'United Kingdom',
+  'TL'=>'Timor-Leste (East Timor)',
   'CZ'=>'Czech Rep.',
-  'LK'=>'Sri Lanka',
-  'DJ'=>'Djibouti',
-  'CA'=>'Canada',
-  'AX'=>'Åland Islands.',
-  'LC'=>'Saint Lucia',
-  'TV'=>'Tuvalu',
-  'MU'=>'Mauritius',
-  'RU'=>'Russian Federation',
-  'HK'=>'Hong Kong',
-  'TT'=>'Trinidad and Tobago',
-  'US'=>'United States',
-  'BF'=>'Burkina Faso',
-  'GL'=>'Greenland',
-  'MH'=>'Marshall Islands',
-  'NC'=>'New Caledonia (Territoire français d\'outre-mer)',
-  'MY'=>'Malaysia',
-  'PK'=>'Pakistan',
-  'BL'=>'Saint Barthélemy, French Antilles',
-  'VE'=>'Venezuela',
-  'SC'=>'Seychelles',
-  'SB'=>'Solomon Islands',
-  'SZ'=>'Swaziland',
-  'AT'=>'Austria',
-  'GE'=>'Georgia',
-  'PH'=>'Philippines',
-  'MT'=>'Malta',
-  'NO'=>'Norway',
-  'YE'=>'Yemen',
-  'SI'=>'Slovenia',
-  'TG'=>'French Southern Territories',
-  'FR'=>'France',
-  'AL'=>'Albania',
-  'VC'=>'Saint Vincent and the Grenadines',
-  'JP'=>'Japan',
+  'MX'=>'Mexico',
+  'BS'=>'Bahamas',
+  'AR'=>'Argentina',
+  'VA'=>'Vatican City',
   'TA'=>'Tristan da Cunha',
+  'DM'=>'Dominica',
+  'CF'=>'Central African Republic',
+  'BI'=>'Burundi',
+  'GR'=>'Greece',
+  'AO'=>'Angola',
+  'KH'=>'Cambodia',
+  'RE'=>'Réunion (French Departments and Territories in the Indian Ocean)',
+  'GP'=>'Guadeloupe',
+  'LY'=>'Libya (Soc. People’s Libyan Arab Jamahiriya)',
+  'JM'=>'Jamaica',
+  'BO'=>'Bolivia',
+  'MZ'=>'Mozambique',
+  'GB'=>'United Kingdom',
+  'ES'=>'Spain',
+  'MH'=>'Marshall Islands',
+  'TR'=>'Turkey',
+  'CU'=>'Cuba',
+  'ME'=>'Montenegro',
+  'SR'=>'Suriname',
+  'IQ'=>'Iraq',
+  'BD'=>'Bangladesh',
+  'MW'=>'Malawi',
+  'IE'=>'Ireland',
+  'SM'=>'San Marino',
+  'MM'=>'Myanmar',
+  'LR'=>'Liberia',
+  'AC'=>'Ascension Island',
+  'ZA'=>'South Africa',
+  'SN'=>'Senegal',
+  'VI'=>'Virgin Islands, United States',
+  'NP'=>'Nepal',
+  'PW'=>'Palau',
+  'KP'=>'Korea, Dem. People\'s Rep. of',
+  'UG'=>'Uganda',
+  'MP'=>'Northern Mariana Islands',
+  'BQ'=>'Bonaire, Sint Eustatius and Saba',
+  'MD'=>'Moldova, Rep. of',
+  'GF'=>'French Guiana (French Dept. of)',
+  'NZ'=>'New Zealand',
+  'UZ'=>'Uzbekistan',
+  'AM'=>'Armenia',
+  'DK'=>'Denmark',
+  'PK'=>'Pakistan',
   'IL'=>'Israel',
-  'LT'=>'Lithuania',
-  'KM'=>'Comoros',
+  'HU'=>'Hungary',
+  'BZ'=>'Belize',
+  'PL'=>'Poland',
+  'NR'=>'Nauru',
+  'AG'=>'Antigua and Barbuda',
+  'SX'=>'Sint Maarten',
+  'VG'=>'Virgin Islands, British',
+  'FJ'=>'Fiji',
+  'MT'=>'Malta',
+  'BJ'=>'Benin',
+  'GQ'=>'Equatorial Guinea',
+  'LC'=>'Saint Lucia',
+  'ST'=>'Sao Tome and Principe',
+  'YT'=>'Mayotte',
+  'AZ'=>'Azerbaijan',
+  'HN'=>'Honduras',
+  'PT'=>'Portugal',
+  'RW'=>'Rwanda',
+  'ER'=>'Eritrea',
+  'GW'=>'Guinea-Bissau',
+  'CO'=>'Colombia',
+  'AL'=>'Albania',
+  'SC'=>'Seychelles',
+  'SK'=>'Slovakia',
+  'RU'=>'Russian Federation',
+  'BH'=>'Bahrain',
+  'TN'=>'Tunisia',
+  'CW'=>'Curaçao',
+  'TC'=>'Turks and Caicos Islands',
+  'SA'=>'Saudi Arabia',
+  'NL'=>'Netherlands',
+  'CD'=>'Congo, Dem. Rep. of the (formerly Zaire)',
+  'NA'=>'Namibia',
+  'MQ'=>'Martinique (French Dept. of)',
+  'AW'=>'Aruba',
+  'JE'=>'Jersey',
+  'TZ'=>'Tanzania',
+  'CR'=>'Costa Rica',
+  'GG'=>'Guernsey',
+  'KY'=>'Cayman Islands',
+  'BF'=>'Burkina Faso',
+  'AS'=>'American Samoa',
+  'GL'=>'Greenland',
+  'TO'=>'Tonga',
+  'FI'=>'Finland',
   'KI'=>'Kiribati',
+  'IS'=>'Iceland',
+  'NF'=>'Norfolk Island',
+  'CC'=>'Cocos Islands',
+  'AE'=>'United Arab Emirates',
+  'UY'=>'Uruguay',
+  'CM'=>'Cameroon',
+  'AX'=>'Åland Islands.',
+  'GU'=>'Guam',
+  'JP'=>'Japan',
+  'MR'=>'Mauritania',
+  'MC'=>'Monaco',
+  'NI'=>'Nicaragua',
+  'BL'=>'Saint Barthélemy, French Antilles',
+  'BR'=>'Brazil',
+  'VN'=>'Viet Nam (Vietnam)',
+  'BA'=>'Bosnia and Herzegovina',
+  'TW'=>'Taiwan, China',
+  'RS'=>'Serbia',
+  'IO'=>'British Indian Ocean Territory / Diego Garcia',
+  'CN'=>'China',
+  'PG'=>'Papua New Guinea',
+  'BN'=>'Brunei Darussalam',
+  'JO'=>'Jordan',
+  'CV'=>'Cape Verde',
+  'PS'=>'Palestinian Authority',
+  'BG'=>'Bulgaria',
+  'MS'=>'Montserrat',
+  'TV'=>'Tuvalu',
+  'HR'=>'Croatia',
+  'IN'=>'India',
+  'EG'=>'Egypt',
+  'VU'=>'Vanuatu',
+  'LS'=>'Lesotho',
+  'ML'=>'Mali',
+  'MU'=>'Mauritius',
+  'CX'=>'Christmas Islands',
+  'IM'=>'Isle of Man',
+  'NO'=>'Norway',
+  'ZM'=>'Zambia',
+  'NU'=>'Niue',
+  'AF'=>'Afghanistan',
+  'EC'=>'Ecuador',
+  'SB'=>'Solomon Islands',
+  'ID'=>'Indonesia',
+  'NG'=>'Nigeria',
+  'SE'=>'Sweden',
+  'BW'=>'Botswana',
+  'GM'=>'Gambia',
+  'GE'=>'Georgia',
+  'PY'=>'Paraguay',
+  'TG'=>'French Southern Territories',
+  'HT'=>'Haiti',
+  'PA'=>'Panama',
+  'MY'=>'Malaysia',
+  'WS'=>'Samoa',
+  'OM'=>'Oman',
+  'IR'=>'Iran, Islamic Republic of',
+  'NC'=>'New Caledonia (Territoire français d\'outre-mer)',
+  'SL'=>'Sierra Leone',
+  'LU'=>'Luxembourg',
+  'TH'=>'Thailand',
+  'AD'=>'Andorra',
+  'PM'=>'Saint Pierre and Miquelon (Collectivité territoriale de la République française)',
+  'GA'=>'Gabon',
+  'SO'=>'Somalia',
+  'DJ'=>'Djibouti',
+  'SS'=>'South Sudan',
+  'EE'=>'Estonia',
+  'CG'=>'Congo (Rep. of the) (Brazzaville)',
+  'LV'=>'Latvia',
+  'GT'=>'Guatemala',
+  'MF'=>'Saint-Martin, French Antilles',
+  'AT'=>'Austria',
+  'ZW'=>'Zimbabwe',
+  'GY'=>'Guyana',
+  'GN'=>'Guinea',
+  'LK'=>'Sri Lanka',
+  'LB'=>'Lebanon',
+  'FO'=>'Faroe Islands',
+  'BT'=>'Bhutan',
+  'MO'=>'Macao, China',
+  'PH'=>'Philippines',
+  'KG'=>'Kyrgyzstan',
   'QA'=>'Qatar',
   'TK'=>'Tokelau',
-  'IT'=>'Italy',
-  'CL'=>'Chile',
-  'GN'=>'Guinea',
-  'KW'=>'Kuwait',
-  'SM'=>'San Marino',
-  'SE'=>'Sweden',
-  'CM'=>'Cameroon',
-  'WS'=>'Samoa',
-  'SS'=>'South Sudan',
-  'CV'=>'Cape Verde',
-  'IS'=>'Iceland',
-  'BW'=>'Botswana',
-  'FI'=>'Finland',
-  'EH'=>'Western Sahara',
-  'PE'=>'Peru',
-  'NP'=>'Nepal',
-  'CF'=>'Central African Republic',
-  'GU'=>'Guam',
-  'SX'=>'Sint Maarten',
-  'BZ'=>'Belize',
-  'AO'=>'Angola',
-  'VN'=>'Viet Nam (Vietnam)',
-  'CX'=>'Christmas Islands',
-  'CO'=>'Colombia',
-  'ST'=>'Sao Tome and Principe',
-  'SY'=>'Syrian Arab Republic',
-  'NF'=>'Norfolk Island',
-  'CW'=>'Curaçao',
-  'AC'=>'Ascension Island',
-  'MQ'=>'Martinique (French Dept. of)',
-  'TZ'=>'Tanzania',
-  'GF'=>'French Guiana (French Dept. of)',
-  'KG'=>'Kyrgyzstan',
-  'CR'=>'Costa Rica',
-  'NI'=>'Nicaragua',
-  'PM'=>'Saint Pierre and Miquelon (Collectivité territoriale de la République française)',
-  'KY'=>'Cayman Islands',
-  'SN'=>'Senegal',
-  'AF'=>'Afghanistan',
-  'MO'=>'Macao, China',
-  'BD'=>'Bangladesh',
-  'DK'=>'Denmark',
-  'TM'=>'Turkmenistan',
-  'TR'=>'Turkey',
-  'PA'=>'Panama',
+  'FR'=>'France',
   'MV'=>'Maldives',
-  'RO'=>'Romania',
-  'GM'=>'Gambia',
+  'KR'=>'Korea (Rep. of)',
+  'VC'=>'Saint Vincent and the Grenadines',
+  'TD'=>'Chad',
+  'MK'=>'Macedonia, Former Yugoslav Rep. of',
+  'EH'=>'Western Sahara',
+  'BB'=>'Barbados',
+  'KM'=>'Comoros',
+  'TM'=>'Turkmenistan',
+  'DZ'=>'Algeria',
+  'BM'=>'Bermuda',
+  'HK'=>'Hong Kong',
+  'CK'=>'Cook Islands',
+  'LA'=>'Lao People\'s Dem. Rep.',
+  'NE'=>'Niger',
+  'DO'=>'Dominican Rep.',
+  'DE'=>'Germany',
   'KN'=>'Saint Kitts and Nevis',
-  'SK'=>'Slovakia',
-  'TO'=>'Tonga',
-  'TH'=>'Thailand',
-  'TW'=>'Taiwan, China',
-  'ET'=>'Ethiopia',
-  'BH'=>'Bahrain',
-  'MW'=>'Malawi',
+  'SG'=>'Singapore',
+  'LT'=>'Lithuania',
+  'LI'=>'Liechtenstein',
+  'CI'=>'Côte d\'Ivoire',
+  'SV'=>'El Salvador',
+  'MA'=>'Morocco',
+  'AI'=>'Anguilla',
+  'FK'=>'Falkland Islands (Malvinas)',
+  'SY'=>'Syrian Arab Republic',
+  'FM'=>'Micronesia, Federated States of',
+  'MN'=>'Mongolia',
+  'SI'=>'Slovenia',
   'GH'=>'Ghana',
-  'IM'=>'Isle of Man',
-  'UG'=>'Uganda',
-  'SA'=>'Saudi Arabia'
+  'PE'=>'Peru',
+  'KE'=>'Kenya',
+  'SH'=>'Saint Helena',
+  'CY'=>'Cyprus',
+  'VE'=>'Venezuela',
+  'US'=>'United States',
+  'PR'=>'Pitcairn Island',
+  'SD'=>'Sudan',
+  'YE'=>'Yemen',
+  'BY'=>'Belarus',
+  'IT'=>'Italy',
+  'GD'=>'Grenada',
+  'MG'=>'Madagascar',
+  'TJ'=>'Tajikistan',
+  'UA'=>'Ukraine',
+  'CH'=>'Switzerland',
+  'SZ'=>'Swaziland',
+  'RO'=>'Romania',
+  'ET'=>'Ethiopia',
+  'CA'=>'Canada',
+  'SJ'=>'Svalbard',
+  'PF'=>'French Polynesia (Tahiti) (Territoire français d\'outre-mer)',
+  'TT'=>'Trinidad and Tobago',
+  'WF'=>'Wallis and Futuna (Territoire français d\'outre-mer)',
+  'GI'=>'Gibraltar',
+  'AU'=>'Australia',
+  'BE'=>'Belgium'
 }
 ;
 

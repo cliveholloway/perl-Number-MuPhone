@@ -7,16 +7,16 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
+  'nationalPrefixFormattingRule'=>'$NP$FG',
+  'countryCode'=>'249',
   'nationalPrefix'=>'0',
   'fixedLine'=>{
-                 'nationalNumberPattern'=>'1(?:[125]\\d|8[3567])\\d{6}',
+                 'exampleNumber'=>'121231234',
                  'possibleLengths'=>{
                                       'national'=>'9'
                                     },
-                 'exampleNumber'=>'121231234'
+                 'nationalNumberPattern'=>'1(?:[125]\\d|8[3567])\\d{6}'
                },
-  'internationalPrefix'=>'00',
-  'countryCode'=>'249',
   'mobile'=>{
               'possibleLengths'=>{
                                    'national'=>'9'
@@ -24,24 +24,24 @@ sub config {
               'nationalNumberPattern'=>'9[0-3569]\\d{7}',
               'exampleNumber'=>'911231234'
             },
-  'nationalPrefixFormattingRule'=>'$NP$FG',
-  'references'=>{
-                  'sourceUrl'=>'http://www.itu.int/oth/T02020000C4/en'
-                },
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'[19]\\d{8}'
-                 },
-  'TerritoryName'=>'Sudan',
-  'CountryCode'=>'SD',
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
                                                 'pattern'=>'(\\d{2})(\\d{3})(\\d{4})',
-                                                'format'=>'$1 $2 $3',
-                                                'leadingDigits'=>''
+                                                'leadingDigits'=>'',
+                                                'format'=>'$1 $2 $3'
                                               }
                                             ]
-                        }
+                        },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[19]\\d{8}'
+                 },
+  'internationalPrefix'=>'00',
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T02020000C4/en'
+                },
+  'CountryCode'=>'SD',
+  'TerritoryName'=>'Sudan'
 }
 ;
 }

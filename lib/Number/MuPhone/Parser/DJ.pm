@@ -7,39 +7,39 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
-  'fixedLine'=>{
-                 'possibleLengths'=>{
-                                      'national'=>'8'
-                                    },
-                 'nationalNumberPattern'=>'2(?:1[2-5]|7[45])\\d{5}',
-                 'exampleNumber'=>'21360003'
-               },
-  'CountryCode'=>'DJ',
-  'availableFormats'=>{
-                          'numberFormat'=>[
-                                              {
-                                                'format'=>'$1 $2 $3 $4',
-                                                'leadingDigits'=>'',
-                                                'pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{2})'
-                                              }
-                                            ]
-                        },
+  'internationalPrefix'=>'00',
   'TerritoryName'=>'Djibouti',
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'[27]\\d{7}'
-                 },
+  'CountryCode'=>'DJ',
   'references'=>{
                   'sourceUrl'=>'http://www.itu.int/oth/T020200003A/en'
                 },
+  'countryCode'=>'253',
+  'fixedLine'=>{
+                 'exampleNumber'=>'21360003',
+                 'nationalNumberPattern'=>'2(?:1[2-5]|7[45])\\d{5}',
+                 'possibleLengths'=>{
+                                      'national'=>'8'
+                                    }
+               },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[27]\\d{7}'
+                 },
   'mobile'=>{
-              'exampleNumber'=>'77831001',
               'possibleLengths'=>{
                                    'national'=>'8'
                                  },
-              'nationalNumberPattern'=>'77\\d{6}'
+              'nationalNumberPattern'=>'77\\d{6}',
+              'exampleNumber'=>'77831001'
             },
-  'countryCode'=>'253',
-  'internationalPrefix'=>'00'
+  'availableFormats'=>{
+                          'numberFormat'=>[
+                                              {
+                                                'leadingDigits'=>'',
+                                                'pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{2})',
+                                                'format'=>'$1 $2 $3 $4'
+                                              }
+                                            ]
+                        }
 }
 ;
 }

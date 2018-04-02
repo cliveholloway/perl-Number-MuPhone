@@ -7,18 +7,18 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
-  'fixedLine'=>{
-                 'exampleNumber'=>'3709100',
-                 'possibleLengths'=>{
-                                      'national'=>'7'
-                                    },
-                 'nationalNumberPattern'=>'37\\d{5}'
-               },
-  'internationalPrefix'=>'00',
-  'countryCode'=>'246',
-  'references'=>{
-                  'sourceUrl'=>'http://www.itu.int/oth/T0202000039/en'
-                },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'3\\d{6}'
+                 },
+  'availableFormats'=>{
+                          'numberFormat'=>[
+                                              {
+                                                'format'=>'$1 $2',
+                                                'pattern'=>'(\\d{3})(\\d{4})',
+                                                'leadingDigits'=>''
+                                              }
+                                            ]
+                        },
   'mobile'=>{
               'possibleLengths'=>{
                                    'national'=>'7'
@@ -26,20 +26,20 @@ sub config {
               'nationalNumberPattern'=>'38\\d{5}',
               'exampleNumber'=>'3801234'
             },
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'3\\d{6}'
-                 },
+  'fixedLine'=>{
+                 'possibleLengths'=>{
+                                      'national'=>'7'
+                                    },
+                 'nationalNumberPattern'=>'37\\d{5}',
+                 'exampleNumber'=>'3709100'
+               },
+  'countryCode'=>'246',
   'TerritoryName'=>'British Indian Ocean Territory / Diego Garcia',
   'CountryCode'=>'IO',
-  'availableFormats'=>{
-                          'numberFormat'=>[
-                                              {
-                                                'format'=>'$1 $2',
-                                                'leadingDigits'=>'',
-                                                'pattern'=>'(\\d{3})(\\d{4})'
-                                              }
-                                            ]
-                        }
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T0202000039/en'
+                },
+  'internationalPrefix'=>'00'
 }
 ;
 }

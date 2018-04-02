@@ -14,25 +14,13 @@ sub config {
                                     },
                  'nationalNumberPattern'=>'4(?:[09][45689]\\d|4)\\d{4}'
                },
-  'mobile'=>{
-              'exampleNumber'=>'87123456',
-              'nationalNumberPattern'=>'8[79]\\d{6}',
-              'possibleLengths'=>{
-                                   'national'=>'8'
-                                 }
-            },
-  'references'=>{
-                  'sourceUrl'=>'http://www.itu.int/oth/T020200004D/en'
-                },
-  'internationalPrefix'=>'00',
   'countryCode'=>'689',
-  'CountryCode'=>'PF',
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
-                                                'format'=>'$1 $2 $3 $4',
+                                                'pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{2})',
                                                 'leadingDigits'=>'4[09]|8[79]',
-                                                'pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{2})'
+                                                'format'=>'$1 $2 $3 $4'
                                               },
                                               {
                                                 'pattern'=>'(\\d{2})(\\d{2})(\\d{2})',
@@ -41,17 +29,29 @@ sub config {
                                               }
                                             ]
                         },
-  'TerritoryName'=>'French Polynesia (Tahiti) (Territoire français d\'outre-mer)',
+  'mobile'=>{
+              'possibleLengths'=>{
+                                   'national'=>'8'
+                                 },
+              'nationalNumberPattern'=>'8[79]\\d{6}',
+              'exampleNumber'=>'87123456'
+            },
   'generalDesc'=>{
                    'nationalNumberPattern'=>'4\\d{5,7}|8\\d{7}'
                  },
   'noInternationalDialling'=>{
-                               'exampleNumber'=>'441234',
                                'nationalNumberPattern'=>'44\\d{4}',
                                'possibleLengths'=>{
                                                     'national'=>'6'
-                                                  }
-                             }
+                                                  },
+                               'exampleNumber'=>'441234'
+                             },
+  'internationalPrefix'=>'00',
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T020200004D/en'
+                },
+  'CountryCode'=>'PF',
+  'TerritoryName'=>'French Polynesia (Tahiti) (Territoire français d\'outre-mer)'
 }
 ;
 }

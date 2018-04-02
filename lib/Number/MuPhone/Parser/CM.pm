@@ -7,20 +7,22 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
-  'fixedLine'=>{
-                 'nationalNumberPattern'=>'2(?:22|33|4[23])\\d{6}',
-                 'possibleLengths'=>{
-                                      'national'=>'9'
-                                    },
-                 'exampleNumber'=>'222123456'
-               },
-  'CountryCode'=>'CM',
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[2368]\\d{7,8}'
+                 },
+  'mobile'=>{
+              'exampleNumber'=>'671234567',
+              'nationalNumberPattern'=>'6[5-9]\\d{7}',
+              'possibleLengths'=>{
+                                   'national'=>'9'
+                                 }
+            },
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
                                                 'pattern'=>'([26])(\\d{2})(\\d{2})(\\d{2})(\\d{2})',
-                                                'format'=>'$1 $2 $3 $4 $5',
-                                                'leadingDigits'=>'[26]'
+                                                'leadingDigits'=>'[26]',
+                                                'format'=>'$1 $2 $3 $4 $5'
                                               },
                                               {
                                                 'pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{2})',
@@ -29,24 +31,16 @@ sub config {
                                               }
                                             ]
                         },
+  'countryCode'=>'237',
+  'fixedLine'=>{
+                 'possibleLengths'=>{
+                                      'national'=>'9'
+                                    },
+                 'nationalNumberPattern'=>'2(?:22|33|4[23])\\d{6}',
+                 'exampleNumber'=>'222123456'
+               },
   'TerritoryName'=>'Cameroon',
-  'tollFree'=>{
-                'exampleNumber'=>'88012345',
-                'possibleLengths'=>{
-                                     'national'=>'8'
-                                   },
-                'nationalNumberPattern'=>'88\\d{6}'
-              },
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'[2368]\\d{7,8}'
-                 },
-  'mobile'=>{
-              'possibleLengths'=>{
-                                   'national'=>'9'
-                                 },
-              'nationalNumberPattern'=>'6[5-9]\\d{7}',
-              'exampleNumber'=>'671234567'
-            },
+  'CountryCode'=>'CM',
   'references'=>{
                   'sourceUrl'=>[
                                  'http://www.itu.int/oth/T0202000024/en',
@@ -54,7 +48,13 @@ sub config {
                                ]
                 },
   'internationalPrefix'=>'00',
-  'countryCode'=>'237'
+  'tollFree'=>{
+                'possibleLengths'=>{
+                                     'national'=>'8'
+                                   },
+                'nationalNumberPattern'=>'88\\d{6}',
+                'exampleNumber'=>'88012345'
+              }
 }
 ;
 }

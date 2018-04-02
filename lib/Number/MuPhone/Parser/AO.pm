@@ -14,32 +14,32 @@ sub config {
                                       'national'=>'9'
                                     }
                },
-  'mobile'=>{
-              'nationalNumberPattern'=>'9[1-49]\\d{7}',
-              'possibleLengths'=>{
-                                   'national'=>'9'
-                                 },
-              'exampleNumber'=>'923123456'
-            },
-  'references'=>{
-                  'sourceUrl'=>'http://www.itu.int/oth/T0202000006/en'
-                },
-  'internationalPrefix'=>'00',
   'countryCode'=>'244',
-  'CountryCode'=>'AO',
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
-                                                'leadingDigits'=>'',
                                                 'format'=>'$1 $2 $3',
-                                                'pattern'=>'(\\d{3})(\\d{3})(\\d{3})'
+                                                'pattern'=>'(\\d{3})(\\d{3})(\\d{3})',
+                                                'leadingDigits'=>''
                                               }
                                             ]
                         },
-  'TerritoryName'=>'Angola',
+  'mobile'=>{
+              'exampleNumber'=>'923123456',
+              'nationalNumberPattern'=>'9[1-49]\\d{7}',
+              'possibleLengths'=>{
+                                   'national'=>'9'
+                                 }
+            },
   'generalDesc'=>{
                    'nationalNumberPattern'=>'[29]\\d{8}'
-                 }
+                 },
+  'internationalPrefix'=>'00',
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T0202000006/en'
+                },
+  'CountryCode'=>'AO',
+  'TerritoryName'=>'Angola'
 }
 ;
 }

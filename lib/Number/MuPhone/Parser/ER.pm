@@ -7,11 +7,6 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
-  'internationalPrefix'=>'00',
-  'countryCode'=>'291',
-  'references'=>{
-                  'sourceUrl'=>'http://www.itu.int/oth/T0202000042/en'
-                },
   'mobile'=>{
               'exampleNumber'=>'7123456',
               'nationalNumberPattern'=>'17[1-3]\\d{4}|7\\d{6}',
@@ -19,30 +14,35 @@ sub config {
                                    'national'=>'7'
                                  }
             },
-  'nationalPrefixFormattingRule'=>'$NP$FG',
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'[178]\\d{6}'
-                 },
-  'TerritoryName'=>'Eritrea',
-  'CountryCode'=>'ER',
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
-                                                'pattern'=>'(\\d)(\\d{3})(\\d{3})',
+                                                'format'=>'$1 $2 $3',
                                                 'leadingDigits'=>'',
-                                                'format'=>'$1 $2 $3'
+                                                'pattern'=>'(\\d)(\\d{3})(\\d{3})'
                                               }
                                             ]
                         },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[178]\\d{6}'
+                 },
+  'nationalPrefixFormattingRule'=>'$NP$FG',
+  'countryCode'=>'291',
   'nationalPrefix'=>'0',
   'fixedLine'=>{
-                 'nationalNumberPattern'=>'1(?:1[12568]|20|40|55|6[146])\\d{4}|8\\d{6}',
+                 'exampleNumber'=>'8370362',
                  'possibleLengths'=>{
-                                      'national'=>'7',
-                                      'localOnly'=>'6'
+                                      'localOnly'=>'6',
+                                      'national'=>'7'
                                     },
-                 'exampleNumber'=>'8370362'
-               }
+                 'nationalNumberPattern'=>'1(?:1[12568]|20|40|55|6[146])\\d{4}|8\\d{6}'
+               },
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T0202000042/en'
+                },
+  'CountryCode'=>'ER',
+  'TerritoryName'=>'Eritrea',
+  'internationalPrefix'=>'00'
 }
 ;
 }

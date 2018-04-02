@@ -14,33 +14,33 @@ sub config {
                                     },
                  'nationalNumberPattern'=>'22(?:[3789]0|5[0-5]|6[89])\\d{4}'
                },
-  'CountryCode'=>'TD',
+  'countryCode'=>'235',
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
-                                                'format'=>'$1 $2 $3 $4',
+                                                'pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{2})',
                                                 'leadingDigits'=>'',
-                                                'pattern'=>'(\\d{2})(\\d{2})(\\d{2})(\\d{2})'
+                                                'format'=>'$1 $2 $3 $4'
                                               }
                                             ]
                         },
-  'TerritoryName'=>'Chad',
-  'preferredInternationalPrefix'=>'00',
+  'mobile'=>{
+              'exampleNumber'=>'63012345',
+              'nationalNumberPattern'=>'(?:6[023568]\\d|77\\d|9\\d{2})\\d{5}',
+              'possibleLengths'=>{
+                                   'national'=>'8'
+                                 }
+            },
   'generalDesc'=>{
                    'nationalNumberPattern'=>'[2679]\\d{7}'
                  },
+  'internationalPrefix'=>'00|16',
   'references'=>{
                   'sourceUrl'=>'http://www.itu.int/oth/T0202000029/en'
                 },
-  'mobile'=>{
-              'exampleNumber'=>'63012345',
-              'possibleLengths'=>{
-                                   'national'=>'8'
-                                 },
-              'nationalNumberPattern'=>'(?:6[023568]\\d|77\\d|9\\d{2})\\d{5}'
-            },
-  'countryCode'=>'235',
-  'internationalPrefix'=>'00|16'
+  'preferredInternationalPrefix'=>'00',
+  'CountryCode'=>'TD',
+  'TerritoryName'=>'Chad'
 }
 ;
 }

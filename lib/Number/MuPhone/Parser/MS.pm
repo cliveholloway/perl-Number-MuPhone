@@ -7,17 +7,11 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
+  'nationalPrefixOptionalWhenFormatting'=>'true',
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T020200008F/en'
+                },
   'CountryCode'=>'MS',
-  'availableFormats'=>{
-                          'numberFormat'=>[
-                                              {
-                                                'format'=>'($1) $2-$3',
-                                                'leadingDigits'=>'',
-                                                'intlFormat'=>'$1-$2-$3',
-                                                'pattern'=>'(\\d{3})(\\d{3})(\\d{4})'
-                                              }
-                                            ]
-                        },
   'TerritoryName'=>'Montserrat',
   'personalNumber'=>{
                       'possibleLengths'=>{
@@ -26,47 +20,53 @@ sub config {
                       'nationalNumberPattern'=>'5(?:00|22|33|44|66|77|88)[2-9]\\d{6}',
                       'exampleNumber'=>'5002345678'
                     },
-  'premiumRate'=>{
-                   'nationalNumberPattern'=>'900[2-9]\\d{6}',
-                   'possibleLengths'=>{
-                                        'national'=>'10'
-                                      },
-                   'exampleNumber'=>'9002123456'
-                 },
+  'leadingDigits'=>'664',
+  'internationalPrefix'=>'011',
   'tollFree'=>{
-                'exampleNumber'=>'8002123456',
                 'nationalNumberPattern'=>'8(?:00|33|44|55|66|77|88)[2-9]\\d{6}',
                 'possibleLengths'=>{
                                      'national'=>'10'
-                                   }
+                                   },
+                'exampleNumber'=>'8002123456'
               },
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'[5689]\\d{9}'
+  'premiumRate'=>{
+                   'possibleLengths'=>{
+                                        'national'=>'10'
+                                      },
+                   'nationalNumberPattern'=>'900[2-9]\\d{6}',
+                   'exampleNumber'=>'9002123456'
                  },
-  'nationalPrefixOptionalWhenFormatting'=>'true',
   'mobile'=>{
-              'exampleNumber'=>'6644923456',
-              'nationalNumberPattern'=>'66449[2-6]\\d{4}',
               'possibleLengths'=>{
                                    'national'=>'10',
                                    'localOnly'=>'7'
-                                 }
+                                 },
+              'nationalNumberPattern'=>'66449[2-6]\\d{4}',
+              'exampleNumber'=>'6644923456'
             },
-  'references'=>{
-                  'sourceUrl'=>'http://www.itu.int/oth/T020200008F/en'
-                },
+  'availableFormats'=>{
+                          'numberFormat'=>[
+                                              {
+                                                'pattern'=>'(\\d{3})(\\d{3})(\\d{4})',
+                                                'leadingDigits'=>'',
+                                                'intlFormat'=>'$1-$2-$3',
+                                                'format'=>'($1) $2-$3'
+                                              }
+                                            ]
+                        },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[5689]\\d{9}'
+                 },
   'countryCode'=>'1',
-  'internationalPrefix'=>'011',
+  'nationalPrefix'=>'1',
   'fixedLine'=>{
+                 'exampleNumber'=>'6644912345',
                  'possibleLengths'=>{
-                                      'national'=>'10',
-                                      'localOnly'=>'7'
+                                      'localOnly'=>'7',
+                                      'national'=>'10'
                                     },
-                 'nationalNumberPattern'=>'664491\\d{4}',
-                 'exampleNumber'=>'6644912345'
-               },
-  'leadingDigits'=>'664',
-  'nationalPrefix'=>'1'
+                 'nationalNumberPattern'=>'664491\\d{4}'
+               }
 }
 ;
 }

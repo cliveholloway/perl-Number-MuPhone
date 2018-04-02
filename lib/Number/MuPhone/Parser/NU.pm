@@ -7,36 +7,36 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
-  'CountryCode'=>'NU',
-  'availableFormats'=>{
-                          'numberFormat'=>[]
-                        },
-  'TerritoryName'=>'Niue',
   'generalDesc'=>{
                    'nationalNumberPattern'=>'[1-5]\\d{3}'
                  },
+  'availableFormats'=>{
+                          'numberFormat'=>[]
+                        },
   'mobile'=>{
               'exampleNumber'=>'1234',
-              'nationalNumberPattern'=>'[125]\\d{3}',
               'possibleLengths'=>{
                                    'national'=>'4'
-                                 }
+                                 },
+              'nationalNumberPattern'=>'[125]\\d{3}'
             },
+  'fixedLine'=>{
+                 'possibleLengths'=>{
+                                      'national'=>'4'
+                                    },
+                 'nationalNumberPattern'=>'[34]\\d{3}',
+                 'exampleNumber'=>'4002'
+               },
+  'countryCode'=>'683',
+  'TerritoryName'=>'Niue',
+  'CountryCode'=>'NU',
   'references'=>{
                   'sourceUrl'=>[
                                  'http://www.itu.int/oth/T02020000EC/en',
                                  'http://en.wikipedia.org/wiki/Telephone_numbers_in_Niue'
                                ]
                 },
-  'internationalPrefix'=>'00',
-  'countryCode'=>'683',
-  'fixedLine'=>{
-                 'exampleNumber'=>'4002',
-                 'nationalNumberPattern'=>'[34]\\d{3}',
-                 'possibleLengths'=>{
-                                      'national'=>'4'
-                                    }
-               }
+  'internationalPrefix'=>'00'
 }
 ;
 }

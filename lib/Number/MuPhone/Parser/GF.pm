@@ -7,36 +7,9 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
-  'fixedLine'=>{
-                 'exampleNumber'=>'594101234',
-                 'nationalNumberPattern'=>'594(?:10|2[012457-9]|3[0-57-9]|4[3-9]|5[7-9]|6[0-3]|9[014])\\d{4}',
-                 'possibleLengths'=>{
-                                      'national'=>'9'
-                                    }
-               },
-  'nationalPrefix'=>'0',
-  'CountryCode'=>'GF',
-  'availableFormats'=>{
-                          'numberFormat'=>[
-                                              {
-                                                'pattern'=>'(\\d{3})(\\d{2})(\\d{2})(\\d{2})',
-                                                'format'=>'$1 $2 $3 $4',
-                                                'leadingDigits'=>''
-                                              }
-                                            ]
-                        },
+  'internationalPrefix'=>'00',
   'TerritoryName'=>'French Guiana (French Dept. of)',
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'[56]\\d{8}'
-                 },
-  'nationalPrefixFormattingRule'=>'$NP$FG',
-  'mobile'=>{
-              'exampleNumber'=>'694201234',
-              'possibleLengths'=>{
-                                   'national'=>'9'
-                                 },
-              'nationalNumberPattern'=>'694(?:[0249]\\d|1[2-9]|3[0-48])\\d{4}'
-            },
+  'CountryCode'=>'GF',
   'references'=>{
                   'sourceUrl'=>[
                                  'http://www.itu.int/oth/T020200004C/en',
@@ -44,8 +17,35 @@ sub config {
                                  'http://www.arcep.fr/uploads/tx_gsavis/11-1297.pdf'
                                ]
                 },
+  'fixedLine'=>{
+                 'exampleNumber'=>'594101234',
+                 'nationalNumberPattern'=>'594(?:10|2[012457-9]|3[0-57-9]|4[3-9]|5[7-9]|6[0-3]|9[014])\\d{4}',
+                 'possibleLengths'=>{
+                                      'national'=>'9'
+                                    }
+               },
   'countryCode'=>'594',
-  'internationalPrefix'=>'00'
+  'nationalPrefix'=>'0',
+  'nationalPrefixFormattingRule'=>'$NP$FG',
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[56]\\d{8}'
+                 },
+  'availableFormats'=>{
+                          'numberFormat'=>[
+                                              {
+                                                'leadingDigits'=>'',
+                                                'pattern'=>'(\\d{3})(\\d{2})(\\d{2})(\\d{2})',
+                                                'format'=>'$1 $2 $3 $4'
+                                              }
+                                            ]
+                        },
+  'mobile'=>{
+              'nationalNumberPattern'=>'694(?:[0249]\\d|1[2-9]|3[0-48])\\d{4}',
+              'possibleLengths'=>{
+                                   'national'=>'9'
+                                 },
+              'exampleNumber'=>'694201234'
+            }
 }
 ;
 }

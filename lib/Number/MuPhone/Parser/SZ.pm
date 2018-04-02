@@ -7,21 +7,18 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
-  'internationalPrefix'=>'00',
-  'countryCode'=>'268',
   'references'=>{
                   'sourceUrl'=>'http://www.itu.int/oth/T02020000C6/en'
                 },
-  'mobile'=>{
-              'nationalNumberPattern'=>'7[6-8]\\d{6}',
-              'possibleLengths'=>{
-                                   'national'=>'8'
-                                 },
-              'exampleNumber'=>'76123456'
-            },
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'[027]\\d{7}'
-                 },
+  'CountryCode'=>'SZ',
+  'TerritoryName'=>'Swaziland',
+  'noInternationalDialling'=>{
+                               'nationalNumberPattern'=>'0800\\d{4}',
+                               'possibleLengths'=>{
+                                                    'national'=>'8'
+                                                  },
+                               'exampleNumber'=>'08001234'
+                             },
   'tollFree'=>{
                 'exampleNumber'=>'08001234',
                 'nationalNumberPattern'=>'0800\\d{4}',
@@ -29,31 +26,34 @@ sub config {
                                      'national'=>'8'
                                    }
               },
-  'noInternationalDialling'=>{
-                               'possibleLengths'=>{
-                                                    'national'=>'8'
-                                                  },
-                               'nationalNumberPattern'=>'0800\\d{4}',
-                               'exampleNumber'=>'08001234'
-                             },
+  'internationalPrefix'=>'00',
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
-                                                'leadingDigits'=>'[027]',
                                                 'format'=>'$1 $2',
-                                                'pattern'=>'(\\d{4})(\\d{4})'
+                                                'pattern'=>'(\\d{4})(\\d{4})',
+                                                'leadingDigits'=>'[027]'
                                               }
                                             ]
                         },
-  'CountryCode'=>'SZ',
-  'TerritoryName'=>'Swaziland',
+  'mobile'=>{
+              'exampleNumber'=>'76123456',
+              'possibleLengths'=>{
+                                   'national'=>'8'
+                                 },
+              'nationalNumberPattern'=>'7[6-8]\\d{6}'
+            },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[027]\\d{7}'
+                 },
   'fixedLine'=>{
+                 'exampleNumber'=>'22171234',
+                 'nationalNumberPattern'=>'2[2-5]\\d{6}',
                  'possibleLengths'=>{
                                       'national'=>'8'
-                                    },
-                 'nationalNumberPattern'=>'2[2-5]\\d{6}',
-                 'exampleNumber'=>'22171234'
-               }
+                                    }
+               },
+  'countryCode'=>'268'
 }
 ;
 }

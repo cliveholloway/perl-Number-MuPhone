@@ -7,26 +7,21 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
+  'countryCode'=>'240',
   'fixedLine'=>{
+                 'exampleNumber'=>'333091234',
+                 'nationalNumberPattern'=>'3(?:3(?:3\\d[7-9]|[0-24-9]\\d[46])|5\\d{2}[7-9])\\d{4}',
                  'possibleLengths'=>{
                                       'national'=>'9'
-                                    },
-                 'nationalNumberPattern'=>'3(?:3(?:3\\d[7-9]|[0-24-9]\\d[46])|5\\d{2}[7-9])\\d{4}',
-                 'exampleNumber'=>'333091234'
+                                    }
                },
   'mobile'=>{
+              'nationalNumberPattern'=>'(?:222|55[15])\\d{6}',
               'possibleLengths'=>{
                                    'national'=>'9'
                                  },
-              'nationalNumberPattern'=>'(?:222|55[15])\\d{6}',
               'exampleNumber'=>'222123456'
             },
-  'references'=>{
-                  'sourceUrl'=>'http://www.itu.int/oth/T0202000041/en'
-                },
-  'countryCode'=>'240',
-  'internationalPrefix'=>'00',
-  'CountryCode'=>'GQ',
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
@@ -41,24 +36,29 @@ sub config {
                                               }
                                             ]
                         },
-  'TerritoryName'=>'Equatorial Guinea',
-  'premiumRate'=>{
-                   'nationalNumberPattern'=>'90\\d[1-9]\\d{5}',
-                   'possibleLengths'=>{
-                                        'national'=>'9'
-                                      },
-                   'exampleNumber'=>'900123456'
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[23589]\\d{8}'
                  },
   'tollFree'=>{
-                'exampleNumber'=>'800123456',
                 'nationalNumberPattern'=>'80\\d[1-9]\\d{5}',
                 'possibleLengths'=>{
                                      'national'=>'9'
-                                   }
+                                   },
+                'exampleNumber'=>'800123456'
               },
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'[23589]\\d{8}'
-                 }
+  'premiumRate'=>{
+                   'possibleLengths'=>{
+                                        'national'=>'9'
+                                      },
+                   'nationalNumberPattern'=>'90\\d[1-9]\\d{5}',
+                   'exampleNumber'=>'900123456'
+                 },
+  'internationalPrefix'=>'00',
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T0202000041/en'
+                },
+  'CountryCode'=>'GQ',
+  'TerritoryName'=>'Equatorial Guinea'
 }
 ;
 }

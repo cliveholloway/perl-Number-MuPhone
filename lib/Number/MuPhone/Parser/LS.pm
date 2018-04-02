@@ -7,8 +7,26 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T0202000078/en'
+                },
   'CountryCode'=>'LS',
   'TerritoryName'=>'Lesotho',
+  'tollFree'=>{
+                'exampleNumber'=>'80021234',
+                'nationalNumberPattern'=>'800[256]\\d{4}',
+                'possibleLengths'=>{
+                                     'national'=>'8'
+                                   }
+              },
+  'internationalPrefix'=>'00',
+  'mobile'=>{
+              'exampleNumber'=>'50123456',
+              'nationalNumberPattern'=>'[56]\\d{7}',
+              'possibleLengths'=>{
+                                   'national'=>'8'
+                                 }
+            },
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
@@ -18,34 +36,16 @@ sub config {
                                               }
                                             ]
                         },
-  'tollFree'=>{
-                'possibleLengths'=>{
-                                     'national'=>'8'
-                                   },
-                'nationalNumberPattern'=>'800[256]\\d{4}',
-                'exampleNumber'=>'80021234'
-              },
   'generalDesc'=>{
                    'nationalNumberPattern'=>'[2568]\\d{7}'
                  },
-  'references'=>{
-                  'sourceUrl'=>'http://www.itu.int/oth/T0202000078/en'
-                },
-  'mobile'=>{
-              'exampleNumber'=>'50123456',
-              'possibleLengths'=>{
-                                   'national'=>'8'
-                                 },
-              'nationalNumberPattern'=>'[56]\\d{7}'
-            },
-  'internationalPrefix'=>'00',
   'countryCode'=>'266',
   'fixedLine'=>{
-                 'exampleNumber'=>'22123456',
                  'possibleLengths'=>{
                                       'national'=>'8'
                                     },
-                 'nationalNumberPattern'=>'2\\d{7}'
+                 'nationalNumberPattern'=>'2\\d{7}',
+                 'exampleNumber'=>'22123456'
                }
 }
 ;

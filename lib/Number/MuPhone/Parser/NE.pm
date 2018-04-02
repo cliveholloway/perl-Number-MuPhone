@@ -7,6 +7,7 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
+  'countryCode'=>'227',
   'fixedLine'=>{
                  'nationalNumberPattern'=>'2(?:0(?:20|3[1-7]|4[134]|5[14]|6[14578]|7[1-578])|1(?:4[145]|5[14]|6[14-68]|7[169]|88))\\d{4}',
                  'possibleLengths'=>{
@@ -14,20 +15,16 @@ sub config {
                                     },
                  'exampleNumber'=>'20201234'
                },
-  'references'=>{
-                  'sourceUrl'=>'http://www.itu.int/oth/T020200009B/en'
-                },
+  'generalDesc'=>{
+                   'nationalNumberPattern'=>'[0289]\\d{7}'
+                 },
   'mobile'=>{
-              'nationalNumberPattern'=>'(?:8[089]|9\\d)\\d{6}',
+              'exampleNumber'=>'93123456',
               'possibleLengths'=>{
                                    'national'=>'8'
                                  },
-              'exampleNumber'=>'93123456'
+              'nationalNumberPattern'=>'(?:8[089]|9\\d)\\d{6}'
             },
-  'internationalPrefix'=>'00',
-  'countryCode'=>'227',
-  'CountryCode'=>'NE',
-  'TerritoryName'=>'Niger',
   'availableFormats'=>{
                           'numberFormat'=>[
                                               {
@@ -42,8 +39,13 @@ sub config {
                                               }
                                             ]
                         },
-  'generalDesc'=>{
-                   'nationalNumberPattern'=>'[0289]\\d{7}'
+  'internationalPrefix'=>'00',
+  'premiumRate'=>{
+                   'exampleNumber'=>'09123456',
+                   'nationalNumberPattern'=>'09\\d{6}',
+                   'possibleLengths'=>{
+                                        'national'=>'8'
+                                      }
                  },
   'tollFree'=>{
                 'exampleNumber'=>'08123456',
@@ -52,13 +54,11 @@ sub config {
                                    },
                 'nationalNumberPattern'=>'08\\d{6}'
               },
-  'premiumRate'=>{
-                   'exampleNumber'=>'09123456',
-                   'nationalNumberPattern'=>'09\\d{6}',
-                   'possibleLengths'=>{
-                                        'national'=>'8'
-                                      }
-                 }
+  'TerritoryName'=>'Niger',
+  'CountryCode'=>'NE',
+  'references'=>{
+                  'sourceUrl'=>'http://www.itu.int/oth/T020200009B/en'
+                }
 }
 ;
 }

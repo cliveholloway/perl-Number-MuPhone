@@ -7,6 +7,7 @@ extends 'Number::MuPhone::Parser';
 
 sub config { 
   return {
+  'countryCode'=>'290',
   'fixedLine'=>{
                  'exampleNumber'=>'8999',
                  'possibleLengths'=>{
@@ -17,16 +18,15 @@ sub config {
   'availableFormats'=>{
                           'numberFormat'=>[]
                         },
-  'CountryCode'=>'TA',
-  'TerritoryName'=>'Tristan da Cunha',
   'generalDesc'=>{
                    'nationalNumberPattern'=>'8\\d{3}'
                  },
+  'internationalPrefix'=>'00',
   'references'=>{
                   'sourceUrl'=>'http://www.itu.int/oth/T02020000AF/en'
                 },
-  'internationalPrefix'=>'00',
-  'countryCode'=>'290'
+  'TerritoryName'=>'Tristan da Cunha',
+  'CountryCode'=>'TA'
 }
 ;
 }
