@@ -1,5 +1,8 @@
 Revision history for Number::MuPhone
 
+1.0         2021-08-15 (dev release)
+            Complete rebuild from scratch, with slightly different syntax to older version
+
 0.07_003    2018-04-02
             forgot to rebuild manifest (tests fail)
 

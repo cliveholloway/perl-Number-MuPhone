@@ -1,1 +1,9 @@
-.README
+MANIFEST*
+blib
+MYMETA*
+Makefile
+Makefile.old
+pm_to_blib
+*.sw*
+my_note_*
+Number-MuPhone-*

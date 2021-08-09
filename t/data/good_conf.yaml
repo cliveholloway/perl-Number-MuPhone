@@ -1,4 +1,0 @@
-# example good config file
-default_country: 'GB'
-dialer:
-  pause: ','
