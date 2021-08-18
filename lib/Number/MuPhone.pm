@@ -5,7 +5,7 @@ use v5.020;
 use Moo;
 use Types::Standard qw( Maybe Str );
 
-$Number::MuPhone::VERSION = '1.0';
+$Number::MuPhone::VERSION = '1.02';
 
 our $MUPHONE_BASE_DIR = $ENV{MUPHONE_BASE_DIR} || $ENV{HOME}.'/.muphone';
 our $EXTENSION_REGEX  = qr/(?:\*|extension|ext|x)/;
@@ -48,7 +48,7 @@ All number regexes are derived from the XML file supplied by:
 L<https://github.com/google/libphonenumber/>
 
 
-=head2 BASIC USAGE
+=head1 BASIC USAGE
 
 Instantiate an instance using one of the following syntaxes
 
@@ -80,7 +80,7 @@ Instantiate an instance using one of the following syntaxes
     }
 
 
-=head1 PUBLIC ATTRIBUTES
+=head1 ATTRIBUTES
 
 =cut
 
@@ -575,12 +575,12 @@ sub _process_from_e123 {
 
 }
 
-=head2 A WARNING ABOUT INFERRED COUNTRIES
+=head1 A WARNING ABOUT INFERRED COUNTRIES
 
 If you instantiate an object with an E.123 formatted number, the inferred country will be
 the 'main' country for that number. This is because Number::MuPhone is currently using the
 loosest regex available to validate a number for a country (this may change soon). This
-affects these area codes:
+affects these country codes:
 
     Code       Main Country
     ====       ============
@@ -597,7 +597,7 @@ affects these area codes:
 As far as functionality is concerned, you should see no difference, unless you want to use
 the country() attribute. To avoid this, instantiate with both number and country.
 
-=head2 KEEPING UP TO DATE WITH CHANGES IN THE SOURCE XML FILE
+=head1 KEEPING UP TO DATE WITH CHANGES IN THE SOURCE XML FILE
 
 The data used to validate and format the phone numbers comes from Google's libphonenumber:
 
@@ -607,12 +607,12 @@ This distribution should come with a reasonably recent copy of the libphonenumbe
 but you can also set up a cron to update your source data weekly, to ensure you don't have
 problems with new area codes as they get added (this happens probably more often than you think).
 
-By default, Number::MuPhone's update script (perl-muphone-build-data) stores this data in the
-~/.muphone directory, but you can overload this by setting the MUPHONE_BASE_DIR environment
+By default, C<Number::MuPhone>'s update script (perl-muphone-build-data) stores this data in the
+~/.muphone directory, but you can overload this by setting the C<MUPHONE_BASE_DIR> environment
 variable. Wherever you choose, it must be writeable by the user, and remember to expose the same
-ENV var to any scripts using Number::MuPhone (if needed).
+C<ENV> var to any scripts using C<Number::MuPhone> (if needed).
 
-When run, the following files are created in the  ~/.muphone or $ENV{MUPHONE_BASE_DIR} dirs as appropriate
+When run, the following files are created in the C<~/.muphone> or C<$ENV{MUPHONE_BASE_DIR}> dirs as appropriate
 
     ./etc/PhoneNumberMetadata.xml     # the libphonenumber source XML file
     ./lib/NumberMuPhoneData.pm        # the generated Number::MuPhone::Data
@@ -621,12 +621,12 @@ When run, the following files are created in the  ~/.muphone or $ENV{MUPHONE_BAS
 Currently, the extractor script only grabs the data we need, and removes spacing, to keep the size down.
 
 If you want to examine all available data, set C<$DEBUG=1> (add in padding, switch commas to =>) and set
-C<$STRIP_SUPERFLUOUS_DATA=0> in the script and run it again. then look at the generated NumberMuPhoneData.pm
+C<$STRIP_SUPERFLUOUS_DATA=0> in the script and run it again. then look at the generated C<NumberMuPhoneData.pm>
 
-=head3 Initial run
+=head2 Initial run
 
-Optionally, set the MUPHONE_BASE_DIR environment variable to point to your config directory (must be writeable).
-Otherwise, ~/.muphone will get used (default).
+Optionally, set the C<MUPHONE_BASE_DIR> environment variable to point to your config directory (must be writeable).
+Otherwise, C<~/.muphone> will get used (default).
 
 As the appropriate user, run:
 
@@ -634,17 +634,17 @@ As the appropriate user, run:
 
 Confirm the tests pass and the files are created (if no error output, tests passed, and all should be good).
 
-=head3 Set up the cron to run weekly to update the data
+=head2 Set up the cron to run weekly to update the data
 
-# using default data dir (~/.muphone)
-0 5 * * 1 /usr/local/bin/perl-muphone-build-data
+    # using default data dir (~/.muphone)
+    0 5 * * 1 /usr/local/bin/perl-muphone-build-data
 
-# using user specific data dir
-0 5 * * 1 MUPHONE_BASE_DIR=/path/to/config /usr/local/bin/perl-muphone-build-data
+    # using user specific data dir
+    0 5 * * 1 MUPHONE_BASE_DIR=/path/to/config /usr/local/bin/perl-muphone-build-data
 
-=head3 Dockerfile config
+=head2 Dockerfile config
 
-Similarly, add the perl-muphone-build-data script to your Dockerfile, as appropriate. If you're using
+Similarly, add the C<perl-muphone-build-data> script to your Dockerfile, as appropriate. If you're using
 Kubernetes, this might be enough, but for longer running Docker instances, you might want to
 consider setting up the cronjob within the image too.
 

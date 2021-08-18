@@ -1,5 +1,8 @@
 Revision history for Number::MuPhone
 
+1.02        2031-08-17 (dev release)
+            POD Cleanup
+
 1.01        2031-08-17 (dev release)
             Minor cleanup, extra documentation, and typo removal
 
