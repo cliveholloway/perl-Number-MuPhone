@@ -89,7 +89,7 @@ around BUILDARGS => sub {
 
   # args are probably a hashref - { number => $number, country => 'US' }
   # but can use a shortcut, if preferred
-  # ($number, 'US') 
+  # ($number, 'US')
 
   if (ref $args[0] ne 'HASH' and @args>2) {
     die "Bad args - must be a hashref of name args or (\$num,\$country_code)";
@@ -101,7 +101,7 @@ around BUILDARGS => sub {
     $args[0]->{country} = pop @args
       if $args[1];
   }
- 
+
   return $class->$orig(@args);
 };
 
@@ -110,7 +110,7 @@ sub BUILD {
 
   # extract number and extension, determine countrycode from number,
   # strip off possible national/international dial prefix
-  # and store attributes as needed 
+  # and store attributes as needed
   $self->_process_raw_number;
 
 }
@@ -125,7 +125,7 @@ has number => (
   isa      => Str,
   is       => 'ro',
   required => 1,
-); 
+);
 
 =head2 extension
 
@@ -149,7 +149,7 @@ has country => (
   isa  => Maybe[Str],
   is   => 'rw',
   lazy => 1,
-); 
+);
 
 =head2 error
 
@@ -161,7 +161,7 @@ has error => (
   isa      => Str,
   is       => 'rw',
   default  => '',
-); 
+);
 
 =head2 country_name
 
@@ -371,7 +371,7 @@ sub _get_country_from {
 
 =head1 METHODS
 
-=head2 dial_from 
+=head2 dial_from
 
 How to dial the number from the number/country sent in as an arg. eg
 
@@ -405,7 +405,7 @@ sub dial_from {
   }
 }
 
-=head2 display_from 
+=head2 display_from
 
 How to display the number for the number/country sent in as an arg. eg
 
@@ -565,10 +565,10 @@ sub _process_from_e123 {
                                         : '';
     $national_number_format_regex
       or next COUNTRY;
-    
+
     $num =~ $national_number_format_regex
       or next COUNTRY;
-    
+
     $self->country($country);
     $self->_cleaned_number($num);
   }
@@ -586,13 +586,13 @@ affects these area codes:
     ====       ============
     1          US
     44         GB
-    212        EH 
+    212        EH
     61         CC
     590        MF
     7          KZ
     599        BQ
     47         SJ
-    262        YT 
+    262        YT
 
 As far as functionality is concerned, you should see no difference, unless you want to use
 the country() attribute. To avoid this, instantiate with both number and country.
@@ -615,7 +615,7 @@ ENV var to any scripts using Number::MuPhone (if needed).
 When run, the following files are created in the  ~/.muphone or $ENV{MUPHONE_BASE_DIR} dirs as appropriate
 
     ./etc/PhoneNumberMetadata.xml     # the libphonenumber source XML file
-    ./lib/NumberMuPhoneData.pm        # the generated Number::MuPhone::Data 
+    ./lib/NumberMuPhoneData.pm        # the generated Number::MuPhone::Data
     ./t/check_data_module.t           # a little sanity script that runs after creating the data file
 
 Currently, the extractor script only grabs the data we need, and removes spacing, to keep the size down.
